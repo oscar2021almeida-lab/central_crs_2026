@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>CRS - Seguimiento Conductor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+  <!-- Firebase SDK (module) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, updateDoc, onSnapshot, serverTimestamp }
+      from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAucsn_ElfiGbULcqx1x1jp1-jSOUndWe8",
+      authDomain: "aeropuerto-elite-2026.firebaseapp.com",
+      projectId: "aeropuerto-elite-2026",
+      storageBucket: "aeropuerto-elite-2026.firebasestorage.app",
+      messagingSenderId: "168339596628",
+      appId: "1:168339596628:web:a55edc1defb297d49dd4c1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+
+    window.__fb = { db, doc, getDoc, updateDoc, onSnapshot, serverTimestamp };
+
+    // Resolver la promesa para que el código no-module espere
+    if (window.__fbResolve) window.__fbResolve(window.__fb);
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:    #0f172a;
+      --bg-card:    #1e293b;
+      --bg-card2:   #162032;
+      --border:     #334155;
+      --border-glow:#38bdf8;
+      --text-main:  #f1f5f9;
+      --text-muted: #94a3b8;
+      --cyan:       #38bdf8;
+      --blue:       #3b82f6;
+      --green:      #22c55e;
+      --red:        #ef4444;
+      --amber:      #f59e0b;
+      --radius:     14px;
+      --shadow:     0 4px 24px rgba(0,0,0,.55);
+    }
+
+    html, body {
+      background: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(135deg, #0e2744 0%, #0f172a 60%, #091e38 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 16px 14px;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(56,189,248,.18);
+    }
+    .header-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.05rem, 4.5vw, 1.45rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      background: linear-gradient(90deg, #38bdf8 0%, #818cf8 55%, #38bdf8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 4s linear infinite;
+    }
+    .header-sub {
+      margin-top: 3px;
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    @keyframes shine {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ── MAIN WRAP ── */
+    .wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 20px 14px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    .card-title {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    /* ── SERVICE INFO GRID ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .info-grid .full { grid-column: 1 / -1; }
+    .info-item {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+    }
+    .info-item label {
+      display: block;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .info-item span {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+    .badge-movil {
+      display: inline-block;
+      background: linear-gradient(135deg,#1d4ed8,#38bdf8);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: .05em;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 60px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(.85rem, 3.5vw, 1rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      cursor: pointer;
+      transition: all .22s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .btn:active:not(:disabled) { transform: scale(.97); }
+
+    /* Confirmo */
+    .btn-1 {
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(37,99,235,.4);
+    }
+    .btn-1:hover:not(:disabled) {
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      box-shadow: 0 6px 24px rgba(56,189,248,.35);
+    }
+    /* Voy en camino */
+    .btn-2 {
+      background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(245,158,11,.35);
+    }
+    .btn-2:hover:not(:disabled) {
+      background: linear-gradient(135deg, #d97706, #fbbf24);
+    }
+    /* Llegue */
+    .btn-3 {
+      background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(34,197,94,.35);
+    }
+    .btn-3:hover:not(:disabled) {
+      background: linear-gradient(135deg, #16a34a, #4ade80);
+    }
+    /* Done state */
+    .btn.done {
+      background: linear-gradient(135deg,#166534,#22c55e) !important;
+      box-shadow: 0 4px 18px rgba(34,197,94,.3) !important;
+      cursor: default;
+    }
+    /* Disabled */
+    .btn:disabled:not(.done) {
+      background: #1e293b !important;
+      color: #475569 !important;
+      box-shadow: none !important;
+      border: 1px solid #334155;
+      cursor: not-allowed;
+    }
+    .btn .icon { font-size: 1.2rem; flex-shrink: 0; }
+    .btn .spinner {
+      width: 20px; height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── HISTORIAL ── */
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .history-item {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 11px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .history-item.type-1 { border-left: 3px solid #3b82f6; }
+    .history-item.type-2 { border-left: 3px solid var(--amber); }
+    .history-item.type-3 { border-left: 3px solid var(--green); }
+    .history-item .h-title {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .history-item.type-1 .h-title { color: #60a5fa; }
+    .history-item.type-2 .h-title { color: #fcd34d; }
+    .history-item.type-3 .h-title { color: #86efac; }
+    .history-item .h-time {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .history-item .h-gps {
+      font-size: .68rem;
+      color: #64748b;
+      font-variant-numeric: tabular-nums;
+    }
+    .history-empty {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .8rem;
+      padding: 14px 0;
+    }
+
+    /* ── VERIFY BTN ── */
+    .btn-verify {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: all .2s;
+      touch-action: manipulation;
+    }
+    .btn-verify:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(56,189,248,.06);
+    }
+    .btn-verify:active { transform: scale(.97); }
+
+    /* ── ERROR / ALERT ── */
+    .alert-card {
+      background: #1a0a0a;
+      border: 1px solid #7f1d1d;
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .alert-card .alert-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .alert-card h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fca5a5;
+      margin-bottom: 8px;
+    }
+    .alert-card p { font-size: .82rem; color: #f87171; line-height: 1.55; }
+
+    /* ── STATUS PILL ── */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+    .status-pill.ok    { color: var(--green); border-color: #15803d; background: rgba(34,197,94,.08); }
+    .status-pill.wait  { color: var(--amber); border-color: #92400e; background: rgba(245,158,11,.08); }
+    .status-pill.idle  { color: var(--text-muted); border-color: var(--border); background: transparent; }
+    .status-pill .dot  { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .status-pill.ok  .dot  { animation: pulse-dot 1.4s ease infinite; }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .35; }
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      font-size: .62rem;
+      color: #334155;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding-top: 10px;
+    }
+
+    /* ── TOAST ── */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+      width: min(90vw, 340px);
+    }
+    .toast {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      box-shadow: 0 8px 28px rgba(0,0,0,.6);
+      animation: slide-up .3s cubic-bezier(.4,0,.2,1) forwards;
+      text-align: center;
+      pointer-events: auto;
+    }
+    .toast.error  { border-color: #7f1d1d; color: #fca5a5; }
+    .toast.success{ border-color: #166534; color: #86efac; }
+    .toast.info   { border-color: #1d4ed8; color: #93c5fd; }
+    @keyframes slide-up {
+      from { opacity:0; transform: translateY(16px) scale(.95); }
+      to   { opacity:1; transform: translateY(0)   scale(1);   }
+    }
+    @keyframes slide-down {
+      from { opacity:1; transform: translateY(0)   scale(1);   }
+      to   { opacity:0; transform: translateY(10px) scale(.95); }
+    }
+    .toast.hiding { animation: slide-down .25s ease forwards; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-label">CENTRAL CRS &mdash; SEGUIMIENTO</div>
+  <div class="header-sub">Portal del Conductor</div>
+</header>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="wrap" id="appRoot">
+  <!-- contenido inyectado por JS -->
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ══════════════════════════════════════════════
+     PROMESA PARA ESPERAR FIREBASE (módulo async)
+  ══════════════════════════════════════════════ */
+  let __fbResolve;
+  window.__fbReady = new Promise(function(resolve) { __fbResolve = resolve; });
+  window.__fbResolve = __fbResolve;
+
+  /* ══════════════════════════════════════════════
+     HELPERS
+  ══════════════════════════════════════════════ */
+  const $ = id => document.getElementById(id);
+  const root = $('appRoot');
+
+  function toast(msg, type, ms) {
+    type = type || 'info';
+    ms   = ms   || 3200;
+    const c = $('toastContainer');
+    const t = document.createElement('div');
+    t.className = 'toast ' + type;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(function() {
+      t.classList.add('hiding');
+      setTimeout(function() { t.remove(); }, 300);
+    }, ms);
+  }
+
+  function fmtTimestamp(ts) {
+    if (!ts) return '—';
+    const d = new Date(ts);
+    const h = String(d.getHours()).padStart(2,'0');
+    const m = String(d.getMinutes()).padStart(2,'0');
+    const s = String(d.getSeconds()).padStart(2,'0');
+    return h + ':' + m + ':' + s;
+  }
+
+  /* Fallback localStorage */
+  function lsGet(key) {
+    try { return JSON.parse(localStorage.getItem(key)); }
+    catch(e) { return null; }
+  }
+  function lsSet(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); return true; }
+    catch(e) { return false; }
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  /* ══════════════════════════════════════════════
+     TOKEN
+  ══════════════════════════════════════════════ */
+  const params = new URLSearchParams(location.search);
+  const TOKEN  = params.get('t');
+
+  if (!TOKEN) { renderError('No se proporcionó token de acceso.'); return; }
+
+  /* Claves localStorage (fallback sin red) */
+  const LS_DATA = 'crs_seguimiento_' + TOKEN;
+  const LS_REP  = function(n) { return 'crs_reporte_' + TOKEN + '_' + n; };
+
+  /* ══════════════════════════════════════════════
+     ESTADO GLOBAL (se actualiza por onSnapshot)
+  ══════════════════════════════════════════════ */
+  var _servicio   = null;   // datos del servicio
+  var _r1 = null, _r2 = null, _r3 = null;
+  var _unsubscribe = null;  // función para cancelar onSnapshot
+
+  /* ══════════════════════════════════════════════
+     ARRANQUE PRINCIPAL
+  ══════════════════════════════════════════════ */
+  window.__fbReady.then(function(fb) {
+    var db         = fb.db;
+    var docFn      = fb.doc;
+    var getDocFn   = fb.getDoc;
+    var updateDocFn= fb.updateDoc;
+    var onSnapFn   = fb.onSnapshot;
+
+    var docRef = docFn(db, 'seguimientos', TOKEN);
+
+    /* Carga inicial */
+    getDocFn(docRef).then(function(snap) {
+      if (!snap.exists()) {
+        /* Intentar fallback localStorage */
+        var lsData = lsGet(LS_DATA);
+        if (lsData) {
+          _servicio = lsData;
+          _r1 = lsGet(LS_REP(1));
+          _r2 = lsGet(LS_REP(2));
+          _r3 = lsGet(LS_REP(3));
+          renderUI();
+          toast('Modo sin conexión (localStorage)', 'info', 4000);
+        } else {
+          renderError('Link inválido o expirado.\nNo se encontraron datos para este token.');
+        }
+        return;
+      }
+
+      /* Actualizar estado desde Firestore */
+      var data = snap.data();
+      _servicio = data;
+      _r1 = data.reporte1 || null;
+      _r2 = data.reporte2 || null;
+      _r3 = data.reporte3 || null;
+      renderUI();
+
+      /* Suscribir onSnapshot para actualizaciones en tiempo real */
+      _unsubscribe = onSnapFn(docRef, function(snapLive) {
+        if (!snapLive.exists()) return;
+        var d = snapLive.data();
+        _servicio = d;
+        _r1 = d.reporte1 || null;
+        _r2 = d.reporte2 || null;
+        _r3 = d.reporte3 || null;
+        renderUI();
+      }, function(err) {
+        console.warn('[CRS] onSnapshot error:', err);
+      });
+
+    }).catch(function(err) {
+      console.error('[CRS] getDoc error:', err);
+      /* Fallback localStorage */
+      var lsData = lsGet(LS_DATA);
+      if (lsData) {
+        _servicio = lsData;
+        _r1 = lsGet(LS_REP(1));
+        _r2 = lsGet(LS_REP(2));
+        _r3 = lsGet(LS_REP(3));
+        renderUI();
+        toast('Sin conexión a Firestore. Usando datos locales.', 'info', 5000);
+      } else {
+        renderError('Error de conexión y sin datos locales.\n' + err.message);
+      }
+    });
+
+    /* Guardar updateDoc accesible para los handlers */
+    window.__crsUpdateDoc = function(fields) {
+      return updateDocFn(docRef, fields);
+    };
+
+  }).catch(function(err) {
+    /* Firebase no cargó — intentar localStorage puro */
+    console.error('[CRS] Firebase init error:', err);
+    var lsData = lsGet(LS_DATA);
+    if (lsData) {
+      _servicio = lsData;
+      _r1 = lsGet(LS_REP(1));
+      _r2 = lsGet(LS_REP(2));
+      _r3 = lsGet(LS_REP(3));
+      renderUI();
+      toast('Firebase no disponible. Modo local activado.', 'info', 5000);
+    } else {
+      renderError('Error al inicializar Firebase y sin datos locales.');
+    }
+  });
+
+  /* ══════════════════════════════════════════════
+     RENDER PRINCIPAL
+  ══════════════════════════════════════════════ */
+  function renderUI() {
+    var servicio = _servicio;
+    var r1 = _r1, r2 = _r2, r3 = _r3;
+
+    root.innerHTML =
+      '<!-- Ticket / ID -->' +
+      '<div class="card">' +
+        '<div class="card-title">Servicio Asignado</div>' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">' +
+          '<div>' +
+            '<div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;">Ticket</div>' +
+            '<div style="font-family:\'Orbitron\',sans-serif;font-size:1.2rem;font-weight:700;color:var(--cyan);">' + escHtml(servicio.tkt || '—') + '</div>' +
+          '</div>' +
+          '<div id="statusPill"></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<!-- Info servicio -->' +
+      '<div class="card">' +
+        '<div class="card-title">Detalle del Servicio</div>' +
+        '<div class="info-grid">' +
+          '<div class="info-item"><label>Conductor</label><span>' + escHtml(servicio.nom || '—') + '</span></div>' +
+          '<div class="info-item"><label>Teléfono</label><span>' + escHtml(servicio.fono || '—') + '</span></div>' +
+          '<div class="info-item full"><label>Origen</label><span>' + escHtml(servicio.ori || '—') + '</span></div>' +
+          '<div class="info-item full"><label>Destino</label><span>' + escHtml(servicio.des || '—') + '</span></div>' +
+          '<div class="info-item"><label>Hora Servicio</label><span>' + escHtml(servicio.horaServicio || '—') + '</span></div>' +
+          '<div class="info-item"><label>Fecha</label><span>' + escHtml(servicio.fecha || '—') + '</span></div>' +
+          '<div class="info-item full"><label>Móvil</label><span><span class="badge-movil">' + escHtml(servicio.movil || '—') + '</span></span></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<!-- Acciones -->' +
+      '<div class="card">' +
+        '<div class="card-title">Acciones del Conductor</div>' +
+        '<div class="btn-group">' +
+          '<button id="btn1" class="btn btn-1' + (r1 ? ' done' : '') + '" ' + (r1 ? 'disabled' : '') + '>' +
+            (r1
+              ? '<span class="icon">&#10003;</span> SERVICIO CONFIRMADO — ' + fmtTimestamp(r1.timestamp)
+              : '<span class="icon">&#9989;</span> CONFIRMO SERVICIO') +
+          '</button>' +
+          '<button id="btn2" class="btn btn-2' + (r2 ? ' done' : '') + '" ' + ((!r1 || r2) ? 'disabled' : '') + '>' +
+            (r2
+              ? '<span class="icon">&#10003;</span> EN CAMINO — ' + fmtTimestamp(r2.timestamp)
+              : '<span class="icon">&#128652;</span> VOY EN CAMINO') +
+          '</button>' +
+          '<button id="btn3" class="btn btn-3' + (r3 ? ' done' : '') + '" ' + ((!r2 || r3) ? 'disabled' : '') + '>' +
+            (r3
+              ? '<span class="icon">&#10003;</span> LLEGUÉ AL PUNTO — ' + fmtTimestamp(r3.timestamp)
+              : '<span class="icon">&#128205;</span> LLEGUÉ AL PUNTO') +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<!-- Historial -->' +
+      '<div class="card">' +
+        '<div class="card-title">Historial de Reportes</div>' +
+        '<div id="histList" class="history-list"></div>' +
+        '<div style="margin-top:12px;">' +
+          '<button class="btn-verify" id="btnVerify"><span>&#8635;</span> VERIFICAR REPORTES</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<!-- Footer -->' +
+      '<div class="footer">CRS &bull; ' + TOKEN + ' &bull; Solo lectura</div>';
+
+    /* Status pill */
+    var pill = $('statusPill');
+    if (r3)      pill.innerHTML = '<span class="status-pill ok"><span class="dot"></span>Llegó al punto</span>';
+    else if (r2) pill.innerHTML = '<span class="status-pill wait"><span class="dot"></span>En camino</span>';
+    else if (r1) pill.innerHTML = '<span class="status-pill wait"><span class="dot"></span>Confirmado</span>';
+    else         pill.innerHTML = '<span class="status-pill idle"><span class="dot"></span>Pendiente</span>';
+
+    /* Historial */
+    renderHistory([r1, r2, r3]);
+
+    /* Listeners */
+    var b1 = $('btn1'), b2 = $('btn2'), b3 = $('btn3');
+    if (b1 && !r1) b1.addEventListener('click', function() { handleConfirm(); });
+    if (b2 && r1 && !r2) b2.addEventListener('click', function() { handleGps(2); });
+    if (b3 && r2 && !r3) b3.addEventListener('click', function() { handleGps(3); });
+    $('btnVerify').addEventListener('click', function() { handleVerify(); });
+  }
+
+  /* ══════════════════════════════════════════════
+     HISTORIAL
+  ══════════════════════════════════════════════ */
+  var LABELS = ['','CONFIRMO SERVICIO','VOY EN CAMINO','LLEGUÉ AL PUNTO'];
+  function renderHistory(reports) {
+    var list = $('histList');
+    var items = reports.map(function(r,i) { return r ? { r: r, n: i+1 } : null; }).filter(Boolean);
+    if (!items.length) {
+      list.innerHTML = '<div class="history-empty">Sin reportes aún</div>';
+      return;
+    }
+    list.innerHTML = items.map(function(item) {
+      var r = item.r, n = item.n;
+      return '<div class="history-item type-' + n + '">' +
+        '<div class="h-title">' + LABELS[n] + '</div>' +
+        '<div class="h-time">&#128344; ' + fmtTimestamp(r.timestamp) + '</div>' +
+        (r.lat != null ? '<div class="h-gps">&#127759; Lat ' + r.lat.toFixed(6) + ' &nbsp; Lng ' + r.lng.toFixed(6) + ' &nbsp; ±' + Math.round(r.accuracy) + 'm</div>' : '') +
+      '</div>';
+    }).join('');
+  }
+
+  /* ══════════════════════════════════════════════
+     ACCIÓN 1 — CONFIRMO SERVICIO
+  ══════════════════════════════════════════════ */
+  function handleConfirm() {
+    var data = { timestamp: Date.now() };
+
+    /* Intentar Firestore primero */
+    if (window.__crsUpdateDoc) {
+      window.__crsUpdateDoc({ reporte1: data })
+        .then(function() {
+          toast('¡Servicio confirmado!', 'success');
+          /* onSnapshot actualizará la UI automáticamente */
+        })
+        .catch(function(err) {
+          console.warn('[CRS] updateDoc reporte1 falló, usando localStorage:', err);
+          lsSet(LS_REP(1), data);
+          _r1 = data;
+          toast('¡Servicio confirmado! (local)', 'success');
+          renderUI();
+        });
+    } else {
+      /* Fallback puro localStorage */
+      lsSet(LS_REP(1), data);
+      _r1 = data;
+      toast('¡Servicio confirmado! (sin conexión)', 'success');
+      renderUI();
+    }
+  }
+
+  /* ══════════════════════════════════════════════
+     ACCIÓN 2/3 — VOY EN CAMINO / LLEGUÉ AL PUNTO
+  ══════════════════════════════════════════════ */
+  function handleGps(step) {
+    if (!navigator.geolocation) {
+      toast('GPS no disponible en este dispositivo', 'error', 4000);
+      return;
+    }
+
+    var btnId = step === 2 ? 'btn2' : 'btn3';
+    var btn = $(btnId);
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> OBTENIENDO GPS…';
+
+    var tid = setTimeout(function() {
+      btn.disabled = false;
+      renderUI();
+      toast('Tiempo de espera GPS agotado. Intente nuevamente.', 'error', 5000);
+    }, 18000);
+
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        clearTimeout(tid);
+        var data = {
+          timestamp: Date.now(),
+          lat:       pos.coords.latitude,
+          lng:       pos.coords.longitude,
+          accuracy:  pos.coords.accuracy
+        };
+        var field = step === 2 ? 'reporte2' : 'reporte3';
+        var msg   = step === 2 ? '¡En camino registrado!' : '¡Llegada al punto registrada!';
+
+        if (window.__crsUpdateDoc) {
+          var upd = {};
+          upd[field] = data;
+          window.__crsUpdateDoc(upd)
+            .then(function() {
+              toast(msg, 'success');
+              /* onSnapshot actualiza UI */
+            })
+            .catch(function(err) {
+              console.warn('[CRS] updateDoc ' + field + ' falló, usando localStorage:', err);
+              lsSet(LS_REP(step), data);
+              if (step === 2) _r2 = data; else _r3 = data;
+              toast(msg + ' (local)', 'success');
+              renderUI();
+            });
+        } else {
+          lsSet(LS_REP(step), data);
+          if (step === 2) _r2 = data; else _r3 = data;
+          toast(msg + ' (sin conexión)', 'success');
+          renderUI();
+        }
+      },
+      function(err) {
+        clearTimeout(tid);
+        renderUI();
+        var msg = 'Error GPS: ';
+        switch (err.code) {
+          case 1: msg += 'Permiso de ubicación denegado. Active el GPS.'; break;
+          case 2: msg += 'Posición no disponible. Verifique señal GPS.'; break;
+          case 3: msg += 'Tiempo agotado. Intente nuevamente.'; break;
+          default: msg += err.message;
+        }
+        toast(msg, 'error', 6000);
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+    );
+  }
+
+  /* ══════════════════════════════════════════════
+     VERIFICAR (fallback manual getDoc)
+  ══════════════════════════════════════════════ */
+  function handleVerify() {
+    toast('Verificando reportes en Firestore…', 'info', 1800);
+    window.__fbReady.then(function(fb) {
+      var docRef = fb.doc(fb.db, 'seguimientos', TOKEN);
+      fb.getDoc(docRef).then(function(snap) {
+        if (!snap.exists()) {
+          toast('Documento no encontrado en Firestore', 'error', 3000);
+          return;
+        }
+        var d = snap.data();
+        _r1 = d.reporte1 || null;
+        _r2 = d.reporte2 || null;
+        _r3 = d.reporte3 || null;
+        renderUI();
+        toast('Reportes actualizados', 'success');
+      }).catch(function(err) {
+        toast('Error al verificar: ' + err.message, 'error', 4000);
+      });
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     ERROR SCREEN
+  ══════════════════════════════════════════════ */
+  function renderError(msg) {
+    root.innerHTML =
+      '<div class="alert-card">' +
+        '<div class="alert-icon">&#9940;</div>' +
+        '<h2>Acceso no disponible</h2>' +
+        '<p>' + escHtml(msg) + '</p>' +
+      '</div>';
+  }
+
+})();
+</script>
+</body>
+</html>

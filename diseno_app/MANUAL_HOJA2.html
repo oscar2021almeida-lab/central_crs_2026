@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Operación Élite - V18.0</title>
+    <style>
+        /* 🎨 ESTILOS DE DOCUMENTO FORMAL Y FASES (A4 PRINT FRIENDLY) */
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;900&display=swap');
+        
+        :root {
+            --azul-elite: #002B5B;
+            --rojo-elite: #cc0000;
+            --dorado-elite: #f0a500;
+            --fondo-gris: #f4f6f9;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #e0e5ec; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact;
+        }
+
+        .btn-imprimir {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: var(--azul-elite);
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,43,91,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-imprimir:hover { background: #004080; transform: scale(1.02); }
+
+        .a4-page {
+            background: white;
+            max-width: 800px; 
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 40px 50px;
+            border-top: 15px solid var(--azul-elite);
+            box-sizing: border-box;
+        }
+
+        /* CABECERA */
+        .header-doc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--rojo-elite);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header-doc-text h1 {
+            color: var(--azul-elite);
+            font-size: 22px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .header-doc-text h2 { color: #555; font-size: 12px; margin: 0; letter-spacing: 2px; }
+        .page-indicator { background: var(--rojo-elite); color: white; padding: 8px 15px; border-radius: 6px; font-weight: bold; font-size: 14px; }
+
+        .intro-text {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #444;
+            background: #fffdf5;
+            border-left: 4px solid var(--dorado-elite);
+            padding: 12px 15px;
+        }
+
+        /* ESTILOS BLOQUES DE INSTRUCCIÓN RÁPIDA */
+        .seccion-titulo { color: var(--azul-elite); font-size: 20px; font-weight: 900; border-bottom: 2px solid #ddd; padding-bottom: 5px; margin-top: 30px; margin-bottom: 20px; text-transform: uppercase; }
+        
+        .instruccion-bloque { margin-bottom: 20px; page-break-inside: avoid; }
+        .titulo-paso {
+            background: var(--azul-elite);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .contenido-paso {
+            background: var(--fondo-gris);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .contenido-paso ul { margin: 0; padding-left: 20px; }
+        .contenido-paso li { margin-bottom: 6px; }
+
+        /* ESTILOS DE FASES */
+        .fase-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-left: 6px solid var(--dorado-elite);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .fase-card.azul { border-left-color: var(--azul-elite); background: var(--fondo-gris); }
+        .fase-card.roja { border-left-color: var(--rojo-elite); background: var(--fondo-gris); }
+
+        .fase-title { font-size: 16px; font-weight: 900; color: var(--azul-elite); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
+        .fase-text { line-height: 1.5; font-size: 13px; margin: 0; color: #444;}
+        .fase-text ul { padding-left: 20px; margin-top: 8px; }
+        .fase-text li { margin-bottom: 6px; }
+
+        .badge-rojo { color: var(--rojo-elite); font-weight: bold; }
+        .badge-azul { color: var(--azul-elite); font-weight: bold; }
+        
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 10px; color: white; margin: 0 2px; text-transform: uppercase; }
+        .bg-azul { background: var(--azul-elite); }
+        .bg-rojo { background: var(--rojo-elite); }
+        .bg-verde { background: #25D366; }
+
+        .legal-footer { margin-top: 40px; font-size: 10px; color: #888; text-align: center; font-style: italic; border-top: 1px solid #eee; padding-top: 15px; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .btn-imprimir { display: none !important; } 
+            .a4-page { box-shadow: none; border: none; padding: 0; border-top: none; }
+            @page { margin: 1.5cm; size: A4;}
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn-imprimir" onclick="window.print()">🖨️ DESCARGAR MANUAL COMO PDF</button>
+
+<div class="a4-page">
+    
+    <div class="header-doc">
+        <div class="header-doc-text">
+            <h1>Manual de Operación Táctica</h1>
+            <h2>SISTEMA AIRPORT ELITE (V18.0)</h2>
+        </div>
+        <div class="page-indicator">OFICIAL</div>
+    </div>
+
+    <div class="intro-text">
+        <strong>Atención Conductor:</strong> La versión V18.0 incluye herramientas de cobro de alta precisión y un diseño táctico para que usted no pierda tiempo en la calle. Lea atentamente estas instrucciones para dominar su herramienta de trabajo.
+    </div>
+
+    <h2 class="seccion-titulo">🛠️ GUÍA RÁPIDA: NUEVAS HERRAMIENTAS V18.0</h2>
+
+    <div class="instruccion-bloque">
+        <div class="titulo-paso">1. COTIZACIÓN RÁPIDA (LUPA) Y EL GLOBO DE TARIFA</div>
+        <div class="contenido-paso">
+            El sistema incluye un botón de <strong>Consulta Rápida (Lupa 🔍)</strong> sobre el mapa para cotizar zonas en 1 segundo sin afectar su ruta principal.
+            <ul>
+                <li>Al consultar una dirección, el sistema desplegará un globo en el mapa con la Zona y el Precio.</li>
+                <li><span class="badge-rojo">CÓMO CERRARLO:</span> Para su total comodidad al volante y mantener la pantalla limpia, <strong>sólo debe tocar (hacer clic) en cualquier parte del globo</strong> y este desaparecerá inmediatamente.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="instruccion-bloque">
+        <div class="titulo-paso">2. BOTÓN "CLS" (LIMPIEZA MAESTRA)</div>
+        <div class="contenido-paso">
+            En el centro de la pantalla, junto al botón del Auto Flotante, encontrará el botón rojo <span class="badge-rojo">CLS (Clear Screen)</span>.
+            <ul>
+                <li>Presione este botón cada vez que inicie un nuevo viaje.</li>
+                <li><strong>Borra de inmediato</strong> las direcciones escritas, elimina la ruta del mapa, quita las paradas extra, resetea el tiempo de espera y deja el sistema en cero.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="instruccion-bloque">
+        <div class="titulo-paso">3. CONTROL DE PEAJES (RUTAS LOCALES)</div>
+        <div class="contenido-paso">
+            Por defecto, la aplicación calcula la ruta más rápida. Si el pasajero solicita evitar autopistas pagadas:
+            <ul>
+                <li>Marque la casilla <span class="badge-rojo">"Ruta Local (Sin Autopistas)"</span> ubicada debajo de los cuadros de dirección.</li>
+                <li>El sistema recalculará por calles internas y el valor del TAG no será considerado en la tarifa sugerida.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="instruccion-bloque">
+        <div class="titulo-paso">4. REGLAS DE VUELO (TU PLAN SATELITAL)</div>
+        <div class="contenido-paso">
+            Su aplicación es inteligente gracias a la conexión con satélites privados.
+            <ul>
+                <li>Abra el menú lateral (<span class="badge-azul">☰</span>) y haga clic en <strong>📜 Reglas de Vuelo</strong> para revisar las condiciones de su soporte satelital.</li>
+                <li>Recuerde: Si su plan caduca, el sistema entra en "Modo Manual", apagando las automatizaciones y su Tarjeta VIP.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="seccion-titulo" style="margin-top: 40px;">✈️ LAS 7 FASES DEL SERVICIO ÉLITE</h2>
+
+    <div class="fase-card azul">
+        <h3 class="fase-title">🍏 Fase 1: Iniciando el Turno</h3>
+        <div class="fase-text">
+            <ul>
+                <li>Escriba su <strong>Clave o Patente (PPU)</strong> en el recuadro blanco y presione <span class="badge bg-rojo">INGRESAR</span>. El sistema inteligente lo reconocerá (no importa si usa minúsculas o guiones) y cargará su perfil Oficial.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card">
+        <h3 class="fase-title">🍎 Fase 2: El Tablero Principal</h3>
+        <div class="fase-text">
+            <ul>
+                <li>🌙 <strong>Modo Noche:</strong> Arriba a la derecha. Púlselo para no encandilar sus ojos.</li>
+                <li>⚡ <strong>Cálculo Automático:</strong> Márquelo si desea que la app cotice sola mientras usted escribe.</li>
+                <li><strong>Botones de Cobro:</strong> <span class="badge bg-azul">TARIFA AMB</span> (Zonas Oficiales), <span class="badge bg-azul">VIAJE MÍNIMO</span> ($10.000 base + km), <span class="badge bg-azul">SÓLO KILOMETRAJE</span> (Sin Zonas).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card roja">
+        <h3 class="fase-title">🍏 Fase 3: Cobrando como un Élite</h3>
+        <div class="fase-text">
+            <ul>
+                <li>Toque "Destino..." y escriba la calle (o use el <strong>🎙️ micrófono azul</strong>).</li>
+                <li>Presione la imagen del <strong>AUTO FLOTANTE</strong> para cotizar.</li>
+                <li>🛡️ <strong>Alerta de Zona:</strong> Una pastilla bajo el precio le confirmará en <strong>VERDE</strong> si es zona oficial, o en <strong>ROJO</strong> si es Radio Externo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card azul">
+        <h3 class="fase-title">🍎 Fase 4: Extras y Modos Internacionales</h3>
+        <div class="fase-text">
+            <ul>
+                <li>📍 <strong>Paradas Extras:</strong> Agregue rápidamente cobros por Misma Zona (MZ), Zona Aledaña (ZA) o No Aledaña (ZNA).</li>
+                <li>⏱️ <strong>Espera:</strong> Inicie el cronómetro. El sistema cobra una <strong>base de $3.000 por los primeros 10 minutos</strong>, y luego comienza a sumar recargos por cada minuto extra automáticamente.</li>
+                <li>💵 <strong>Modo Turista:</strong> Toque los botones (BRL, EUR, USD) para mostrarle al extranjero la pantalla corporativa con su moneda local.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card">
+        <h3 class="fase-title">🍏 Fase 5: Mapa y Navegadores</h3>
+        <div class="fase-text">
+            <ul>
+                <li>Visualice siempre la distancia y tiempo estimado en pantalla.</li>
+                <li>Use los botones gigantes de la zona inferior para enviar la ruta ya trazada directo a <strong>Google Maps</strong> o <strong>Waze</strong> con un solo clic.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card roja">
+        <h3 class="fase-title">🍎 Fase 6: El Menú de Control (☰)</h3>
+        <div class="fase-text">
+            <ul>
+                <li>🚨 <strong><span class="badge bg-rojo">S.O.S FLOTA</span>:</strong> ¡Solo emergencias! Envía su GPS al grupo de WhatsApp.</li>
+                <li>🧰 <strong>Asistencia al Turista:</strong> Use los accesos rápidos para buscar Hoteles Destacados o consultar vuelos en la web de Nuevo Pudahuel.</li>
+                <li>💰 <strong>Cobros y Pagos:</strong> Acceda directo a cargar Skydata o escanear los vouchers de Cobro de Tickets del Sindicato.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card azul">
+        <h3 class="fase-title">🍏 Fase 7: La Tarjeta VIP (Fidelización)</h3>
+        <div class="fase-text">
+            <ul>
+                <li>Abra el menú y seleccione <strong>Compartir Tarjeta VIP</strong> (por WhatsApp o Código QR).</li>
+                <li>El pasajero recibirá una <strong>Credencial Digital Premium</strong> con su foto, patente y un botón de "Viaje Seguro" para avisar a su familia. Además, tendrá un acceso directo para guardar su número y asegurar su próximo traslado.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="legal-footer">
+        Airport Elite V18.0 - Manual de Uso Interno Sindicato Taxis AMB N°1
+    </div>
+
+</div>
+
+</body>
+</html>

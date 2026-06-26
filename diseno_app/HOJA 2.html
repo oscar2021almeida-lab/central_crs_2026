@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Operación Élite - Hoja 2</title>
+    <style>
+        /* 🎨 ESTILOS DE ALTA COSTURA (A4 PRINT FRIENDLY) */
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;900&display=swap');
+        
+        :root {
+            --azul-elite: #002B5B;
+            --rojo-elite: #cc0000;
+            --dorado-elite: #f0a500;
+            --fondo-gris: #f4f6f9;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #e0e5ec; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact;
+        }
+
+        .btn-imprimir {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: var(--azul-elite);
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,43,91,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .btn-imprimir:hover { background: #004080; transform: scale(1.02); }
+
+        .a4-page {
+            background: white;
+            max-width: 800px; 
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 40px;
+            border-top: 15px solid var(--azul-elite);
+            box-sizing: border-box;
+        }
+
+        /* CABECERA COMPACTA */
+        .header-compact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--rojo-elite);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .header-compact img { height: 60px; }
+        .header-title-box { text-align: right; }
+        .header-title-box h2 { color: var(--azul-elite); margin: 0; font-size: 24px; font-weight: 900; text-transform: uppercase; }
+        .header-title-box p { color: var(--rojo-elite); margin: 2px 0 0 0; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
+
+        /* CAJAS DE FASES */
+        .fase-card {
+            background: var(--fondo-gris);
+            border: 1px solid #ddd;
+            border-left: 6px solid var(--azul-elite);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .fase-card.roja { border-left-color: var(--rojo-elite); }
+        .fase-card.dorada { border-left-color: var(--dorado-elite); }
+
+        .fase-title { font-size: 18px; font-weight: 900; color: var(--azul-elite); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; }
+        .fase-text { line-height: 1.5; font-size: 14px; margin: 0; color: #444;}
+        .fase-text ul { padding-left: 20px; margin-top: 10px; }
+        .fase-text li { margin-bottom: 8px; }
+        .fase-text strong { color: #222; }
+
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; color: white; margin: 0 2px; text-transform: uppercase; }
+        .bg-azul { background: var(--azul-elite); }
+        .bg-rojo { background: var(--rojo-elite); }
+        .bg-verde { background: #25D366; }
+
+        .manual-footer { text-align: center; font-size: 10px; color: #000; font-weight: 900; margin-top: 30px; text-transform: uppercase; border-top: 1px solid #eee; padding-top: 15px; line-height: 1.4; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .btn-imprimir { display: none !important; } 
+            .a4-page { box-shadow: none; border: none; padding: 0; }
+            @page { margin: 1cm; size: A4;}
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn-imprimir" onclick="window.print()">🖨️ DESCARGAR PDF / IMPRIMIR HOJA 2</button>
+
+<div class="a4-page">
+    
+    <header class="header-compact">
+        <img src="diseno_app/logo_elite.png" alt="Logo Sindicato" onerror="this.src='https://i.imgur.com/rNnO0nU.png'">
+        <div class="header-title-box">
+            <h2>Manual de Operación</h2>
+            <p>GUÍA DE USO PASO A PASO (FASES 1-7)</p>
+        </div>
+    </header>
+
+    <div class="fase-card">
+        <h3 class="fase-title">🍏 Fase 1: Iniciando el Turno (Acceso al Sistema)</h3>
+        <div class="fase-text">
+            Al abrir la aplicación, se encontrará con la pantalla de validación del sistema. Para entrar a su perfil oficial:
+            <ul>
+                <li>Escriba su <strong>Clave o Patente (PPU)</strong> en el recuadro blanco central.</li>
+                <li>Presione el botón <span class="badge bg-rojo">INGRESAR</span>.</li>
+                <li>La app es inteligente: no importa si escribe con minúsculas o sin guiones, el sistema lo reconocerá y cargará su perfil de Conductor Oficial.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card dorada">
+        <h3 class="fase-title">🍎 Fase 2: El Tablero Principal (Sus Controles)</h3>
+        <div class="fase-text">
+            Una vez dentro, este es su panel de control principal:
+            <ul>
+                <li>🌙 <strong>Modo Noche:</strong> Arriba a la derecha hay una lunita. Púlsela de noche para que la pantalla se ponga oscura y no le encandile los ojos mientras maneja. Vuelva a pulsar el "Sol" para el día.</li>
+                <li>⚡ <strong>Cálculo Automático:</strong> Marque esta casilla si quiere que la app calcule el precio solita a medida que usted escribe la calle.</li>
+                <li>🚗 <strong>Ruta Local (Sin Autopistas):</strong> Úsela si va a esquivar los pórticos pagados. La app calculará la tarifa sin cobrarle el recargo del TAG al cliente.</li>
+                <li>🛣️ <strong>Cobro Automático de TAG:</strong> ¡La app piensa por usted! Calcula automáticamente el costo de los pórticos (Valle, Punta o Saturación) y se lo suma directo al precio final en la pantalla.</li>
+                <li><strong>Los 3 Botones de Cobro:</strong> 
+                    <br>1️⃣ <span class="badge bg-azul">TARIFA AMB</span>: El cobro oficial por zonas.
+                    <br>2️⃣ <span class="badge bg-azul">VIAJE MÍNIMO</span>: Garantiza la base de $10.000 + kilometraje + TAG.
+                    <br>3️⃣ <span class="badge bg-azul">SÓLO KILOMETRAJE</span>: Cancela las zonas y cobra por distancia + TAG.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card roja">
+        <h3 class="fase-title">🍏 Fase 3: Cobrando como un Élite (Paso a Paso)</h3>
+        <div class="fase-text">
+            ¡Hacer una cotización toma 3 segundos!
+            <ul>
+                <li>Toque donde dice "Destino..." y escriba la comuna o calle del pasajero.</li>
+                <li><strong>🎙️ ¿No quiere escribir?:</strong> Apriete el micrófono azul, hable al teléfono y la app escribirá sola.</li>
+                <li>Presione la imagen grande del <strong>AUTO FLOTANTE</strong> para cotizar.</li>
+                <li>💾 <strong>Caja Negra:</strong> Si cierra la app por accidente, su ruta, tarifa y cronómetro seguirán ahí intactos al volver a abrirla.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card">
+        <h3 class="fase-title">🍎 Fase 4: Los "Extras" del Dinero</h3>
+        <div class="fase-text">
+            ¿Exigencias extras durante el trayecto?
+            <ul>
+                <li>📍 <strong>Paradas Extras:</strong> <strong>MZ (+$5K)</strong> Misma Zona, <strong>ZA (+$8K)</strong> Zona Aledaña, <strong>ZNA (+$13K)</strong> Zona No Aledaña.</li>
+                <li>⏱️ <strong>Cronómetro de Espera:</strong> Apriete <span class="badge bg-verde">▶️ INICIAR ESPERA</span>. El taxímetro suma el cobro base de $3.000 (primeros 10 min) y luego suma el recargo por minuto extra. Al volver, apriete <span class="badge bg-rojo">⏸️ DETENER Y COBRAR</span>.</li>
+                <li>💵 <strong>Modo Turista (Gringo):</strong> Abajo de la tarifa hay botones (BRL, EUR, USD). Apriete su moneda y verá la pantalla corporativa con la tarifa redondeada.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card dorada">
+        <h3 class="fase-title">🍏 Fase 5: Panel de Ruta, Mapa y Navegadores</h3>
+        <div class="fase-text">
+            Justo debajo de la tarifa, encontrará el resumen y mapa de su viaje:
+            <ul>
+                <li>📍 <strong>Zonificación Oficial:</strong> Si el lugar corresponde a nuestras tarifas predeterminadas, mostrará el sector. Si el pasajero va a un lugar no georreferenciado, marcará <strong>Radio Externo</strong> y calculará sumando kilómetros más el TAG del momento.</li>
+                <li>⏱️ <strong>Distancia y Tiempo:</strong> Siempre le mostrará en pantalla la distancia en kilómetros y el tiempo aproximado en llegar al destino.</li>
+                <li>🧭 <strong>Sus Navegadores:</strong> Tendrá dos botones gigantes para elegir su navegador favorito instalado en el teléfono (<strong>Google Maps</strong> o <strong>Waze</strong>).</li>
+                <li>🗺️ <strong>El Mapa Interactivo:</strong> Abajo podrá ver el mapa y el camino a recorrer. 
+                    <ul>
+                        <li>🔍 <strong>Ampliar y Consultar:</strong> Podrá pinchar para agrandar el mapa y ver con mejor claridad. Además, <strong>podrá pinchar las zonas</strong> para ver su tarifa desde y hacia el aeropuerto.</li>
+                        <li>🧍‍♂️ <strong>Seguridad Extrema:</strong> Podrá arrastrar al hombrecito amarillo (Street View) y le mostrará en foto real si existe en el mapa el lugar a donde se dirige. ¡Cero sorpresas!</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card roja">
+        <h3 class="fase-title">🍎 Fase 6: El Menú de Control (Botón ☰)</h3>
+        <div class="fase-text">
+            Arriba a la izquierda está su botón de menú principal. Al abrirlo, desplegará su central de mando total:
+            <ul>
+                <li>📸 <strong>Perfil Corporativo (Su Credencial):</strong> Lo primero que verá al abrir el menú es su foto profesional validada junto a su nombre y rango de "CONDUCTOR ELITE". Esto no es un detalle menor; es fundamental para darle seriedad, seguridad y una imagen de altísimo nivel al servicio ante los ojos del pasajero.</li>
+                <li>🚨 <strong><span class="badge bg-rojo">S.O.S FLOTA (La Hermandad)</span>:</strong> <strong>¡Úselo solo en emergencias reales!</strong> Genera un WhatsApp al grupo pidiendo apoyo urgente con su GPS. <strong>Aquí entra el espíritu del Sindicato:</strong> Colegas, si ven que un compañero lanza un S.O.S, ¡apáñenlo! Hoy por él, mañana por usted. Nadie está libre de un percance o accidente. Solidarizar y jamás dejar botado a un colega demuestra que somos una flota unida de primer nivel.</li>
+                <li>🚖 <strong>Ver Flota y Stands:</strong> Muestra una galería de fotos de primer nivel. Úselo para mostrarle al cliente (o al gringo) la calidad de nuestros vehículos para darle confianza en el servicio.</li>
+                <li>🧰 <strong>Asistencia VIP al Turista:</strong> Botones rápidos para resolver dudas en el momento: 🔍 <strong>Buscar Conductor</strong>, 🏨 <strong>Hoteles Destacados</strong>, 🗺️ <strong>Mapa Interno AMB</strong> y ✈️ <strong>Busca Tu Vuelo</strong>. ¡Ofrézcale una experiencia de guía turístico!</li>
+                <li>💰 <strong>Cargar Skydata:</strong> Acceso para recargar el saldo de la tarjeta de la barrera de entrada ($3.970 por levantada). <strong>¡Por favor, no espere a estar con la nariz en la barrera para darse cuenta de que no tiene saldo!</strong> Si rebota, pierde un tiempo valioso yendo a cargar a remoto y se gana comerse la fila desde el último lugar. Cárguela desde la app y pase como un campeón.</li>
+                <li>💵 <strong>Cobro de Tickets:</strong> Su billetera virtual del Sindicato. Aquí se escanea el voucher que le da el cliente del counter. Transparencia total para que su plata ingrese al sistema y se le pague por transferencia sin enredos.</li>
+                <li>🤝 <strong>Red y Fidelización:</strong> Opciones para 📤 <strong>Compartir Tarjeta VIP</strong> (Vía WhatsApp o Mostrar QR) al pasajero, y 🤝 <strong>Compartir Demo a Colega</strong> para invitar a otro compañero a sumar tecnología.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="fase-card">
+        <h3 class="fase-title">🍏 Fase 7: La Tarjeta VIP (Seguridad y Fidelización)</h3>
+        <div class="fase-text">
+            ¡Esta es su herramienta de oro para que el pasajero no lo olvide nunca y vuelva a llamarlo!
+            <ul>
+                <li>📤 <strong>El Envío:</strong> Abra el menú y elija <strong>Compartir Tarjeta VIP</strong> (Envíela por WhatsApp o que el cliente escanee su código QR en pantalla).</li>
+                <li>📸 <strong>Lo que ve el Cliente (Impacto Visual):</strong> Al abrir el link, el pasajero no ve un simple texto. Se le abre una espectacular <strong>Credencial Digital Premium</strong> en su teléfono, con su foto oficial validada, su nombre, el modelo exacto de su vehículo y la patente. ¡Pura imagen de nivel Élite!</li>
+                <li>📍 <strong>Botón "Viaje Seguro" (Tranquilidad invaluable):</strong> La credencial tiene un botón de seguridad diseñado exclusivamente para el pasajero. Al presionarlo, le arma automáticamente un mensaje para que se lo envíe a su familia (mamá, papá, pareja) avisando: <em>"Voy viajando seguro en el vehículo oficial patente XXX..."</em> con todos sus datos. Esa seguridad y confianza el pasajero, especialmente el extranjero, ¡la valora con la vida!</li>
+                <li>📞 <strong>Asegurando el Próximo Viaje:</strong> Desde esa misma credencial en su teléfono, el cliente tiene botones mágicos para <strong>guardar su número directo en sus contactos</strong> con un solo toque y para <strong>llamarlo</strong> la próxima vez que necesite ir o volver al aeropuerto. ¡Así se arma la verdadera clientela!</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="manual-footer">
+        MANUAL DE OPERACIÓN OFICIAL - HOJA 2<br>
+        SINDICATO DE TRABAJADORES INDEPENDIENTES TAXIS TURISMO AEROPUERTO AMB N°1<br>
+        DESIGNED BY RUSO
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Operación Élite - Portada Oficial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;900&display=swap');
+        
+        :root {
+            --azul-elite: #002B5B;
+            --rojo-elite: #cc0000;
+            --dorado-elite: #f0a500;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: #e0e5ec; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact;
+        }
+
+        /* Botón de impresión oculto en el PDF */
+        .btn-imprimir {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            background: var(--azul-elite);
+            color: white;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,43,91,0.3);
+            text-transform: uppercase;
+        }
+
+        .a4-page {
+            background: white;
+            max-width: 800px; 
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 40px;
+            border-top: 15px solid var(--azul-elite);
+            box-sizing: border-box;
+            min-height: 297mm;
+            position: relative;
+        }
+
+        /* 🔥 CABECERA CON CORTE DE LÍNEA ROJA (Replicando tu diseño) */
+        .header-wrapper {
+            position: relative;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-side-text {
+            color: var(--azul-elite);
+            font-size: 65px;
+            font-weight: 900;
+            margin: 0;
+            padding-bottom: 40px; /* Sube las palabras para alinear con el logo */
+            letter-spacing: 2px;
+        }
+
+        .header-center-block {
+            background: white; /* Esta caja blanca es la que corta la línea roja */
+            padding: 0 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-center-block img {
+            height: 130px;
+            margin-bottom: 5px;
+        }
+
+        .sub-airport {
+            color: var(--azul-elite);
+            font-weight: 900;
+            font-size: 16px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .sub-smart {
+            color: var(--rojo-elite);
+            font-weight: 900;
+            font-size: 12px;
+            margin: 2px 0 15px 0;
+        }
+
+        .sub-firma {
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .red-line {
+            position: absolute;
+            bottom: 22px; /* Altura exacta donde pasa la línea por debajo de la firma */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--rojo-elite);
+            z-index: 1;
+        }
+
+        /* 🔥 TEXTO SINDICATO (Debajo de la línea roja) */
+        .sindicato-full-name {
+            text-align: center;
+            color: #000;
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin: 20px 0 25px 0;
+        }
+
+        /* 🔥 CAJA AZUL ÉLITE CON BENEFICIOS */
+        .prologo {
+            background: var(--azul-elite);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,43,91,0.3);
+        }
+
+        .prologo h3 { 
+            color: var(--dorado-elite); 
+            margin-top: 0; 
+            font-size: 26px; 
+            text-transform: uppercase; 
+            text-align: center; 
+            font-weight: 900; 
+            letter-spacing: 1px; 
+            margin-bottom: 25px;
+        }
+
+        .prologo p { 
+            line-height: 1.6; 
+            font-size: 16px; 
+            margin-bottom: 20px; 
+            text-align: justify;
+        }
+
+        .beneficios-titulo {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 900;
+            margin: 30px 0 20px 0;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .bullet-icon {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .bullet-text strong {
+            color: white;
+            font-weight: 900;
+        }
+
+        /* 🔥 FOOTER */
+        .manual-footer {
+            text-align: center;
+            font-size: 11px;
+            color: #000;
+            font-weight: 900;
+            margin-top: 40px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .btn-imprimir { display: none !important; } 
+            .a4-page { box-shadow: none; border: none; padding: 0; }
+            @page { margin: 1cm; size: A4;}
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn-imprimir" onclick="window.print()">🖨️ DESCARGAR PDF / IMPRIMIR PORTADA</button>
+
+<div class="a4-page">
+    
+    <header class="header-wrapper">
+        <div class="header-content">
+            <h1 class="header-side-text">AIRPORT</h1>
+            
+            <div class="header-center-block">
+                <img src="diseno_app/logo_elite.png" alt="Logo Sindicato" onerror="this.src='https://i.imgur.com/rNnO0nU.png'">
+                <p class="sub-airport">AIRPORT</p>
+                <p class="sub-smart">SMART TRAVEL CALCULATOR</p>
+                <p class="sub-firma">Designed by Ruso</p>
+            </div>
+            
+            <h1 class="header-side-text">ELITE</h1>
+        </div>
+        
+        <div class="red-line"></div>
+    </header>
+
+    <p class="sindicato-full-name">
+        "SINDICATO DE TRABAJADORES INDEPENDIENTES TAXIS TURISMO AEROPUERTO COMODORO ARTURO MERINO BENÍTEZ N°1"
+    </p>
+
+    <div class="prologo">
+        <h3>⭐ EL VALOR DE NUESTRA HERRAMIENTA</h3>
+        
+        <p>Colegas, definamos nuestro estándar: no portamos un simple mapa del montón. Llevamos una herramienta ÚNICA y EXCLUSIVA, desarrollada de forma independiente por un colega de nuestra propia flota para el uso del Sindicato.</p>
+        
+        <p>Esta aplicación nace de mi iniciativa personal para que mejoremos nuestra calidad de imagen y servicio en el trabajo diario. Está disponible para quienes deseen adquirirla y profesionalizar su labor en el aeropuerto y la calle, demostrando que con tecnología propia, estamos a años luz de la competencia.</p>
+        
+        <div class="beneficios-titulo">Nuestros beneficios!</div>
+        
+        <div class="bullet-item">
+            <div class="bullet-icon">📢</div>
+            <div class="bullet-text">
+                <strong>Cero saturación por radio:</strong> Se acabó el tener que llamar al counter o molestar por la radio preguntando "¿Colega, a cuánto sale un viaje para esta dirección?". "Tarifario oficial automático y exacto en la palma de su mano, ¡Así agilizamos la operación de todos!"
+            </div>
+        </div>
+
+        <div class="bullet-item">
+            <div class="bullet-icon">🏆</div>
+            <div class="bullet-text">
+                <strong>Nivel Élite Internacional:</strong> Cuando usted le muestra al pasajero (especialmente al extranjero) una pantalla digital, con el cálculo automático transparente, la tarifa en dólares y su perfil verificado, proyectamos <strong>Seguridad, Confianza y Profesionalismo.</strong> Pasamos de ser "un taxi más" a ser un servicio VIP.
+            </div>
+        </div>
+
+        <div class="bullet-item">
+            <div class="bullet-icon">👍</div>
+            <div class="bullet-text">
+                <strong>Empoderamiento:</strong> Esta es SU herramienta para cobrar lo justo, no perder plata en los tacos, y dejar la mejor imagen de nuestro servicio. ¡Sáquele el jugo porque nos pone a años luz de la competencia!
+            </div>
+        </div>
+    </div>
+
+    <footer class="manual-footer">
+        MANUAL DE OPERACIÓN OFICIAL - PORTADA N°1<br>
+        <span style="font-size: 9px; font-weight: normal;">SINDICATO DE TRABAJADORES INDEPENDIENTES TAXIS TURISMO AEROPUERTO AMB N°1</span><br>
+        DESIGNED BY RUSO
+    </footer>
+
+</div>
+
+</body>
+</html>

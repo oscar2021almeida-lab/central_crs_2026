@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f8fafc" />
+  <title>Confirmar Reserva - TAXIOFICIAL AMB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, onSnapshot }
+      from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAucsn_ElfiGbULcqx1x1jp1-jSOUndWe8",
+      authDomain: "aeropuerto-elite-2026.firebaseapp.com",
+      projectId: "aeropuerto-elite-2026",
+      storageBucket: "aeropuerto-elite-2026.firebasestorage.app",
+      messagingSenderId: "168339596628",
+      appId: "1:168339596628:web:a55edc1defb297d49dd4c1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+    window.__fb = { db, doc, getDoc, setDoc, updateDoc, onSnapshot };
+    if (window.__fbResolve) window.__fbResolve(window.__fb);
+  </script>
+  <script>
+    var __fbResolveRef;
+    window.__fbReady = new Promise(function(res) { __fbResolveRef = res; });
+    window.__fbResolve = __fbResolveRef;
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-page:    #f8fafc;
+      --bg-card:    #ffffff;
+      --border:     #e2e8f0;
+      --border-dark:#1e293b;
+      --text-main:  #0f172a;
+      --text-muted: #64748b;
+      --red-taxi:   #cc0000;
+      --blue-ofi:   #0055a4;
+      --blue-light: #3b82f6;
+      --green-ok:   #16a34a;
+      --radius:     12px;
+    }
+
+    html, body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── CONTAINER ── */
+    .page-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    /* ── SCREENS ── */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ── LOADING ── */
+    .loading-box { text-align: center; padding: 80px 20px; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 4px solid #e2e8f0;
+      border-top-color: var(--blue-ofi);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── BANNER EN VIVO SUPERIOR ── */
+    .status-banner {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px; border-radius: var(--radius);
+      margin-bottom: 16px; font-size: 0.8rem; font-weight: 700;
+      text-align: center;
+    }
+    .status-banner.pendiente { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .status-banner.confirmado { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .status-banner.rechazado { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+    /* ── VOUCHER CLON APP ── */
+    .voucher-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 24px 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+
+    /* Header Corporativo */
+    .v-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .v-brand {
+      font-size: 1.5rem; font-weight: 900; font-style: italic;
+      letter-spacing: -0.5px; line-height: 1;
+    }
+    .v-brand-sub {
+      font-size: 0.55rem; color: var(--text-muted); font-weight: 700;
+      max-width: 140px; margin-top: 4px;
+    }
+    .v-id-pill {
+      background: #f1f5f9; padding: 8px 12px; border-radius: 8px; text-align: center;
+    }
+    .v-id-lbl { font-size: 0.55rem; color: var(--text-muted); font-weight: 700; margin-bottom: 2px; }
+    .v-id-val { font-size: 0.9rem; font-weight: 800; color: var(--border-dark); }
+
+    .v-divider { border: none; border-top: 1px dashed var(--border); margin-bottom: 20px; }
+
+    /* Cajitas Blancas (Boxes) */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 12px; margin-bottom: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .box-lbl {
+      font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+      margin-bottom: 4px; text-transform: uppercase;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .box-val { font-size: 0.9rem; font-weight: 800; color: var(--text-main); }
+    .box-val.uppercase { text-transform: uppercase; }
+
+    /* Ruta (Origen Destino) */
+    .route-box { display: flex; align-items: center; gap: 10px; }
+    .route-col { flex: 1; }
+    .route-arrow { color: var(--blue-ofi); font-size: 1.2rem; font-weight: 900; }
+
+    /* Status Box (Verde Confirmado) */
+    .status-box {
+      background: #ecfdf5; border: 1px solid #a7f3d0;
+      border-radius: var(--radius); padding: 14px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px; margin-top: 16px;
+    }
+    .status-box-txt { color: var(--green-ok); font-weight: 800; font-size: 1rem; }
+    .pago-pill {
+      background: var(--blue-light); color: white; border-radius: 99px;
+      padding: 4px 14px; font-size: 0.75rem; font-weight: 800; margin-top: 4px;
+      display: inline-block;
+    }
+
+    /* Totales */
+    .t-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .t-row.subtotal {
+      font-size: 1.1rem; border-top: 1px solid var(--border);
+      padding-top: 16px; margin-top: 16px; margin-bottom: 4px;
+    }
+    .t-val-blue { color: var(--blue-light); font-size: 1.4rem; font-weight: 900; }
+
+    /* Footer / Legales */
+    .v-footer {
+      text-align: center; font-size: 0.65rem; color: var(--text-muted);
+      line-height: 1.6; margin-top: 24px; padding-top: 20px;
+      border-top: 1px dashed var(--border); font-weight: 500;
+    }
+
+    /* ── BOTONERA ── */
+    .step-lbl { text-align: center; font-size: 0.65rem; font-weight: 800; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-area { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+    
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 16px; border-radius: 12px; font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem; font-weight: 800; cursor: pointer; border: none;
+      transition: transform 0.1s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .btn-green { background: #22c55e; color: white; box-shadow: 0 4px 15px rgba(34,197,94,0.3); }
+    .btn-yellow { background: #fef08a; color: #854d0e; border: 1px solid #fde047; box-shadow: 0 4px 15px rgba(253,224,71,0.2); }
+
+    /* ── MENSAJES POST-DECISIÓN ── */
+    .result-msg { display: none; text-align: center; padding: 40px 20px; }
+    .result-msg.show { display: block; }
+    .res-ico { font-size: 3.5rem; margin-bottom: 16px; }
+    .res-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 8px; color: var(--text-main); }
+    .res-body { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <div id="screen-loading" class="screen active page-wrap">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <div style="color:#64748b; font-weight:700; font-size:0.9rem;">Cargando expediente...</div>
+    </div>
+  </div>
+
+  <div id="screen-invalid" class="screen page-wrap">
+    <div class="result-msg show">
+      <div class="res-ico">🔍</div>
+      <div class="res-title">Reserva no encontrada</div>
+      <div class="res-body">Este enlace ha expirado o no corresponde a una reserva activa. Comuníquese con la central.</div>
+    </div>
+  </div>
+
+  <div id="screen-done" class="screen page-wrap">
+    <div class="result-msg show">
+      <div class="res-ico" id="done-ico"></div>
+      <div class="res-title" id="done-title"></div>
+      <div class="res-body" id="done-body"></div>
+    </div>
+  </div>
+
+  <div id="screen-main" class="screen page-wrap">
+
+    <div id="status-banner" class="status-banner pendiente">
+      <span id="status-txt">⌛ Esperando su confirmación para procesar...</span>
+    </div>
+
+    <div class="voucher-card">
+      
+      <div class="v-header">
+        <div>
+          <div class="v-brand"><span style="color:var(--red-taxi)">TAXI</span><span style="color:var(--blue-ofi)">OFICIAL</span></div>
+          <div class="v-brand-sub">TRANSPORTE OFICIAL DEL AEROPUERTO DE SANTIAGO</div>
+        </div>
+        <div class="v-id-pill">
+          <div class="v-id-lbl">RESERVA ID</div>
+          <div class="v-id-val" id="v-tkt"></div>
+        </div>
+      </div>
+
+      <hr class="v-divider">
+
+      <div class="grid-2">
+        <div class="box" style="margin-bottom:0;">
+          <div class="box-lbl">👤 PASAJERO</div>
+          <div class="box-val uppercase" id="v-nom"></div>
+        </div>
+        <div class="box" style="margin-bottom:0;">
+          <div class="box-lbl">📱 TELÉFONO</div>
+          <div class="box-val" id="v-fono"></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-lbl">📅 DÍA - FECHA - HORA DE RETIRO</div>
+        <div class="box-val uppercase" id="v-fechaHora"></div>
+      </div>
+
+      <div class="box route-box">
+        <div class="route-col">
+          <div class="box-lbl">📍 ORIGEN</div>
+          <div class="box-val" id="v-origen"></div>
+        </div>
+        <div class="route-arrow">➔</div>
+        <div class="route-col">
+          <div class="box-lbl">✈️ DESTINO</div>
+          <div class="box-val" id="v-destino"></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-lbl">DETALLES DEL VIAJE</div>
+        <div class="box-val" style="font-size:0.8rem; font-weight:600; color:var(--text-muted);" id="v-aforo"></div>
+      </div>
+
+      <div class="status-box">
+        <div class="status-box-txt">✔ RESERVA INGRESADA</div>
+        <div style="text-align:right;">
+          <div style="font-size:0.5rem; color:var(--text-muted); font-weight:800; letter-spacing:0.5px;">MÉTODO DE PAGO</div>
+          <div class="pago-pill" id="v-pago"></div>
+        </div>
+      </div>
+
+      <div class="t-row">
+        <span>Tarifa Base</span>
+        <span id="v-tarifaBase"></span>
+      </div>
+      <div class="t-row" id="row-parada" style="display:none;">
+        <span>Parada extra</span>
+        <span id="v-parada"></span>
+      </div>
+      <div class="t-row subtotal">
+        <span>SUBTOTAL</span>
+        <span class="t-val-blue" id="v-total"></span>
+      </div>
+
+      <div class="v-footer">
+        <p>🛡️ Su reserva oficial está 100% asegurada.<br>Su tranquilidad es nuestro mejor destino.</p>
+        <p style="margin: 6px 0;">🚕 ¡Gracias por confiar en el transporte oficial!</p>
+        <p>⏱️ T. Espera máx 15 min - Conductor asignado al llegar.</p>
+        <p style="margin-top:12px; font-size:0.55rem;">© Central CRS - TaxiOficial AMB</p>
+      </div>
+
+    </div>
+
+    <div id="btn-area">
+      <div class="step-lbl">Paso 1: Revise los datos (Opcional)</div>
+      <button class="btn btn-yellow" id="btn-modificar" onclick="decidir('rechazado')">
+        ✏️ MODIFICAR / CORREGIR
+      </button>
+      
+      <div class="step-lbl" style="margin-top:8px;">Paso 2: Asegure su cupo (Obligatorio)</div>
+      <button class="btn btn-green" id="btn-confirmar" onclick="decidir('confirmado')">
+        📱 CONFIRMAR RESERVA
+      </button>
+    </div>
+
+  </div>
+
+  <div id="screen-result" class="screen page-wrap">
+    <div class="result-msg" id="result-box">
+      <div class="res-ico" id="r-ico"></div>
+      <div class="res-title" id="r-title"></div>
+      <div class="res-body" id="r-body"></div>
+    </div>
+  </div>
+
+  <script>
+    var _token = (new URLSearchParams(window.location.search)).get('t') || '';
+    var _unsubConf = null;
+
+    function _showScreen(id) {
+      ['screen-loading','screen-invalid','screen-done','screen-main','screen-result'].forEach(function(s){
+        var el = document.getElementById(s);
+        if (el) { el.classList.toggle('active', s === id); }
+      });
+    }
+
+    function _formatHora(ts) {
+      if (!ts) return '';
+      return new Date(ts).toLocaleTimeString('es-CL', {hour:'2-digit', minute:'2-digit'});
+    }
+
+    function _renderDone(data) {
+      var ico = data.estado === 'confirmado' ? '✅' : '📞';
+      var title = data.estado === 'confirmado' ? 'Reserva ya confirmada' : 'Modificación en curso';
+      var body = data.estado === 'confirmado'
+        ? 'Usted ya confirmó esta reserva. Su móvil será asignado y se le notificará oportunamente.'
+        : 'Usted ya solicitó una modificación. CRS le contactará a la brevedad.';
+      document.getElementById('done-ico').textContent = ico;
+      document.getElementById('done-title').textContent = title;
+      document.getElementById('done-body').textContent = body;
+      _showScreen('screen-done');
+    }
+
+    function _renderMain(data) {
+      document.getElementById('v-tkt').textContent        = data.tkt || '';
+      document.getElementById('v-nom').textContent        = data.nom || '';
+      document.getElementById('v-fono').textContent       = data.fono || 'S/N';
+      document.getElementById('v-fechaHora').textContent  = data.fechaHora || '';
+      document.getElementById('v-origen').textContent     = data.origen || '';
+      document.getElementById('v-destino').textContent    = data.destino || '';
+      document.getElementById('v-aforo').textContent      = data.aforoLog || '';
+      document.getElementById('v-pago').textContent       = data.pago || '';
+      document.getElementById('v-total').textContent      = data.totalFormat || ('$' + (data.total || 0).toLocaleString('es-CL'));
+
+      if (data.tarifaBase) {
+        document.getElementById('v-tarifaBase').textContent = '$' + Number(data.tarifaBase).toLocaleString('es-CL');
+      } else {
+        document.getElementById('v-tarifaBase').textContent = data.totalFormat || '$' + (data.total||0).toLocaleString('es-CL');
+      }
+
+      if (data.paradaExtra && data.paradaExtra > 0) {
+        document.getElementById('v-parada').textContent = '+$' + Number(data.paradaExtra).toLocaleString('es-CL');
+        document.getElementById('row-parada').style.display = 'flex';
+      }
+
+      _showScreen('screen-main');
+    }
+
+    function decidir(nuevoEstado) {
+      var btnC = document.getElementById('btn-confirmar');
+      var btnM = document.getElementById('btn-modificar');
+      btnC.disabled = true; btnM.disabled = true;
+      btnC.innerHTML = "Procesando...";
+
+      window.__fbReady.then(function(fb) {
+        fb.updateDoc(fb.doc(fb.db, 'confirmaciones', _token), {
+          estado: nuevoEstado,
+          decididoEn: Date.now()
+        }).then(function() {
+          var isOk = nuevoEstado === 'confirmado';
+          document.getElementById('r-ico').textContent = isOk ? '✅' : '📞';
+          document.getElementById('r-title').textContent = isOk ? '¡Reserva Asegurada!' : 'Solicitud Recibida';
+          document.getElementById('r-body').innerHTML = isOk 
+            ? 'Su cupo ha sido bloqueado exitosamente en nuestra flota.<br>El conductor será asignado al momento de su viaje.' 
+            : 'Un operador de CRS se pondrá en contacto con usted en los próximos minutos para ajustar los detalles.';
+          
+          document.getElementById('result-box').classList.add('show');
+          _showScreen('screen-result');
+
+        }).catch(function(e) {
+          btnC.disabled = false; btnM.disabled = false; btnC.innerHTML = "📱 CONFIRMAR RESERVA";
+          alert('Hubo un error de conexión. Por favor intente nuevamente.');
+        });
+      });
+    }
+
+    window.__fbReady.then(function(fb) {
+      if (!_token) return _showScreen('screen-invalid');
+
+      fb.getDoc(fb.doc(fb.db, 'confirmaciones', _token)).then(function(snap) {
+        if (!snap.exists()) return _showScreen('screen-invalid');
+        var data = snap.data();
+        if (data.estado !== 'pendiente') return _renderDone(data);
+        _renderMain(data);
+
+        _unsubConf = fb.onSnapshot(fb.doc(fb.db, 'confirmaciones', _token), function(liveSnap) {
+          if (!liveSnap.exists()) return;
+          var ld = liveSnap.data();
+          if (ld.estado !== 'pendiente' && document.getElementById('screen-main').classList.contains('active')) {
+             _renderDone(ld);
+          }
+        });
+      }).catch(function() { _showScreen('screen-invalid'); });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "Airport Elite Calculadora",
+  "short_name": "Taxi Elite AMB",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#002B5B",
+  "theme_color": "#002B5B",
+  "icons": [
+    {
+      "src": "diseno_app/icono_app.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "diseno_app/icono_app.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
