@@ -1965,65 +1965,7 @@
         }
         .panel-postulacion-cerrar:hover { background: #ff3333; color: white; }
 
-        /* ── BOTÓN GESTIÓN DE MÓVILES ── */
-        #btn-gestion-moviles {
-            background: rgba(167,139,250,0.15); color: #a78bfa;
-            border: 1px solid rgba(167,139,250,0.55);
-            padding: 8px 14px; border-radius: 8px; font-weight: 900; font-size: 10px;
-            cursor: pointer; font-family: 'Orbitron', sans-serif; letter-spacing: 1.5px;
-            transition: 0.2s;
-        }
-        #btn-gestion-moviles:hover { background: rgba(167,139,250,0.35); }
 
-        /* ── MINI-PANEL DE GESTIÓN ── */
-        #panel-gestion-moviles {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            right: 0;
-            width: 300px;
-            background: linear-gradient(145deg, #0f172a 0%, #07396b 100%);
-            border: 1px solid rgba(167,139,250,0.5);
-            border-radius: 12px;
-            padding: 16px;
-            z-index: 50000;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 20px rgba(167,139,250,0.2);
-            font-family: 'Inter', sans-serif;
-        }
-        #panel-gestion-moviles.gm-visible { display: block; }
-        .gm-titulo {
-            font-family: 'Orbitron', sans-serif; font-size: 9px; font-weight: 900;
-            color: #a78bfa; letter-spacing: 2px; text-transform: uppercase;
-            margin-bottom: 14px; border-bottom: 1px solid rgba(167,139,250,0.3);
-            padding-bottom: 8px;
-        }
-        .gm-fila { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
-        .gm-label { font-size: 9px; font-weight: 800; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; }
-        .gm-input {
-            background: rgba(255,255,255,0.07); border: 1px solid rgba(167,139,250,0.4);
-            border-radius: 7px; padding: 8px 12px; color: #e2e8f0;
-            font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700;
-            width: 100%; outline: none; transition: 0.2s;
-        }
-        .gm-input:focus { border-color: #a78bfa; box-shadow: 0 0 8px rgba(167,139,250,0.3); }
-        .gm-acciones { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
-        .gm-btn {
-            padding: 10px 8px; border-radius: 8px; font-weight: 900; font-size: 10px;
-            cursor: pointer; letter-spacing: 1px; font-family: 'Orbitron', sans-serif;
-            border: none; transition: 0.2s; text-align: center;
-        }
-        .gm-btn-crear { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.5); }
-        .gm-btn-crear:hover { background: rgba(16,185,129,0.4); }
-        .gm-btn-eliminar { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.5); }
-        .gm-btn-eliminar:hover { background: rgba(239,68,68,0.4); }
-        .gm-feedback {
-            margin-top: 10px; font-size: 10px; font-weight: 700; text-align: center;
-            min-height: 18px; font-family: 'Inter', sans-serif;
-            border-radius: 6px; padding: 4px 8px;
-            transition: 0.2s;
-        }
-        .gm-feedback.ok { color: #10b981; background: rgba(16,185,129,0.1); }
-        .gm-feedback.err { color: #ef4444; background: rgba(239,68,68,0.1); }
         #modal-panel-postulacion .tc-menu,
         #modal-panel-postulacion .sub-menu { z-index: 40050; }
 
@@ -3347,7 +3289,7 @@
         </button>
         <div class="login-footer">
             IP ENCRIPTADA // PROTOCOLO SEGURO<br>
-            <span style="display: block; margin-top: 6px; color: #38bdf8; font-size: 11px; text-shadow: 0 0 8px rgba(56, 189, 248, 0.7); letter-spacing: 4px;">DESIGN BY RUSO</span>
+            <span style="display: block; margin-top: 6px; color: #38bdf8; font-size: 11px; text-shadow: 0 0 8px rgba(56, 189, 248, 0.7); letter-spacing: 4px;">DESIGNED BY RUSO</span>
         </div>
     </div>
 </div>
@@ -3531,10 +3473,10 @@
                 <span class="fpb-num">3.2</span><span class="fpb-icon">📋</span>
                 <span class="fpb-label"><span class="fpb-title">Fichero CRS</span><span class="fpb-sub">Panel central</span></span>
             </button>
-            <!-- 3.3 Monitoreo Móviles — ID interno: fpb-9 -->
-            <button class="fpb fpb-9" onclick="alertaSimulador('Módulo O — Monitoreo de Móviles')" title="Monitoreo de Móviles">
-                <span class="fpb-num">3.3</span><span class="fpb-icon">📡</span>
-                <span class="fpb-label"><span class="fpb-title">Monitoreo Móviles</span><span class="fpb-sub">Próximamente</span></span>
+            <!-- 3.3 Monitoreo Móviles - ID interno: fpb-9 -->
+            <button class="fpb fpb-9" onclick="abrirRadarCentral()" title="Monitoreo Satelital en Vivo">
+                <span class="fpb-num">3.3</span><span class="fpb-icon">🛰️</span>
+                <span class="fpb-label"><span class="fpb-title">Monitoreo Móviles</span><span class="fpb-sub" style="color: #22c55e;">Radar Activo</span></span>
             </button>
             <!-- 3.4 Radio / Chat — Megáfono Central -->
             <button class="fpb fpb-radio" onclick="abrirMegafonoCentral()" title="Centro de Comunicaciones CRS">
@@ -3563,10 +3505,10 @@
                 <span class="fpb-num">4.2</span><span class="fpb-icon">🧑‍💼</span>
                 <span class="fpb-label"><span class="fpb-title">Centralistas</span><span class="fpb-sub">Fichas y turnos</span></span>
             </button>
-            <!-- 4.3 Informe Conductor — ID interno: fpb-12 -->
-            <button class="fpb fpb-12" onclick="alertaSimulador('Módulo — Informe Servicio Conductor')" title="Informe Servicio Conductor">
+            <!-- 4.3 Informe Conductores — ID interno: fpb-12 -->
+            <button class="fpb fpb-12" onclick="window.abrirInformeConductor()" title="Informes Socios - Conductor">
                 <span class="fpb-num">4.3</span><span class="fpb-icon">🚌</span>
-                <span class="fpb-label"><span class="fpb-title">Informe Conductor</span><span class="fpb-sub">Próximamente</span></span>
+                <span class="fpb-label"><span class="fpb-title">Informe Conductores</span><span class="fpb-sub">Documentos e Informes</span></span>
             </button>
           </div>
         </div>
@@ -4009,21 +3951,6 @@
         <div class="panel-postulacion-topbar">
             <h2>📡 PANEL DE POSTULACIÓN · CRS</h2>
             <div style="display:flex; gap:8px; align-items:center; position:relative;">
-                <!-- Botón gestión de móviles -->
-                <button type="button" id="btn-gestion-moviles" onclick="toggleGestionMoviles(event)">⚙️ MÓVILES</button>
-                <!-- Mini-panel de gestión -->
-                <div id="panel-gestion-moviles">
-                    <div class="gm-titulo">⚙ Gestión de Móviles · FIFO</div>
-                    <div class="gm-fila">
-                        <span class="gm-label">Número de Móvil (1 – 999)</span>
-                        <input type="number" id="gm-numero" class="gm-input" placeholder="Ej: 151" min="1" max="999" oninput="gmValidar()">
-                    </div>
-                    <div class="gm-acciones">
-                        <button class="gm-btn gm-btn-crear" onclick="gmCrear()">＋ SUMAR AL FIFO</button>
-                        <button class="gm-btn gm-btn-eliminar" onclick="gmEliminar()">− ELIMINAR DEL FIFO</button>
-                    </div>
-                    <div class="gm-feedback" id="gm-feedback"></div>
-                </div>
                 <button type="button" style="background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.6); padding:8px 14px; border-radius:8px; font-weight:900; font-size:10px; cursor:pointer; font-family:'Orbitron',sans-serif; letter-spacing:2px; transition:0.2s;" onmouseover="this.style.background='rgba(56,189,248,0.35)'" onmouseout="this.style.background='rgba(56,189,248,0.15)'" onclick="abrirMonitorFlota()">📊 VOLVER AL KANBAN</button>
                 <button type="button" class="panel-postulacion-cerrar" onclick="cerrarPanelPostulacionCRS();">✕ CERRAR</button>
             </div>
@@ -4542,7 +4469,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js" onerror="console.warn('[CMR] Chart.js no disponible — gráficos desactivados')"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK0T3pqX7gzPWD5NfYau4bsikQ-0Lq_Ic&libraries=places,geometry"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpssZLnLoTm6YvKUnXx7B1WtF6UC7ROnY&libraries=places,geometry"></script>
 
 <script>
 // ------------------------- START OF MODIFIED JAVASCRIPT -------------------------
@@ -7920,102 +7847,6 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
         });
     })();
 
-    /* ═══════════════════════════════════════════════════════
-       GESTIÓN DE MÓVILES — funciones globales del mini-panel
-       ═══════════════════════════════════════════════════════ */
-
-    function toggleGestionMoviles(e) {
-        e.stopPropagation();
-        const panel = document.getElementById('panel-gestion-moviles');
-        panel.classList.toggle('gm-visible');
-        if (panel.classList.contains('gm-visible')) {
-            document.getElementById('gm-numero').value = '';
-            document.getElementById('gm-feedback').textContent = '';
-            document.getElementById('gm-feedback').className = 'gm-feedback';
-            setTimeout(() => document.getElementById('gm-numero').focus(), 80);
-        }
-    }
-
-    // Cerrar el mini-panel al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        const panel = document.getElementById('panel-gestion-moviles');
-        const btn   = document.getElementById('btn-gestion-moviles');
-        if (!panel || !btn) return;
-        if (!panel.contains(e.target) && e.target !== btn) {
-            panel.classList.remove('gm-visible');
-        }
-    });
-
-    function gmFeedback(msg, tipo) {
-        const el = document.getElementById('gm-feedback');
-        el.textContent = msg;
-        el.className = 'gm-feedback ' + tipo;
-    }
-
-    function gmValidar() {
-        const v = parseInt(document.getElementById('gm-numero').value);
-        const fb = document.getElementById('gm-feedback');
-        if (!v || v < 1 || v > 999) { fb.textContent = ''; return; }
-        const moviles = window._ppMoviles || [];
-        const existe  = moviles.find(m => m.id === v);
-        fb.textContent = existe
-            ? `Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} existe · Estado: ${existe.estado.toUpperCase()}`
-            : `Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} no está en el FIFO`;
-        fb.className = 'gm-feedback ' + (existe ? 'ok' : 'err');
-    }
-
-    function gmCrear() {
-        const v = parseInt(document.getElementById('gm-numero').value);
-        if (!v || v < 1 || v > 999) { gmFeedback('Ingresa un número válido (1-999)', 'err'); return; }
-        const moviles = window._ppMoviles;
-        if (!moviles) { gmFeedback('Sistema no inicializado', 'err'); return; }
-        if (moviles.find(m => m.id === v)) {
-            gmFeedback(`Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} ya existe en el FIFO`, 'err'); return;
-        }
-        // Insertar ordenado por ID
-        const nuevoMovil = {
-            id: v, estado: 'disponible', negativo: false,
-            cargaSeg: null, tiempoRuta: 0, fifoOrig: null, servicioId: null,
-            kanbanCardId: null,
-            motivoNegativo: '', motivoNegativoOrig: '', motivoEditado: false,
-            operadorNegativo: '', operadorNegativoOrig: '', operadorEditado: false,
-            conductor: '', dueño: '', reemplazo: '',
-            historial: [], franjasRojas: 0
-        };
-        let insertIdx = moviles.findIndex(m => m.id > v);
-        if (insertIdx === -1) moviles.push(nuevoMovil);
-        else moviles.splice(insertIdx, 0, nuevoMovil);
-        // Forzar re-render del panel
-        if (typeof window._ppRender === 'function') window._ppRender();
-        gmFeedback(`✅ Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} sumado al FIFO`, 'ok');
-        document.getElementById('gm-numero').value = '';
-    }
-
-    function gmEliminar() {
-        const v = parseInt(document.getElementById('gm-numero').value);
-        if (!v || v < 1 || v > 999) { gmFeedback('Ingresa un número válido (1-999)', 'err'); return; }
-        const moviles = window._ppMoviles;
-        if (!moviles) { gmFeedback('Sistema no inicializado', 'err'); return; }
-        const idx = moviles.findIndex(m => m.id === v);
-        if (idx === -1) { gmFeedback(`Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} no encontrado en el FIFO`, 'err'); return; }
-        const m = moviles[idx];
-        if (m.estado === 'transito') {
-            gmFeedback(`No se puede eliminar: Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} está en tránsito`, 'err'); return;
-        }
-        if (m.estado === 'asignado') {
-            gmFeedback(`No se puede eliminar: Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} tiene un servicio asignado`, 'err'); return;
-        }
-        if (window.crsDB) window.crsDB.audit('CONDUCTOR', 'MOVIL_ELIMINADO_FIFO',
-            sessionStorage.getItem('elite_operador') || 'SISTEMA',
-            { movil: v, estado: m.estado, fifo_pos: idx },
-            null,
-            'Móvil eliminado del FIFO por operador');
-        moviles.splice(idx, 1);
-        if (typeof window._ppRender === 'function') window._ppRender();
-        gmFeedback(`🗑 Móvil ${window.formatMovil ? window.formatMovil(v) : String(v).padStart(3,'0')} eliminado del FIFO`, 'ok');
-        document.getElementById('gm-numero').value = '';
-    }
-    
     // ── CRS Seguimiento: configuracion global ──
     window.CRS_SEGUIMIENTO = { tiempoR2Min: 35, tiempoR3Min: 35, alertaSinConfirmarMin: 5 };
 
@@ -8844,10 +8675,12 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
                         <button class="tc-btn rojo" id="pp-tc-castigar">🔴 CASTIGAR (No disponible)</button>
                         <button class="tc-btn azul" id="pp-tc-datos-movil">📋 DATOS MÓVIL</button>
                         <button class="${negClass}" id="pp-tc-asignar-neg">${negText}</button>
+                        <button class="tc-btn" style="color:#a78bfa;" id="pp-tc-registro">📝 REGISTRO</button>
                         <button class="tc-btn" id="pp-tc-cerrar">✕ Cerrar</button>`;
                 } else if(categoria === 'nodisponible') {
                     menu.innerHTML = `<div class="tc-titulo">⛔ MÓVIL ${pad(id)} — SANCIONADO</div>
                         <button class="tc-btn verde" id="pp-tc-volver">🔄 Reintegrar a FIFO</button>
+                        <button class="tc-btn" style="color:#a78bfa;" id="pp-tc-registro">📝 REGISTRO</button>
                         <button class="tc-btn" id="pp-tc-cerrar">✕ Cerrar</button>`;
                 }
                 (document.getElementById('modal-panel-postulacion')||document.body).appendChild(menu);
@@ -8867,8 +8700,18 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
                         cerrarTcMenu();
                         abrirSubMenuNegativo(currentMovilElement, id);
                     });
+                    menu.querySelector('#pp-tc-registro')?.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        cerrarTcMenu(); cerrarSubMenu();
+                        window._icAbrirRegistroRapido(id);
+                    });
                 } else if(categoria === 'nodisponible') {
                     menu.querySelector('#pp-tc-volver')?.addEventListener('click', () => { cerrarTcMenu(); volverFifo(id); });
+                    menu.querySelector('#pp-tc-registro')?.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        cerrarTcMenu(); cerrarSubMenu();
+                        window._icAbrirRegistroRapido(id);
+                    });
                 }
         
                 setTimeout(() => document.addEventListener('click', function cerrarTodo(e) {
@@ -10694,6 +10537,8 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
                 });
             } catch(e) { console.warn('Error cargando conductores guardados:', e); }
         })();
+        // ── Exponer al módulo 4.3 Informe Conductor ──
+        window._crsCondutoresData = conductoresData;
 
         // ── CONDUCTORES — NUEVA IMPLEMENTACIÓN COMPLETA ──
         const modalCond = document.getElementById('d-conductores-modal');
@@ -14831,21 +14676,22 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
     // Aplicar castigo al fichero kanban
     function _aplicarCastigoFichero(mov) {
         var n = parseInt(mov);
-        if (window.moviles && Array.isArray(window.moviles)) {
-            var m = window.moviles.find(function(x){ return parseInt(x.numero||x.movil||0)===n; });
+        if (window._ppMoviles && Array.isArray(window._ppMoviles)) {
+            var m = window._ppMoviles.find(function(x){ return parseInt(x.numero||x.movil||0)===n; });
             if (m) {
-                m.estado = 'castigado';
+                m._estadoAntes = m.estado;
+                m.estado = 'nodisponible';
                 if (typeof window._ppRender === 'function') window._ppRender();
-                if (window.crsDB) window.crsDB.audit('CONDUCTOR','MOVIL_CASTIGADO_LIQUIDACION', sessionStorage.getItem('elite_operador')||'SISTEMA', null, {movil:mov}, 'Castigo por deuda de liquidación');
+                if (window.crsDB) window.crsDB.audit('CONDUCTOR','MOVIL_CASTIGADO_LIQUIDACION', sessionStorage.getItem('elite_operador')||'SISTEMA', null, {movil:mov, estadoAnterior: m._estadoAntes}, 'Castigo por deuda de liquidación');
             }
         }
     }
     function _reactivarFichero(mov) {
         var n = parseInt(mov);
-        if (window.moviles && Array.isArray(window.moviles)) {
-            var m = window.moviles.find(function(x){ return parseInt(x.numero||x.movil||0)===n; });
-            if (m && m.estado === 'castigado') {
-                m.estado = 'disponible';
+        if (window._ppMoviles && Array.isArray(window._ppMoviles)) {
+            var m = window._ppMoviles.find(function(x){ return parseInt(x.numero||x.movil||0)===n; });
+            if (m && m.estado === 'nodisponible') {
+                m.estado = m._estadoAntes || 'disponible';
                 if (typeof window._ppRender === 'function') window._ppRender();
                 if (window.crsDB) window.crsDB.audit('CONDUCTOR','MOVIL_REACTIVADO_LIQUIDACION', sessionStorage.getItem('elite_operador')||'SISTEMA', null, {movil:mov}, 'Reactivación tras pago de deuda');
             }
@@ -14979,7 +14825,7 @@ Al tocar el link verá los detalles de su reserva y podrá confirmar o solicitar
             html += '<div class="footer"><span>Central CRS — Taxioficial AMB © '+new Date().getFullYear()+'</span><span>Período: '+_periodoLabel(ym)+'</span><span>Móvil N°'+_padMov(k)+' | Documento generado: '+new Date().toLocaleString('es-CL')+'</span></div>';
             html += '</div>';
         });
-        html += '<script>window.onload=function(){setTimeout(function(){window.print();},500);};<\/script></body></html>';
+        html += '<script>window.onload=function(){setTimeout(function(){window.print();},500);};<\/script>aaaaa</html>';
         w.document.write(html);
         w.document.close();
     };
@@ -17950,10 +17796,2243 @@ window.imprimirVoucher = imprimirVoucher;
         const inp = document.getElementById('rc-input-msg');
         if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') window.enviarMensajeCentral(); });
     });
-    // Compatibilidad si DOM ya cargó
+  // Compatibilidad si DOM ya cargó
     const inp2 = document.getElementById('rc-input-msg');
     if (inp2) inp2.addEventListener('keydown', e => { if (e.key === 'Enter') window.enviarMensajeCentral(); });
 })();
 </script>
 
-</html>
+<!-- 📡 RADAR FIREBASE v4.5 (PARCHE DE COLISIONES DE ID) -->
+<!-- 📡 RADAR FIREBASE v4.8 (ESCUDO ANTI-MARTES - MODO SEGURO) -->
+<!-- 📡 RADAR FIREBASE v4.9 (MODULAR CORRECTO Y ESCUDO BLINDADO) -->
+<script type="module">
+    import { collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+    
+    // Motor Limpiador de Fechas (Blindado Anti-Martes)
+    function normalizarFecha(fRaw, hRaw) {
+        let fStr = (fRaw || "").toUpperCase();
+        let hStr = (hRaw || "").toUpperCase();
+        
+        // 🛡️ ESCUDO ANTI-MARTES: Borramos los días de la semana
+        let fStrLimpio = fStr.replace(/LUNES|MARTES|MI[EÉ]RCOLES|JUEVES|VIERNES|S[AÁ]BADO|DOMINGO/g, '');
+        
+        let d = new Date();
+        let dia = String(d.getDate()).padStart(2, '0');
+        let mes = String(d.getMonth() + 1).padStart(2, '0');
+        let anio = d.getFullYear();
+        
+        let mDia = fStrLimpio.match(/\b(\d{1,2})\b/);
+        if (mDia) dia = String(mDia[1]).padStart(2, '0');
+        let mAnio = fStrLimpio.match(/\b(202\d)\b/);
+        if (mAnio) anio = mAnio[1];
+        
+        const meses = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+        for(let i=0; i<meses.length; i++) {
+            if(fStrLimpio.includes(meses[i])) { mes = String(i+1).padStart(2, '0'); break; }
+        }
+        let sMatch = fStrLimpio.match(/(\d{1,2})[\/\-](\d{1,2})/);
+        if (sMatch) { dia = String(sMatch[1]).padStart(2, '0'); mes = String(sMatch[2]).padStart(2, '0'); }
+
+        let hr = "12"; let min = "00";
+        let tMatch = hStr.match(/(\d{1,2}):(\d{2})/);
+        if (!tMatch) tMatch = fStrLimpio.match(/(\d{1,2}):(\d{2})/); 
+        
+        if (tMatch) {
+            let horaInt = parseInt(tMatch[1]);
+            min = tMatch[2];
+            if (hStr.includes('P') && horaInt < 12) horaInt += 12; 
+            if (hStr.includes('A') && horaInt === 12) horaInt = 0; 
+            hr = String(horaInt).padStart(2, '0');
+        }
+        
+        return {
+            fechaPura: `${dia}/${mes}/${anio}`,
+            horaPura: `${hr}:${min}`,
+            timestamp: new Date(anio, parseInt(mes)-1, parseInt(dia), parseInt(hr), parseInt(min)).getTime()
+        };
+    }
+
+    window.__fbReady.then((fb) => {
+        const db = fb.db;
+        const q = query(collection(db, "trips"), where("status", "==", "Pending"));
+        
+        onSnapshot(q, (snapshot) => {
+            const contenedor = document.getElementById("kb-content-1");
+            if (!contenedor) return;
+            if (contenedor.innerHTML.includes('SIN OPERACIONES PENDIENTES')) contenedor.innerHTML = ""; 
+            
+            snapshot.forEach((doc) => {
+                const viaje = doc.data();
+                
+                // 🛡️ REGLA DE AUDITORÍA: Genera ID formato "A20267919"
+                const year = new Date().getFullYear();
+                const ultimosDigitos = doc.id.substring(doc.id.length - 4);
+                const tktID = "A" + year + ultimosDigitos; 
+                const cardID = "res-" + tktID;
+                
+                if (document.getElementById(cardID)) return; 
+
+                const norm = normalizarFecha(viaje.fecha, viaje.hora);
+                
+                const nom = viaje.nombre || "PASAJERO APP";
+                const fono = viaje.telefono || "S/N";
+                const ori = viaje.origen || "Origen App";
+                const des = viaje.destino || "Destino App";
+                const precio = "$" + (viaje.tarifa || 0).toLocaleString('es-CL');
+                const pago = viaje.pago || "EFECTIVO";
+                const aforo = "👤 " + (viaje.pasajeros || 1) + " | 🧳 0 | 👜 0";
+                const refText = viaje.referencia || "RESERVA VÍA APP";
+                const fechaHoraFormat = norm.fechaPura + " a las " + norm.horaPura;
+                const serviceColor = typeof _getNextServiceColor === 'function' ? _getNextServiceColor() : "#38bdf8";
+
+                let timestampRetiroOficial = norm.timestamp;
+                let esMomento = false;
+                
+                if (typeof calcularDiferenciaRetiro === 'function') {
+                    try {
+                        const calc = calcularDiferenciaRetiro(norm.fechaPura, norm.horaPura);
+                        if (calc && typeof calc.timestampRetiro === 'number' && !isNaN(calc.timestampRetiro)) {
+                            timestampRetiroOficial = calc.timestampRetiro;
+                        }
+                        if (calc && calc.esServicioMomento) {
+                            esMomento = true;
+                        }
+                    } catch(e) {}
+                }
+
+                const badgeMomento = esMomento ? 
+                    '<div style="background:#cc0000; color:white; font-size:10px; font-weight:900; padding:4px 8px; border-radius:4px; margin-bottom:8px; display:inline-block; text-transform:uppercase;">⚡ SERVICIO INMEDIATO (APP)</div>' : 
+                    '<div style="background:#0ea5e9; color:white; font-size:10px; font-weight:900; padding:4px 8px; border-radius:4px; margin-bottom:8px; display:inline-block; text-transform:uppercase;">📱 INGRESO VÍA APP</div>';
+
+                const card = document.createElement("div"); 
+                card.className = `kb-card new-card ${esMomento ? 'servicio-momento alerta-defcon' : ''}`;
+                card.style.borderLeftColor = esMomento ? 'var(--color-rojo)' : serviceColor;
+                card.id = cardID;
+                
+                card.dataset.tkt = tktID; 
+                card.dataset.nom = nom; 
+                card.dataset.fono = fono;
+                card.dataset.horaServicio = norm.horaPura; 
+                card.dataset.ori = ori; 
+                card.dataset.des = des; 
+                card.dataset.precio = precio; 
+                card.dataset.fecha = fechaHoraFormat;
+                card.dataset.pago = pago;
+                card.dataset.aforo = aforo;
+                card.dataset.ref = refText;
+                card.dataset.timestampRetiro = timestampRetiroOficial; 
+                card.dataset.fechaPura = norm.fechaPura;
+                card.dataset.servicioRef = tktID;
+                card.dataset.unidadId = '';
+
+                const selectOptions = typeof kbHtmlOpcionesUnidad150 === 'function' ? kbHtmlOpcionesUnidad150() : '<option value="">-- MÓVIL --</option>';
+
+                card.innerHTML = `
+                    <div style="font-size:9px; color:#64748b; text-align:right;">${tktID}</div>
+                    <div class="kb-vinculo-unidad" id="kb-vu-${cardID}">🔗 Unidad: <span class="kb-vu-num">—</span> · Servicio: ${tktID}</div>
+                    ${badgeMomento}
+                    <div class="kb-card-title">👤 ${nom}</div>
+                    <div class="kb-card-data">📞 ${fono}<br>📍 ${ori} ➔ ${des}</div>
+                    <div style="font-size:11px; color:var(--color-naranjo); margin-top:5px; font-weight:900; text-shadow: 0 0 8px rgba(255,105,41,0.4);">🗓️ ${fechaHoraFormat}</div>
+                    <div style="font-size:10px; color:var(--color-naranjo); margin-top:6px; font-weight:bold; background:rgba(255,105,41,0.1); padding:6px; border-radius:4px; border-left: 3px solid var(--color-naranjo);">📌 REF: ${refText}</div>
+                    
+                    <div style="font-size:10px; color:#cbd5e1; margin-top:8px; font-weight:bold; background:rgba(255,255,255,0.05); padding:6px; border-radius:4px; display:flex; justify-content:space-between; border: 1px solid rgba(255,255,255,0.1);">
+                        <span>${aforo}</span> <span style="color:#38bdf8;">💳 ${pago}</span>
+                    </div>
+                    
+                    <div class="kb-bot-panel">
+                        <div class="kb-reloj-vida-box">
+                            <span class="kb-rv-lbl">TIEMPO PARA RETIRO</span>
+                            <div class="kb-reloj-vida ${esMomento ? 'alerta' : ''}" id="rv-${cardID}">CALC...</div>
+                        </div>
+                        <div class="kb-subasta-box" id="caja-sub-${cardID}">
+                            <span class="kb-sub-lbl">⏱ POSTULACIÓN</span>
+                            <div class="kb-actuador-ui">
+                                <button class="kb-actuador-btn" onclick="modSubasta('${cardID}',-1)" tabindex="-1">−</button>
+                                <div class="kb-actuador-val" id="sub-val-${cardID}" tabindex="0" onwheel="event.preventDefault();event.stopPropagation();modSubasta('${cardID}',event.deltaY<0?1:-1);" onkeydown="if(event.key==='ArrowUp'||event.key==='ArrowRight'){event.preventDefault();modSubasta('${cardID}',1);}if(event.key==='ArrowDown'||event.key==='ArrowLeft'){event.preventDefault();modSubasta('${cardID}',-1);}">10:15</div>
+                                <button class="kb-actuador-btn" onclick="modSubasta('${cardID}',1)" tabindex="-1">+</button>
+                            </div>
+                        </div>
+                        <div class="kb-card-price">${precio}</div>
+                    </div>
+
+                    <button class="btn-reconocer" id="btn-ack-${cardID}" style="display:none;" onclick="reconocerAlarma('${cardID}')">🔕 RECONOCER ALARMA Y CONFIGURAR</button>
+                    
+                    <div class="kb-unidad-row">
+                        <span class="kb-unidad-lbl">Unidad</span>
+                        <select id="kb-sel-${cardID}" class="kb-sel-unidad" onchange="onKanbanUnidadSelect('${cardID}')">${selectOptions}</select>
+                    </div>
+                    <div class="kb-card-actions" id="kb-act-${cardID}">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px;">
+                            <button type="button" class="kb-btn" style="background: rgba(204,0,0,0.15); color: #ff4d4d; border-color: #cc0000; font-size: 8.5px; padding: 8px 2px; font-weight: 900;" onclick="anularServicioKanban('${cardID}')">ANULAR</button>
+                            <button type="button" class="kb-btn" style="background: rgba(243,156,18,0.15); color: #f39c12; border-color: #f39c12; font-size: 8.5px; padding: 8px 2px; font-weight: 900;" onclick="iniciarEdicionKanban('${cardID}')">CORREGIR</button>
+                            <button type="button" class="kb-btn" style="background: rgba(0,217,255,0.15); color: #00d9ff; border-color: #00d9ff; font-size: 8.5px; padding: 8px 2px; font-weight: 900;" onclick="visualizarCMRKanban('${cardID}')">VER CMR</button>
+                        </div>
+                        <button type="button" class="kb-btn kb-btn-postular" onclick="postularDesdeKanban('${cardID}')">POSTULAR</button>
+                        <button type="button" class="kb-btn kb-btn-asignar" onclick="asignarMovilKanban('${cardID}')">ASIGNAR MÓVIL</button>
+                        <div id="conf-status-${cardID}" style="margin-top:6px;"><span class="conf-badge conf-confirmed">✅ APROBADO VÍA APP</span></div>
+                    </div>`;
+                
+                contenedor.prepend(card);
+
+                if (typeof serviciosPrioritarios !== 'undefined') {
+                    serviciosPrioritarios.push({
+                        id: tktID, timestampCreacion: Date.now(), timestampRetiro: timestampRetiroOficial,
+                        html: `<div class="mini-card" id="mc-${tktID}" style="border-left-color: ${serviceColor};">
+                            <div class="mc-top"><span>ID: ${tktID}</span><span class="mc-date">${norm.fechaPura} ${norm.horaPura}</span></div>
+                            <div class="mc-dest">${des.substring(0,25)}...</div>
+                            <div class="mc-bot">
+                                <span class="mc-price">${precio}</span><span class="mc-tag">${pago}</span>
+                                <button onclick="visualizarCMRKanban('${cardID}')" style="background:rgba(0,217,255,0.15);color:#00d9ff;border:1px solid #00d9ff;border-radius:5px;padding:3px 8px;font-size:9px;font-weight:900;cursor:pointer;font-family:'Orbitron',sans-serif;">VER CMR</button>
+                            </div>
+                        </div>`
+                    });
+                    if (typeof actualizarColumnaPrioridad === 'function') actualizarColumnaPrioridad();
+                }
+
+                if (typeof iniciarRelojDeVida === 'function') {
+                    iniciarRelojDeVida(cardID, new Date(timestampRetiroOficial), serviceColor);
+                }
+            });
+        });
+    });
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     MÓDULO 4.3 — GENERADOR DE INFORMES INDIVIDUALES CONDUCTOR
+     Diseño: RUSO | Auditoría: crsDB.audit | Clave: ruso
+════════════════════════════════════════════════════════════════════ -->
+<style>
+/* ── CALIBRI GLOBAL + tamaño legible para auditorías ── */
+#modal-informe-conductor,
+#modal-informe-conductor * {
+  font-family: 'Calibri', 'Calibri Regular', 'Gill Sans', Arial, sans-serif !important;
+}
+/* Pantalla completa — inner sin restricción de ancho */
+#ic-modal-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 28px 32px 28px !important;
+  box-sizing: border-box !important;
+}
+/* Grid de 3 grupos — ocupa todo el ancho */
+#ic-categorias-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+/* Tarjeta de grupo */
+.ic-grupo-card {
+  background: rgba(10,18,42,0.96);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
+  padding: 28px 24px 24px 24px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.ic-grupo-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+/* Zona de ícono grande */
+.ic-grupo-hero {
+  text-align: center; margin-bottom: 14px; line-height: 1; user-select: none;
+}
+/* Título del grupo */
+.ic-grupo-titulo {
+  font-family: 'Calibri', Arial, sans-serif !important;
+  font-size: 19px; font-weight: 900; color: #ffffff;
+  text-align: center; letter-spacing: 0.5px;
+  margin-bottom: 18px; text-transform: uppercase;
+}
+/* Grid de ítems dentro del grupo */
+.ic-grupo-items {
+  display: grid;
+  width: 100%;
+  gap: 10px 14px;
+}
+.ic-grupo-items.cols2 { grid-template-columns: 1fr 1fr; }
+.ic-grupo-items.cols3 { grid-template-columns: 1fr 1fr 1fr; }
+/* Ítem individual */
+.ic-grupo-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  cursor: pointer; padding: 6px 8px; border-radius: 8px;
+  transition: background 0.15s;
+}
+.ic-grupo-item:hover { background: rgba(255,255,255,0.06); }
+.ic-grupo-item-icon {
+  font-size: 20px; line-height: 1; flex-shrink: 0; margin-top: 1px;
+}
+.ic-grupo-item-label {
+  font-family: 'Calibri', Arial, sans-serif !important;
+  font-size: 13px; font-weight: 600; color: #d1d5db;
+  line-height: 1.35;
+}
+/* ── Planilla capitalización ── */
+.cap-tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+.cap-tbl th {
+  padding: 10px 8px; font-size: 13px; font-weight: 700;
+  border-bottom: 2px solid rgba(6,182,212,0.35);
+  white-space: nowrap; text-align: center;
+}
+.cap-tbl th.col-anio { text-align: left; padding-left: 12px; min-width: 90px; }
+.cap-tbl th.col-total { text-align: right; padding-right: 12px; color: #4ade80; }
+.cap-tbl th.col-deuda { text-align: right; padding-right: 12px; color: #f97316; }
+.cap-tbl td { padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.cap-tbl tr:hover td { background: rgba(6,182,212,0.04); }
+/* Celda de año con botones ± */
+.cap-anio-cell {
+  display: flex; align-items: center; gap: 6px;
+  padding-left: 6px; white-space: nowrap;
+}
+.cap-anio-num { font-size: 15px; font-weight: 700; color: #e2e8f0; min-width: 44px; }
+.cap-anio-del {
+  background: rgba(239,68,68,0.15); color: #f87171;
+  border: 1px solid rgba(239,68,68,0.3); border-radius: 5px;
+  width: 22px; height: 22px; font-size: 14px; font-weight: 900;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  line-height: 1; flex-shrink: 0;
+}
+.cap-anio-del:hover { background: rgba(239,68,68,0.35); }
+/* Celda de mes con input + botones +/- */
+.cap-mes-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 3px; min-width: 82px;
+}
+.cap-mes-btns { display: flex; gap: 3px; }
+.cap-btn-pm {
+  background: rgba(6,182,212,0.12); color: #06b6d4;
+  border: 1px solid rgba(6,182,212,0.3); border-radius: 4px;
+  width: 24px; height: 24px; font-size: 15px; font-weight: 900;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  line-height: 1; flex-shrink: 0; transition: background 0.15s;
+}
+.cap-btn-pm:hover { background: rgba(6,182,212,0.28); }
+.cap-cell-input {
+  width: 80px; background: rgba(15,23,42,0.6);
+  border: 1px solid rgba(6,182,212,0.25); border-radius: 5px;
+  color: #4ade80; font-weight: 700; font-size: 13px; text-align: center;
+  outline: none; padding: 4px 2px; cursor: text;
+  font-family: 'Calibri', Arial, sans-serif !important;
+  transition: border-color 0.15s, background 0.15s;
+}
+.cap-cell-input:focus  { border-color: #06b6d4; background: rgba(6,182,212,0.1); }
+.cap-cell-input.parcial   { color: #fbbf24; border-color: rgba(251,191,36,0.4); }
+.cap-cell-input.pendiente { color: #f97316; border-color: rgba(249,115,22,0.4); }
+.cap-cell-input.vacio     { color: #475569; }
+/* Celda vacía/futura */
+.cap-cell-dash { font-size: 14px; color: #334155; text-align: center; padding: 6px 4px; }
+/* Totales de fila */
+.cap-cell-total { text-align: right; padding-right: 12px; font-size: 14px; font-weight: 700; white-space: nowrap; }
+/* Botón añadir año */
+.cap-add-year-btn {
+  background: rgba(6,182,212,0.1); color: #06b6d4;
+  border: 1px dashed rgba(6,182,212,0.4); border-radius: 8px;
+  padding: 9px 20px; font-size: 14px; font-weight: 700;
+  cursor: pointer; margin-top: 10px; display: inline-flex; align-items: center; gap: 6px;
+  transition: background 0.15s;
+}
+.cap-add-year-btn:hover { background: rgba(6,182,212,0.22); }
+/* Fila expandida en tabla todos */
+.cap-movil-fila { cursor: pointer; }
+.cap-movil-fila:hover td { background: rgba(6,182,212,0.06) !important; }
+/* Leyenda */
+.cap-leyenda { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #64748b; margin-top: 10px; }
+/* Texto general del módulo */
+#modal-informe-conductor .ic-label { font-size: 13px !important; }
+#modal-informe-conductor input[type="text"],
+#modal-informe-conductor input[type="date"],
+#modal-informe-conductor input[type="password"] { font-size: 14px !important; }
+#modal-informe-conductor button { font-size: 13px !important; }
+/* Títulos de sección */
+.ic-section-title { font-size: 13px !important; font-weight: 700; letter-spacing: 1.5px; }
+/* Overlay auth: usar flex cuando visible */
+#cap-auth-overlay.visible { display: flex !important; }
+/* Badge al día */
+.cap-aldia-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.4);
+  border-radius: 7px; padding: 5px 10px; font-size: 12px;
+  color: #4ade80; font-weight: 700; cursor: default; white-space: nowrap;
+  font-family: 'Calibri', Arial, sans-serif !important;
+}
+.cap-aldia-badge:hover { background: rgba(16,185,129,0.22); }
+/* Celda estado al día */
+.cap-estado-col { text-align: center; padding: 4px 6px; min-width: 80px; }
+</style>
+<div id="modal-informe-conductor" style="display:none;position:fixed;inset:0;z-index:999990;background:rgba(0,0,0,0.92);backdrop-filter:blur(6px);overflow-y:auto;">
+  <div id="ic-modal-inner">
+
+    <!-- ══ OVERLAY AUTORIZACIÓN GUARDADO CAPITALIZACIÓN ══ -->
+    <div id="cap-auth-overlay" style="display:none;position:fixed;inset:0;z-index:1000010;background:rgba(0,0,0,0.82);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;">
+      <div style="background:rgba(10,20,45,0.97);border:2px solid rgba(6,182,212,0.5);border-radius:16px;padding:36px 44px;text-align:center;max-width:440px;width:90%;box-shadow:0 0 60px rgba(6,182,212,0.2);">
+        <div style="font-size:36px;margin-bottom:14px;">🔐</div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:16px;color:#06b6d4;font-weight:900;letter-spacing:2px;margin-bottom:6px;">AUTORIZACIÓN REQUERIDA</div>
+        <div style="font-size:13px;color:#94a3b8;margin-bottom:22px;">Ingrese la clave de administración<br>para guardar los cambios</div>
+        <input id="cap-auth-input" type="password" placeholder="Clave administración..."
+          style="width:100%;box-sizing:border-box;background:rgba(15,23,42,0.9);border:1px solid rgba(6,182,212,0.4);border-radius:8px;padding:13px 16px;color:#f1f5f9;font-size:15px;font-family:'Calibri',Arial,sans-serif;outline:none;margin-bottom:10px;text-align:center;"
+          onkeydown="if(event.key==='Enter')window._capConfirmarAuth()">
+        <div id="cap-auth-err" style="display:none;color:#ef4444;font-size:13px;margin-bottom:10px;font-weight:700;">🔒 Clave incorrecta. Acceso denegado.</div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:8px;">
+          <button onclick="window._capConfirmarAuth()" style="background:linear-gradient(135deg,#06b6d4,#0284c7);color:#fff;border:none;border-radius:8px;padding:12px 28px;font-weight:900;font-size:14px;cursor:pointer;font-family:'Calibri',Arial,sans-serif;">🔓 CONFIRMAR</button>
+          <button onclick="window._capCancelarAuth()" style="background:rgba(30,41,59,0.9);color:#94a3b8;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 22px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Calibri',Arial,sans-serif;">✕ CANCELAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CABECERA -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;color:#fdba74;letter-spacing:2px;">📋 INFORMES SOCIOS - CONDUCTOR</div>
+        <div style="font-size:13px;color:#94a3b8;margin-top:4px;letter-spacing:1px;">GENERADOR DE DOCUMENTOS — CENTRAL CRS</div>
+      </div>
+      <button onclick="window.cerrarInformeConductor()" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.4);border-radius:8px;padding:8px 16px;font-weight:900;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">✕ CERRAR</button>
+    </div>
+
+    <!-- PANEL DE ACCESO / AUTENTICACIÓN -->
+    <div id="ic-panel-auth" style="background:rgba(15,23,42,0.9);border:1px solid rgba(253,186,116,0.3);border-radius:14px;padding:28px;text-align:center;margin-bottom:16px;">
+      <div style="font-size:40px;margin-bottom:12px;">🔐</div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:14px;color:#fdba74;font-weight:900;letter-spacing:2px;margin-bottom:6px;">ACCESO RESTRINGIDO</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:#94a3b8;margin-bottom:20px;">Ingrese su clave de autorización para acceder al módulo de informes</div>
+      <div style="display:flex;gap:10px;max-width:380px;margin:0 auto;">
+        <input id="ic-input-clave" type="password" placeholder="Clave de autorización..." autocomplete="off"
+          style="flex:1;background:rgba(15,23,42,0.8);border:1px solid rgba(253,186,116,0.4);border-radius:8px;padding:11px 14px;color:#f1f5f9;font-size:14px;font-family:'Inter',sans-serif;outline:none;"
+          onkeydown="if(event.key==='Enter')window._icVerificarAcceso()">
+        <button onclick="window._icVerificarAcceso()" style="background:#fdba74;color:#0f172a;border:none;border-radius:8px;padding:11px 20px;font-weight:900;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">🔓 INGRESAR</button>
+      </div>
+      <div id="ic-auth-error" style="display:none;margin-top:12px;color:#ef4444;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;">🔒 Clave incorrecta. Acceso denegado.</div>
+    </div>
+
+    <!-- PANEL PRINCIPAL (oculto hasta auth) -->
+    <div id="ic-panel-principal" style="display:none;">
+
+      <!-- VISTA: LISTA DE CATEGORÍAS (pantalla principal) -->
+      <div id="ic-vista-categorias">
+        <div style="background:rgba(15,23,42,0.9);border:1px solid rgba(34,197,94,0.25);border-radius:14px;padding:18px;margin-bottom:14px;">
+          <div style="font-family:'Orbitron',sans-serif;font-size:11px;color:#4ade80;font-weight:700;letter-spacing:2px;margin-bottom:14px;">📋 CATEGORÍAS DE INFORMES</div>
+          <div id="ic-categorias-grid" style="display:flex;flex-direction:column;gap:8px;"></div>
+        </div>
+      </div>
+
+      <!-- VISTA: INTERIOR DE UNA CATEGORÍA (se muestra al picar una) -->
+      <div id="ic-vista-cat-detalle" style="display:none;">
+        <!-- Botón volver + título dinámico -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <button onclick="window._icVolverCategorias()" style="background:rgba(30,41,59,0.9);color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px;transition:0.2s;" onmouseover="this.style.color='#f1f5f9';this.style.borderColor='rgba(248,250,252,0.5)'" onmouseout="this.style.color='#94a3b8';this.style.borderColor='rgba(148,163,184,0.3)'">
+            ← Volver
+          </button>
+          <div id="ic-cat-titulo-header" style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:#fdba74;letter-spacing:1px;"></div>
+        </div>
+        <!-- Contenido de la categoría -->
+        <div id="ic-cat-contenido"></div>
+      </div>
+
+      <!-- IDs legados que el JS puede seguir referenciando sin romper -->
+      <input id="ic-busqueda" type="text" style="display:none;">
+      <div id="ic-resultados-busqueda" style="display:none;"></div>
+      <div id="ic-tarjeta-movil" style="display:none;"><div id="ic-movil-titulo"></div><div id="ic-movil-detalle"></div><strong id="ic-operador-actual"></strong><div id="ic-movil-estado-badge"></div></div>
+      <div id="ic-panel-opciones" style="display:none;"></div>
+      <input id="ic-fecha-desde" type="date" style="display:none;">
+      <input id="ic-fecha-hasta" type="date" style="display:none;">
+      <div id="ic-area-resultados" style="display:none;"></div>
+
+    </div><!-- /ic-panel-principal -->
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   MÓDULO 4.3 — INFORMES SOCIOS - CONDUCTOR  (v4.0)
+   Calibri · Grilla horizontal · Cap editable/guardable · Todos los móviles
+════════════════════════════════════════════════════════════════════ */
+(function () {
+'use strict';
+
+var CAL = "'Calibri','Calibri Regular',Arial,sans-serif";
+
+/* ── Estado ────────────────────────────────────────────────────── */
+var _op      = null;
+var _tabAct  = {};
+
+/* ── Catálogo ──────────────────────────────────────────────────── */
+var CATS = [
+    { id:'servicios',      icon:'📋', label:'Historial de Servicios',    color:'#38bdf8' },
+    { id:'deudas',         icon:'💰', label:'Deudas y Cuotas',           color:'#f97316' },
+    { id:'castigos_pago',  icon:'🚫', label:'Castigos por No Pago',      color:'#ef4444' },
+    { id:'suspensiones',   icon:'⛔', label:'Suspensiones',              color:'#dc2626' },
+    { id:'faltas_reglam',  icon:'📜', label:'Faltas al Reglamento',      color:'#a855f7' },
+    { id:'quejas',         icon:'😤', label:'Quejas de Clientes',        color:'#f59e0b' },
+    { id:'pago_sindicato', icon:'🏦', label:'Pagos al Sindicato',        color:'#10b981' },
+    { id:'capitalizacion', icon:'💵', label:'Cuota de Capitalización',   color:'#06b6d4' },
+    { id:'negativos_fifo', icon:'🔴', label:'Negativos Asignados',       color:'#ef4444' },
+    { id:'adjudicaciones', icon:'⚡', label:'Adjudicaciones',            color:'#fbbf24' },
+    { id:'siniestros',     icon:'🚨', label:'Siniestros',                color:'#fca5a5' },
+    { id:'log_accesos',    icon:'🔐', label:'Log de Accesos al Sistema', color:'#6366f1' },
+    { id:'documentos',     icon:'📄', label:'Documentos Adjuntos',       color:'#94a3b8' },
+    { id:'otros',          icon:'📌', label:'Otros',                     color:'#64748b' },
+    { id:'resumen',        icon:'📊', label:'Resumen General',           color:'#4ade80' }
+];
+
+/* ══════════════════════════════════════════════════════════════
+   ABRIR / CERRAR
+══════════════════════════════════════════════════════════════ */
+window.abrirInformeConductor = function () {
+    _op = sessionStorage.getItem('elite_operador') || 'OPERADOR';
+    var m = document.getElementById('modal-informe-conductor');
+    if (!m) return;
+    m.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    _show('ic-panel-auth'); _hide('ic-panel-principal');
+    var inp = document.getElementById('ic-input-clave');
+    if (inp) inp.value = '';
+    _hide('ic-auth-error');
+};
+window.cerrarInformeConductor = function () {
+    var m = document.getElementById('modal-informe-conductor');
+    if (m) m.style.display = 'none';
+    document.body.style.overflow = '';
+};
+
+/* ══════════════════════════════════════════════════════════════
+   AUTH
+══════════════════════════════════════════════════════════════ */
+window._icVerificarAcceso = function () {
+    var inp = document.getElementById('ic-input-clave');
+    if (!inp || !inp.value.trim()) return;
+    if (inp.value.trim().toLowerCase() === 'ruso') {
+        _hide('ic-panel-auth'); _show('ic-panel-principal');
+        _vistaLista();
+        if (window.crsDB) window.crsDB.audit('INFORME_CONDUCTOR','ACCESO_MODULO',_op,null,{modulo:'4.3'},'OK');
+    } else {
+        _show('ic-auth-error'); inp.value = ''; inp.focus();
+        if (window.crsDB) window.crsDB.audit('INFORME_CONDUCTOR','ACCESO_FALLIDO',_op,null,{},'Fallido');
+    }
+};
+
+/* ══════════════════════════════════════════════════════════════
+   VISTA LISTA — GRILLA HORIZONTAL
+══════════════════════════════════════════════════════════════ */
+function _vistaLista() {
+    _show('ic-vista-categorias'); _hide('ic-vista-cat-detalle');
+    var cont = document.getElementById('ic-categorias-grid');
+    if (!cont) return;
+
+    /* ── Definición de los 3 grupos ── */
+    var GRUPOS = [
+        {
+            /* Hero: barra de crecimiento + monedas */
+            hero: '<div style="font-size:66px;line-height:1;display:inline-block;position:relative;">'
+                + '<span>📈</span>'
+                + '<span style="font-size:54px;position:absolute;bottom:-8px;right:-18px;">💰</span>'
+                + '</div>',
+            titulo: 'RENDIMIENTO Y PAGOS',
+            cols: 'cols2',
+            items: [
+                { id:'resumen',       icon:'📈', label:'Resumen General' },
+                { id:'pago_sindicato',icon:'🏦', label:'Pagos al Sindicato' },
+                { id:'deudas',        icon:'💰', label:'Historial de Pagos y Comisiones' },
+                { id:'capitalizacion',icon:'💵', label:'Cuota de Capitalización' }
+            ]
+        },
+        {
+            /* Hero: señal STOP + gorro policía + mazo */
+            hero: '<div style="font-size:58px;line-height:1;display:inline-flex;align-items:flex-end;gap:2px;">'
+                + '<span>🛑</span>'
+                + '<span style="font-size:46px;margin-bottom:2px;">👮</span>'
+                + '<span style="font-size:42px;margin-bottom:-2px;">⚖️</span>'
+                + '</div>',
+            titulo: 'NORMATIVA Y SANCIONES',
+            cols: 'cols2',
+            items: [
+                { id:'castigos_pago', icon:'🔒', label:'Castigos por No Pago' },
+                { id:'negativos_fifo',icon:'🔴', label:'Negativos Asignados' },
+                { id:'suspensiones',  icon:'⛔', label:'Suspensiones' },
+                { id:'faltas_reglam', icon:'📜', label:'Faltas al Reglamento' }
+            ]
+        },
+        {
+            /* Hero: aro salvavidas + llave */
+            hero: '<div style="font-size:62px;line-height:1;display:inline-flex;align-items:center;gap:4px;">'
+                + '<span>🛟</span>'
+                + '<span style="font-size:50px;">🔧</span>'
+                + '</div>',
+            titulo: 'SOPORTE Y GESTIÓN',
+            cols: 'cols3',
+            items: [
+                { id:'servicios',    icon:'📅', label:'Historial de Servicios' },
+                { id:'quejas',       icon:'😤', label:'Quejas de Clientes' },
+                { id:'documentos',   icon:'📄', label:'Documentos Adjuntos' },
+                { id:'adjudicaciones',icon:'⚡', label:'Adjudicaciones' },
+                { id:'siniestros',   icon:'🚨', label:'Siniest. de Accesos' },
+                { id:'otros',        icon:'📌', label:'Otros' }
+            ]
+        }
+    ];
+
+    cont.innerHTML = GRUPOS.map(function (g) {
+        var itemsHtml = g.items.map(function (it) {
+            return '<div class="ic-grupo-item" onclick="window._icAbrirCat(\'' + it.id + '\')">'
+                + '<span class="ic-grupo-item-icon">' + it.icon + '</span>'
+                + '<span class="ic-grupo-item-label">' + it.label + '</span>'
+                + '</div>';
+        }).join('');
+
+        return '<div class="ic-grupo-card">'
+            + '<div class="ic-grupo-hero">' + g.hero + '</div>'
+            + '<div class="ic-grupo-titulo">' + g.titulo + '</div>'
+            + '<div class="ic-grupo-items ' + g.cols + '">' + itemsHtml + '</div>'
+            + '</div>';
+    }).join('');
+}
+window._icVolverCategorias = _vistaLista;
+window._icCerrarTodosSubmenus = _vistaLista;
+
+/* ══════════════════════════════════════════════════════════════
+   ABRIR CATEGORÍA
+══════════════════════════════════════════════════════════════ */
+window._icAbrirCat = function (catId) {
+    var cat = CATS.find(function(c){return c.id===catId;});
+    if (!cat) return;
+    if (!_tabAct[catId]) _tabAct[catId] = 'movil';
+    _hide('ic-vista-categorias'); _show('ic-vista-cat-detalle');
+    var tit = document.getElementById('ic-cat-titulo-header');
+    if (tit) tit.innerHTML = '<span style="font-size:20px;">' + cat.icon + '</span>'
+        + '<span style="color:' + cat.color + ';font-family:' + CAL + ';font-weight:700;font-size:15px;letter-spacing:1px;margin-left:8px;">'
+        + cat.label.toUpperCase() + '</span>';
+    _renderDetalle(cat);
+};
+
+/* ══════════════════════════════════════════════════════════════
+   RENDER DETALLE — TABS + PANELES
+══════════════════════════════════════════════════════════════ */
+function _renderDetalle(cat) {
+    var cont = document.getElementById('ic-cat-contenido');
+    if (!cont) return;
+    var tabNow = _tabAct[cat.id] || 'movil';
+    var h = '';
+
+    /* ── Tabs ── */
+    h += '<div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">';
+    [{k:'movil',l:'🔍 Búsqueda por Móvil'},{k:'todos',l:'🚌 Todos los Móviles'}].forEach(function(t){
+        var a = t.k === tabNow;
+        h += '<button id="ictab-'+cat.id+'-'+t.k+'" onclick="window._icSwTab(\''+cat.id+'\',\''+t.k+'\')"'
+            +' style="padding:9px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;'
+            +'font-family:'+CAL+';transition:0.18s;border:1px solid;'
+            +(a?'background:rgba(253,186,116,0.18);color:#fdba74;border-color:rgba(253,186,116,0.5);'
+                :'background:rgba(30,41,59,0.8);color:#94a3b8;border-color:rgba(255,255,255,0.1);')
+            +'">'+t.l+'</button>';
+    });
+    h += '</div>';
+
+    /* ── Paneles ── */
+    ['movil','todos'].forEach(function(t){
+        var vis = t === tabNow;
+        var px  = 'ic-'+cat.id+'-'+t;
+        h += '<div id="icpanel-'+cat.id+'-'+t+'" style="display:'+(vis?'block':'none')+';">';
+
+        /* Buscador (solo tab movil) */
+        if (t === 'movil') {
+            h += '<div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:14px;margin-bottom:12px;">'
+                +'<div style="font-size:10px;color:#38bdf8;font-weight:700;letter-spacing:2px;margin-bottom:10px;font-family:'+CAL+';">🚌 SELECCIONAR MÓVIL</div>'
+                +'<div style="display:flex;gap:8px;flex-wrap:wrap;">'
+                +'<input id="'+px+'-busq" type="text" placeholder="N° móvil, PPU o conductor..."'
+                +' oninput="window._icBusqCat(\''+cat.id+'\',\''+t+'\',this.value)"'
+                +' style="flex:1;min-width:180px;background:rgba(15,23,42,0.8);border:1px solid rgba(56,189,248,0.3);border-radius:7px;padding:9px 12px;color:#f1f5f9;font-size:13px;font-family:'+CAL+';outline:none;"></div>'
+                +'<div id="'+px+'-res-busq" style="margin-top:8px;max-height:160px;overflow-y:auto;"></div>'
+                +'<div id="'+px+'-badge" style="display:none;margin-top:8px;background:rgba(253,186,116,0.1);border:1px solid rgba(253,186,116,0.3);border-radius:7px;padding:8px 12px;font-size:12px;color:#fdba74;font-weight:700;font-family:'+CAL+';"></div>'
+                +'</div>';
+        }
+
+        /* Rango fechas (no para capitalización) */
+        if (cat.id !== 'capitalizacion') {
+            h += '<div style="background:rgba(15,23,42,0.85);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:14px;margin-bottom:12px;">'
+                +'<div style="font-size:10px;color:#818cf8;font-weight:700;letter-spacing:2px;margin-bottom:10px;font-family:'+CAL+';">📅 RANGO DE FECHAS</div>'
+                +'<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">'
+                +'<div style="display:flex;flex-direction:column;gap:3px;">'
+                +'<label style="font-size:9px;color:#64748b;font-weight:600;font-family:'+CAL+';">DESDE</label>'
+                +'<input id="'+px+'-desde" type="date" style="background:rgba(15,23,42,0.8);border:1px solid rgba(99,102,241,0.35);border-radius:6px;padding:7px 10px;color:#f1f5f9;font-size:12px;font-family:'+CAL+';outline:none;"></div>'
+                +'<div style="display:flex;flex-direction:column;gap:3px;">'
+                +'<label style="font-size:9px;color:#64748b;font-weight:600;font-family:'+CAL+';">HASTA</label>'
+                +'<input id="'+px+'-hasta" type="date" style="background:rgba(15,23,42,0.8);border:1px solid rgba(99,102,241,0.35);border-radius:6px;padding:7px 10px;color:#f1f5f9;font-size:12px;font-family:'+CAL+';outline:none;"></div>'
+                +'<div style="display:flex;gap:5px;flex-wrap:wrap;">'
+                +['30d|30','90d|90','Año|365','Todo|0'].map(function(x){var p=x.split('|');return '<button onclick="window._icRangoLocal(\''+px+'\','+p[1]+')" style="background:rgba(99,102,241,0.12);color:#818cf8;border:1px solid rgba(99,102,241,0.3);border-radius:5px;padding:6px 9px;font-size:10px;font-weight:700;cursor:pointer;font-family:'+CAL+';">'+p[0]+'</button>';}).join('')
+                +'</div></div></div>';
+        }
+
+        /* Botones acción */
+        if (cat.id === 'capitalizacion') {
+            h += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">'
+                +'<button onclick="window._icCapGuardar(\''+t+'\')" style="background:linear-gradient(135deg,#06b6d4,#0284c7);color:#fff;border:none;border-radius:8px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">💾 GUARDAR</button>'
+                +'<button onclick="window._icCapReset(\''+t+'\')" style="background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">↺ RESET</button>'
+                +'<button onclick="window._icGenCat(\'capitalizacion\',\''+t+'\')" style="background:linear-gradient(135deg,#fdba74,#f97316);color:#0f172a;border:none;border-radius:8px;padding:10px 14px;font-weight:900;font-size:12px;cursor:pointer;font-family:'+CAL+';">📊 GENERAR INFORME</button>'
+                +'<button onclick="window._icGenCatPDF(\'capitalizacion\',\''+t+'\')" style="background:rgba(59,130,246,0.15);color:#3b82f6;border:1px solid rgba(59,130,246,0.4);border-radius:8px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">🖨️ PDF</button>'
+                +'<button onclick="window._icGenCatExcel(\'capitalizacion\',\''+t+'\')" style="background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.4);border-radius:8px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">📊 EXCEL</button>'
+                +'</div>';
+        } else {
+            h += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">'
+                +'<button onclick="window._icGenCat(\''+cat.id+'\',\''+t+'\')" style="flex:1;min-width:130px;background:linear-gradient(135deg,#fdba74,#f97316);color:#0f172a;border:none;border-radius:8px;padding:11px 14px;font-weight:900;font-size:12px;cursor:pointer;font-family:'+CAL+';">📊 GENERAR INFORME</button>'
+                +'<button onclick="window._icGenCatPDF(\''+cat.id+'\',\''+t+'\')" style="background:rgba(59,130,246,0.15);color:#3b82f6;border:1px solid rgba(59,130,246,0.4);border-radius:8px;padding:11px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">🖨️ PDF</button>'
+                +'<button onclick="window._icGenCatExcel(\''+cat.id+'\',\''+t+'\')" style="background:rgba(34,197,94,0.15);color:#4ade80;border:1px solid rgba(34,197,94,0.4);border-radius:8px;padding:11px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:'+CAL+';">📊 EXCEL</button>'
+                +'</div>';
+        }
+
+        /* Resultado */
+        h += '<div id="'+px+'-resultado" style="margin-top:4px;"></div>';
+        h += '</div>';/* /panel */
+    });
+
+    cont.innerHTML = h;
+    _icRangoLocal('ic-'+cat.id+'-movil', 90);
+    _icRangoLocal('ic-'+cat.id+'-todos', 90);
+
+    /* Si capitalización: renderizar planilla directamente */
+    if (cat.id === 'capitalizacion') {
+        var mvRes = document.getElementById('ic-capitalizacion-movil-resultado');
+        var tdRes = document.getElementById('ic-capitalizacion-todos-resultado');
+        if (mvRes) mvRes.innerHTML = _capPlanilla('movil', null);
+        if (tdRes) tdRes.innerHTML = _capTodos();
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SWITCH TAB
+══════════════════════════════════════════════════════════════ */
+window._icSwTab = function (catId, tab) {
+    _tabAct[catId] = tab;
+    ['movil','todos'].forEach(function(t){
+        var p = document.getElementById('icpanel-'+catId+'-'+t);
+        var b = document.getElementById('ictab-'+catId+'-'+t);
+        if (p) p.style.display = t===tab?'block':'none';
+        if (b) {
+            b.style.background  = t===tab?'rgba(253,186,116,0.18)':'rgba(30,41,59,0.8)';
+            b.style.color       = t===tab?'#fdba74':'#94a3b8';
+            b.style.borderColor = t===tab?'rgba(253,186,116,0.5)':'rgba(255,255,255,0.1)';
+        }
+    });
+};
+
+/* ══════════════════════════════════════════════════════════════
+   BUSCADOR
+══════════════════════════════════════════════════════════════ */
+window._icBusqCat = function (catId, tab, q) {
+    var px = 'ic-'+catId+'-'+tab;
+    var rc = document.getElementById(px+'-res-busq');
+    if (!rc) return;
+    q = (q||'').trim().toLowerCase();
+    if (!q) { rc.innerHTML=''; return; }
+    var src = [], ppMap = {};
+    if (window._ppMoviles && Array.isArray(window._ppMoviles))
+        window._ppMoviles.forEach(function(m){ ppMap[String(m.movil||m.numero||0)] = m.estado||'disponible'; });
+    if (window._crsCondutoresData && Array.isArray(window._crsCondutoresData))
+        src = window._crsCondutoresData.map(function(m){ return {movil:m.movil||0,ppu:m.ppu||'—',conductor:m.conductores||m.conductor||'—',dueno:m.dueno||'—',estado:ppMap[String(m.movil||0)]||'disponible'}; });
+    else if (window._ppMoviles && Array.isArray(window._ppMoviles))
+        src = window._ppMoviles.map(function(m){ return {movil:m.movil||m.numero||0,ppu:m.ppu||'—',conductor:m.conductores||m.conductor||'—',dueno:m.dueno||'—',estado:m.estado||'disponible'}; });
+    var res = src.filter(function(r){ return String(r.movil).includes(q)||(r.ppu||'').toLowerCase().includes(q)||(r.conductor||'').toLowerCase().includes(q); }).slice(0,10);
+    if (!res.length) { rc.innerHTML='<div style="font-size:11px;color:#64748b;padding:6px;font-family:'+CAL+';">Sin resultados</div>'; return; }
+    rc.innerHTML = res.map(function(r){
+        var ec = r.estado==='nodisponible'?'#ef4444':'#4ade80';
+        return '<div onclick="window._icSelMovilCat(\''+catId+'\',\''+tab+'\','+r.movil+')"'
+            +' style="cursor:pointer;padding:8px 10px;border-radius:7px;border:1px solid rgba(56,189,248,0.15);margin-bottom:4px;background:rgba(15,23,42,0.7);display:flex;justify-content:space-between;align-items:center;"'
+            +' onmouseover="this.style.background=\'rgba(56,189,248,0.08)\'" onmouseout="this.style.background=\'rgba(15,23,42,0.7)\'">'
+            +'<div><span style="font-size:12px;font-weight:900;color:#fdba74;font-family:'+CAL+';">N°'+r.movil+'</span>'
+            +' <span style="font-size:10px;color:#94a3b8;font-family:'+CAL+';">'+r.ppu+'</span>'
+            +'<div style="font-size:11px;color:#e2e8f0;margin-top:2px;font-family:'+CAL+';">'+r.conductor+'</div></div>'
+            +'<span style="font-size:9px;font-weight:700;color:'+ec+';background:rgba(0,0,0,0.3);border-radius:4px;padding:2px 6px;font-family:'+CAL+';">'+r.estado.toUpperCase()+'</span>'
+            +'</div>';
+    }).join('');
+};
+
+window._icSelMovilCat = function (catId, tab, numMovil) {
+    var px  = 'ic-'+catId+'-'+tab;
+    var b   = document.getElementById(px+'-badge');
+    var rc  = document.getElementById(px+'-res-busq');
+    var bi  = document.getElementById(px+'-busq');
+    var m   = null;
+    if (window._ppMoviles) m = window._ppMoviles.find(function(x){ return (x.movil||x.numero)==numMovil; });
+    if (!m && window._crsCondutoresData) { var bx=window._crsCondutoresData.find(function(x){return x.movil==numMovil;}); if(bx) m={movil:bx.movil,ppu:bx.ppu,conductores:bx.conductores,dueno:bx.dueno,estado:'disponible'}; }
+    if (!m) m={movil:numMovil,ppu:'—',conductores:'—',dueno:'—',estado:'—'};
+    window['_sel_'+px] = m;
+    if (bi)  bi.value='';
+    if (rc)  rc.innerHTML='';
+    if (b) { b.style.display='block'; b.innerHTML='🚌 Móvil N°'+m.movil+' — '+m.ppu+' <span style="color:#94a3b8;font-weight:400;">| '+(m.conductores||'—')+'</span> <span onclick="window[\'_sel_'+px+'\']=null;this.parentNode.style.display=\'none\'" style="margin-left:10px;cursor:pointer;color:#ef4444;">✕</span>'; }
+    /* Si es capitalización, re-renderizar planilla para ese móvil */
+    if (catId==='capitalizacion') {
+        var res = document.getElementById(px+'-resultado');
+        if (res) res.innerHTML = _capPlanilla('movil', m);
+    }
+};
+
+/* ══════════════════════════════════════════════════════════════
+   RANGO FECHAS
+══════════════════════════════════════════════════════════════ */
+function _icRangoLocal(prefix, dias) {
+    var hasta=new Date(), desde=new Date();
+    if (dias>0) desde.setDate(desde.getDate()-dias); else desde=new Date('2020-01-01');
+    var fmt=function(d){return d.toISOString().split('T')[0];};
+    var df=document.getElementById(prefix+'-desde'), dh=document.getElementById(prefix+'-hasta');
+    if (df) df.value=fmt(desde); if (dh) dh.value=fmt(hasta);
+}
+window._icRangoLocal = _icRangoLocal;
+window._icSetRangoLocal = _icRangoLocal;
+window._icSetRango = function(d){ _icRangoLocal('',d); };
+
+/* ══════════════════════════════════════════════════════════════
+   CAPITALIZACIÓN v6
+   • Autorización "RUSO" al guardar + log de cambios
+   • Badge "al día" con PPU + fecha de capitalización
+   • Todos los móviles: cálculo basado en años REALES de cada móvil
+══════════════════════════════════════════════════════════════ */
+var MESES    = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+var MES_HOY  = new Date().getMonth();
+
+/* ── Persistencia ────────────────────────────────────────────── */
+function _capKey(mov)       { return 'cap_data_'+(mov||'todos'); }
+function _capKeyYears(mov)  { return 'cap_years_'+(mov||'todos'); }
+function _capKeyLog(mov)    { return 'cap_log_'+(mov||'todos'); }
+
+function _capLoad(mov) {
+    try { var s=localStorage.getItem(_capKey(mov)); return s?JSON.parse(s):{pagos:{}}; }
+    catch(e){ return {pagos:{}}; }
+}
+function _capSave(mov, data) {
+    try { localStorage.setItem(_capKey(mov), JSON.stringify(data)); } catch(e){}
+}
+function _capLoadYears(mov) {
+    try {
+        var s=localStorage.getItem(_capKeyYears(mov));
+        if (s) return JSON.parse(s);
+    } catch(e){}
+    var yrs=[], yr=new Date().getFullYear();
+    for (var y=2020;y<=yr;y++) yrs.push(y);
+    return yrs;
+}
+function _capSaveYears(mov, years) {
+    try { localStorage.setItem(_capKeyYears(mov), JSON.stringify(years)); } catch(e){}
+}
+function _capLoadLog(mov) {
+    try { var s=localStorage.getItem(_capKeyLog(mov)); return s?JSON.parse(s):[]; }
+    catch(e){ return []; }
+}
+function _capSaveLog(mov, log) {
+    try { localStorage.setItem(_capKeyLog(mov), JSON.stringify(log.slice(-50))); } catch(e){}
+}
+function _capLogEntry(mov, operador, detalle) {
+    var now=new Date();
+    var pad=function(n){return String(n).padStart(2,'0');};
+    var fecha=pad(now.getDate())+'-'+pad(now.getMonth()+1)+'-'+now.getFullYear();
+    var hora=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds())
+            +' '+(now.getHours()<12?'a.m.':'p.m.');
+    var entry={ movil:mov||'todos', operador:operador, fecha:fecha, hora:hora, detalle:detalle };
+    var log=_capLoadLog(mov); log.push(entry); _capSaveLog(mov,log);
+    /* También en crsDB si disponible */
+    if(window.crsDB) window.crsDB.audit('CAP_CAPITALIZACION','MODIFICACION_GUARDADA',
+        operador,null,{movil:mov,detalle:detalle},'Guardado autorizado módulo 4.3');
+    return entry;
+}
+
+/* ── Formato $20.000 ─────────────────────────────────────────── */
+function _fmtPeso(v) { return '$'+Math.round(v).toLocaleString('es-CL'); }
+
+/* ── Cuota base ──────────────────────────────────────────────── */
+function _capCuotaBase(year, mi) {
+    if (year===2020) return mi<=2 ? 20000 : 0;
+    return 100000;
+}
+
+/* ── Calcular totales de un móvil con sus años reales ────────── */
+function _capCalcularTotales(movil) {
+    var data   = _capLoad(movil);
+    var years  = _capLoadYears(movil);
+    var AFIN   = new Date().getFullYear();
+    var totalPag=0, totalDeuda=0, totalEsp=0;
+    years.forEach(function(yr){
+        for (var mi=0;mi<12;mi++){
+            var esp=_capCuotaBase(yr,mi);
+            if (esp===0) return;
+            var futuro=(yr===AFIN && mi>MES_HOY);
+            if (!futuro){
+                totalEsp+=esp;
+                var stored=data.pagos[yr+'-'+mi]!==undefined?data.pagos[yr+'-'+mi]:esp;
+                totalPag+=stored;
+                totalDeuda+=Math.max(0,esp-stored);
+            }
+        }
+    });
+    return { totalPag:totalPag, totalDeuda:totalDeuda, totalEsp:totalEsp };
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AUTORIZACIÓN AL GUARDAR
+══════════════════════════════════════════════════════════════ */
+var _capPendingSaveFn = null;
+
+window._capSolicitarAuth = function(fn) {
+    _capPendingSaveFn = fn;
+    var ov = document.getElementById('cap-auth-overlay');
+    var inp= document.getElementById('cap-auth-input');
+    var err= document.getElementById('cap-auth-err');
+    if (ov)  { ov.style.display='flex'; ov.classList.add('visible'); }
+    if (inp) { inp.value=''; setTimeout(function(){inp.focus();},80); }
+    if (err) err.style.display='none';
+};
+
+window._capConfirmarAuth = function() {
+    var inp = document.getElementById('cap-auth-input');
+    var err = document.getElementById('cap-auth-err');
+    var clave = inp ? inp.value.trim().toLowerCase() : '';
+    if (clave==='ruso') {
+        var ov=document.getElementById('cap-auth-overlay');
+        if (ov){ ov.style.display='none'; ov.classList.remove('visible'); }
+        if (_capPendingSaveFn) { _capPendingSaveFn(); _capPendingSaveFn=null; }
+    } else {
+        if (err) err.style.display='block';
+        if (inp) { inp.value=''; inp.focus(); }
+    }
+};
+
+window._capCancelarAuth = function() {
+    var ov=document.getElementById('cap-auth-overlay');
+    if (ov){ ov.style.display='none'; ov.classList.remove('visible'); }
+    _capPendingSaveFn=null;
+    _capFlash('⚠ Guardado cancelado');
+};
+
+/* ══════════════════════════════════════════════════════════════
+   RENDER PLANILLA INDIVIDUAL
+══════════════════════════════════════════════════════════════ */
+function _capPlanilla(modo, movilObj) {
+    var movil  = movilObj ? (movilObj.movil||movilObj.numero) : null;
+    var ppu    = movilObj ? (movilObj.ppu||'—') : '—';
+    var data   = _capLoad(movil);
+    var years  = _capLoadYears(movil);
+    var tblId  = 'cap-tbl-'+(movil||'solo');
+    var AFIN   = new Date().getFullYear();
+
+    var titulo = movilObj
+        ? '💵 PLANILLA DE CAPITALIZACIÓN — MÓVIL N°'+movil
+          +' &nbsp;<span style="font-size:14px;color:#94a3b8;font-weight:400;">'+ppu
+          +' &nbsp;·&nbsp; '+(movilObj.conductores||movilObj.conductor||'—')+'</span>'
+        : '💵 PLANILLA DE CAPITALIZACIÓN — <span style="color:#64748b;">Seleccione un móvil con el buscador</span>';
+
+    var html =
+        '<div style="font-size:16px;color:#06b6d4;font-weight:700;margin-bottom:8px;">'+titulo+'</div>'
+       +'<div style="font-size:13px;color:#94a3b8;margin-bottom:14px;">'
+       +'Pago inicial 2020: $60.000 en 3 cuotas de $20.000 (ENE–MAR) &nbsp;·&nbsp; '
+       +'Desde 2021: $100.000/mes &nbsp;·&nbsp; '
+       +'<span style="color:#06b6d4;">Celdas editables — botones ＋/－ o escriba directamente</span></div>'
+       +'<div style="overflow-x:auto;">'
+       +'<table id="'+tblId+'" class="cap-tbl">'
+       +'<thead><tr style="background:rgba(6,182,212,0.1);">'
+       +'<th class="col-anio" style="color:#06b6d4;text-align:left;padding-left:10px;min-width:90px;">AÑO</th>';
+    MESES.forEach(function(m){ html+='<th style="color:#06b6d4;min-width:94px;">'+m+'</th>'; });
+    html+='<th class="col-total">TOTAL PAGADO</th>'
+         +'<th class="col-deuda">DEUDA ACUM.</th>'
+         +'<th style="color:#4ade80;font-size:12px;text-align:center;min-width:100px;">ESTADO</th>'
+         +'<th style="color:#475569;width:32px;"></th>'
+         +'</tr></thead>'
+         +'<tbody id="'+tblId+'-tbody">';
+
+    var deudaAcum = 0;
+    years.forEach(function(yr){
+        var rowData = _capFilaData(yr, movil, data, AFIN);
+        deudaAcum  += rowData.deudaAnio;
+        html += _capFilaHTML(yr, movil, ppu, data, tblId, deudaAcum, AFIN, rowData);
+    });
+
+    html += '</tbody></table></div>';
+    html += '<button class="cap-add-year-btn" onclick="window._capAgregarAnio(\''+movil+'\',\''+tblId+'\',\''+ppu+'\')">＋ Agregar Año</button>';
+    html += '<div class="cap-leyenda">'
+          + '<span style="color:#4ade80;">🟩 Pagado completo</span>'
+          + '<span style="color:#fbbf24;">🟨 Pago parcial</span>'
+          + '<span style="color:#f97316;">🟧 Pendiente</span>'
+          + '<span>⬜ Sin cuota / Futuro</span></div>';
+
+    /* Log de cambios */
+    var log = _capLoadLog(movil);
+    if (log.length) {
+        html += '<div style="margin-top:18px;background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:14px;">'
+              + '<div style="font-size:13px;color:#818cf8;font-weight:700;margin-bottom:8px;">📝 REGISTRO DE CAMBIOS</div>';
+        log.slice().reverse().slice(0,5).forEach(function(e){
+            html += '<div style="font-size:12px;color:#94a3b8;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);">'
+                  + '✏️ <strong style="color:#e2e8f0;">'+e.operador+'</strong>'
+                  + ' &nbsp;·&nbsp; '+e.fecha+' '+e.hora
+                  + (e.detalle?' &nbsp;<span style="color:#64748b;">'+e.detalle+'</span>':'')
+                  + '</div>';
+        });
+        html += '</div>';
+    }
+    return html;
+}
+
+/* ── Calcular datos de una fila ──────────────────────────────── */
+function _capFilaData(yr, movil, data, AFIN) {
+    var totalPag=0, totalEsp=0;
+    for (var mi=0;mi<12;mi++){
+        var esp=_capCuotaBase(yr,mi);
+        if (esp===0) continue;
+        var futuro=(yr===AFIN && mi>MES_HOY);
+        if (!futuro){
+            totalEsp+=esp;
+            var stored=data.pagos[yr+'-'+mi]!==undefined?data.pagos[yr+'-'+mi]:esp;
+            totalPag+=stored;
+        }
+    }
+    return { totalPag:totalPag, totalEsp:totalEsp, deudaAnio:Math.max(0,totalEsp-totalPag) };
+}
+
+/* ── Generar HTML de una fila de año ────────────────────────── */
+function _capFilaHTML(yr, movil, ppu, data, tblId, deudaAcumTotal, AFIN, rowData) {
+    var html = '<tr id="caprow-'+tblId+'-'+yr+'" style="border-bottom:1px solid rgba(255,255,255,0.05);">';
+
+    /* Celda año */
+    html += '<td style="padding:4px 4px 4px 6px;">'
+          + '<div class="cap-anio-cell">'
+          + '<span class="cap-anio-num">'+yr+'</span>'
+          + '<button class="cap-anio-del" onclick="window._capEliminarAnio(\''+movil+'\',\''+tblId+'\','+yr+')" title="Eliminar año '+yr+'">×</button>'
+          + '</div></td>';
+
+    for (var mi=0;mi<12;mi++){
+        var esp    = _capCuotaBase(yr,mi);
+        var futuro = (yr===AFIN && mi>MES_HOY);
+        var key    = yr+'-'+mi;
+        if (futuro) {
+            html += '<td class="cap-cell-dash">—</td>';
+        } else if (esp===0) {
+            html += '<td class="cap-cell-dash">–</td>';
+        } else {
+            var stored  = data.pagos[key]!==undefined ? data.pagos[key] : esp;
+            var cls     = stored===0?'vacio':(stored<esp?'parcial':'');
+            var display = stored>0 ? _fmtPeso(stored) : '';
+            html += '<td style="padding:3px 2px;text-align:center;">'
+                  + '<div class="cap-mes-wrap">'
+                  + '<div class="cap-mes-btns">'
+                  + '<button class="cap-btn-pm" onclick="window._capPM(this,-10000)" title="−$10.000">－</button>'
+                  + '<button class="cap-btn-pm" onclick="window._capPM(this,10000)"  title="+$10.000">＋</button>'
+                  + '</div>'
+                  + '<input type="text" class="cap-cell-input '+cls
+                  + '" data-key="'+key+'" data-esp="'+esp+'" data-movil="'+(movil||'')
+                  + '" value="'+display+'"'
+                  + ' title="Esperado: '+_fmtPeso(esp)+'"'
+                  + ' onblur="window._capCellBlur(this)"'
+                  + ' onkeydown="if(event.key===\'Enter\')this.blur();">'
+                  + '</div></td>';
+        }
+    }
+
+    /* Totales fila */
+    var aldiaAnio = (rowData.totalEsp>0 && rowData.deudaAnio===0);
+    html += '<td class="cap-cell-total" style="color:#4ade80;">'+_fmtPeso(rowData.totalPag)+'</td>';
+    html += '<td class="cap-cell-total" style="color:'+(deudaAcumTotal>0?'#f97316':'#4ade80')+';">'+_fmtPeso(deudaAcumTotal)+'</td>';
+
+    /* Estado "al día" por año */
+    if (aldiaAnio && rowData.totalPag>0) {
+        /* Fecha de capitalización: custom guardada > última del log > hoy */
+        var custom   = _capAldiaLoadCustom(movil, yr);
+        var fechaCap = custom.fecha || _capUltimaFechaCap(movil) || _hoy();
+        var ppuCap   = custom.ppu   || ppu || '—';
+        var tooltip  = '✅ Cuota Capitalización al día\nPPU: '+ppuCap+'\nFecha: '+fechaCap;
+        html += '<td class="cap-estado-col">'
+              + '<span class="cap-aldia-badge" title="'+tooltip+'">'
+              + '✅ Al día</span></td>';
+    } else {
+        html += '<td class="cap-estado-col"><span style="font-size:12px;color:#f97316;">⏳ Pendiente</span></td>';
+    }
+    html += '<td></td></tr>';
+
+    /* Fila de detalle "al día" visible expandida — triple-click para editar */
+    if (aldiaAnio && rowData.totalPag>0) {
+        var custom2   = _capAldiaLoadCustom(movil, yr);
+        var fechaCap2 = custom2.fecha || _capUltimaFechaCap(movil) || _hoy();
+        var ppuCap2   = custom2.ppu   || ppu || '—';
+        var rowAldiaId = 'caprow-aldia-'+tblId+'-'+yr;
+        var infoId     = 'cap-aldia-info-'+tblId+'-'+yr;
+
+        html += '<tr id="'+rowAldiaId+'">'
+              + '<td colspan="16" style="padding:0;">'
+              + '<div id="'+infoId+'" '
+              +   'onclick="window._capTripleClick(\''+infoId+'\',\''+String(movil)+'\','+yr+',\''+ppuCap2+'\',\''+fechaCap2+'\')"'
+              +   ' style="margin:0 10px 6px 10px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.35);'
+              +   'border-radius:8px;padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;cursor:pointer;"'
+              +   ' title="Triple-clic para editar PPU y Fecha">'
+              + '<span style="font-size:22px;">✅</span>'
+              + '<div style="font-size:14px;font-weight:700;color:#4ade80;flex:1;">'
+              + 'Cuota Capitalización al día'
+              + ' &nbsp;<span style="color:#94a3b8;font-weight:400;">—</span>&nbsp; '
+              + '<span id="'+infoId+'-ppu" style="color:#fdba74;">PPU: '+ppuCap2+'</span>'
+              + ' &nbsp;·&nbsp; '
+              + '<span id="'+infoId+'-fecha" style="color:#38bdf8;">Fecha: '+fechaCap2+'</span>'
+              + '</div>'
+              + '<span style="font-size:10px;color:#334155;font-style:italic;flex-shrink:0;">3× para editar</span>'
+              + '</div>'
+              /* Mini-ventana de edición (oculta por defecto) */
+              + '<div id="'+infoId+'-edit" style="display:none;margin:0 10px 8px 10px;background:rgba(10,20,45,0.97);'
+              +   'border:2px solid rgba(6,182,212,0.45);border-radius:10px;padding:16px 18px;">'
+              /* Paso 1 — clave */
+              + '<div id="'+infoId+'-step1">'
+              +   '<div style="font-size:13px;color:#06b6d4;font-weight:700;margin-bottom:10px;">🔐 Ingrese clave para editar</div>'
+              +   '<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">'
+              +     '<input id="'+infoId+'-clave" type="password" placeholder="Clave..."'
+              +       ' onkeydown="if(event.key===\'Enter\')window._capAldiaVerClave(\''+infoId+'\')"'
+              +       ' style="background:rgba(15,23,42,0.9);border:1px solid rgba(6,182,212,0.4);border-radius:7px;padding:9px 13px;color:#f1f5f9;font-size:14px;font-family:Calibri,Arial,sans-serif;outline:none;width:180px;">'
+              +     '<button onclick="window._capAldiaVerClave(\''+infoId+'\')" style="background:rgba(6,182,212,0.2);color:#06b6d4;border:1px solid rgba(6,182,212,0.4);border-radius:7px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:Calibri,Arial,sans-serif;">Acceder</button>'
+              +     '<button onclick="window._capAldiaOcultarEdit(\''+infoId+'\')" style="background:rgba(30,41,59,0.8);color:#64748b;border:1px solid rgba(255,255,255,0.08);border-radius:7px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Calibri,Arial,sans-serif;">✕</button>'
+              +   '</div>'
+              +   '<div id="'+infoId+'-clave-err" style="display:none;color:#ef4444;font-size:12px;margin-top:6px;font-weight:700;">🔒 Clave incorrecta</div>'
+              + '</div>'
+              /* Paso 2 — editar campos */
+              + '<div id="'+infoId+'-step2" style="display:none;">'
+              +   '<div style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:12px;">✏️ Editar datos del badge</div>'
+              +   '<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">'
+              +     '<div style="display:flex;flex-direction:column;gap:4px;">'
+              +       '<label style="font-size:11px;color:#94a3b8;font-weight:600;">PPU (Placa Patente)</label>'
+              +       '<input id="'+infoId+'-edit-ppu" type="text" placeholder="Ej: BHJH-30"'
+              +         ' style="background:rgba(15,23,42,0.9);border:1px solid rgba(253,186,116,0.4);border-radius:7px;padding:9px 13px;color:#fdba74;font-size:14px;font-weight:700;font-family:Calibri,Arial,sans-serif;outline:none;width:160px;text-transform:uppercase;"'
+              +         ' oninput="this.value=this.value.toUpperCase()">'
+              +     '</div>'
+              +     '<div style="display:flex;flex-direction:column;gap:4px;">'
+              +       '<label style="font-size:11px;color:#94a3b8;font-weight:600;">Fecha de Capitalización</label>'
+              +       '<input id="'+infoId+'-edit-fecha" type="text" placeholder="DD-MM-AAAA"'
+              +         ' style="background:rgba(15,23,42,0.9);border:1px solid rgba(56,189,248,0.4);border-radius:7px;padding:9px 13px;color:#38bdf8;font-size:14px;font-weight:700;font-family:Calibri,Arial,sans-serif;outline:none;width:160px;">'
+              +     '</div>'
+              +     '<button onclick="window._capAldiaGuardar(\''+infoId+'\',\''+String(movil)+'\','+yr+')"'
+              +       ' style="background:linear-gradient(135deg,#4ade80,#16a34a);color:#000;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:900;cursor:pointer;font-family:Calibri,Arial,sans-serif;white-space:nowrap;">'
+              +       '💾 Guardar</button>'
+              +     '<button onclick="window._capAldiaOcultarEdit(\''+infoId+'\')" style="background:rgba(30,41,59,0.8);color:#64748b;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Calibri,Arial,sans-serif;">✕ Cerrar</button>'
+              +   '</div>'
+              + '</div>'
+              + '</div>'
+              + '</td></tr>';
+    }
+    return html;
+}
+
+/* ── Última fecha de capitalización guardada ─────────────────── */
+function _capUltimaFechaCap(movil) {
+    var log=_capLoadLog(movil);
+    if (!log.length) return null;
+    return log[log.length-1].fecha;
+}
+function _hoy() {
+    var now=new Date(),pad=function(n){return String(n).padStart(2,'0');};
+    return pad(now.getDate())+'-'+pad(now.getMonth()+1)+'-'+now.getFullYear();
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EDICIÓN DEL BADGE "AL DÍA" — triple-clic + clave
+══════════════════════════════════════════════════════════════ */
+var _capClickCtrl = {};   /* { id: { count, timer } } */
+
+window._capTripleClick = function(infoId, movil, yr, ppu, fecha) {
+    if (!_capClickCtrl[infoId]) _capClickCtrl[infoId] = { count:0, timer:null };
+    var ctrl = _capClickCtrl[infoId];
+    ctrl.count++;
+    clearTimeout(ctrl.timer);
+    if (ctrl.count >= 3) {
+        ctrl.count = 0;
+        /* Mostrar mini-ventana */
+        var editDiv  = document.getElementById(infoId+'-edit');
+        var step1    = document.getElementById(infoId+'-step1');
+        var step2    = document.getElementById(infoId+'-step2');
+        var claveInp = document.getElementById(infoId+'-clave');
+        var claveErr = document.getElementById(infoId+'-clave-err');
+        var editPpu  = document.getElementById(infoId+'-edit-ppu');
+        var editFec  = document.getElementById(infoId+'-edit-fecha');
+        if (!editDiv) return;
+        editDiv.style.display = 'block';
+        if (step1)    step1.style.display    = 'block';
+        if (step2)    step2.style.display    = 'none';
+        if (claveErr) claveErr.style.display = 'none';
+        if (claveInp) { claveInp.value = ''; setTimeout(function(){ claveInp.focus(); }, 80); }
+        if (editPpu)  editPpu.value  = ppu  || '';
+        if (editFec)  editFec.value  = fecha || '';
+    } else {
+        ctrl.timer = setTimeout(function(){ ctrl.count = 0; }, 600);
+    }
+};
+
+window._capAldiaVerClave = function(infoId) {
+    var claveInp = document.getElementById(infoId+'-clave');
+    var claveErr = document.getElementById(infoId+'-clave-err');
+    var step1    = document.getElementById(infoId+'-step1');
+    var step2    = document.getElementById(infoId+'-step2');
+    if (!claveInp) return;
+    if (claveInp.value.trim().toLowerCase() === 'ruso') {
+        if (step1) step1.style.display = 'none';
+        if (step2) { step2.style.display = 'block'; }
+        /* Focus en campo PPU */
+        var editPpu = document.getElementById(infoId+'-edit-ppu');
+        setTimeout(function(){ if(editPpu) editPpu.focus(); }, 80);
+    } else {
+        if (claveErr) claveErr.style.display = 'block';
+        claveInp.value = '';
+        claveInp.focus();
+    }
+};
+
+window._capAldiaGuardar = function(infoId, movil, yr) {
+    var editPpu = document.getElementById(infoId+'-edit-ppu');
+    var editFec = document.getElementById(infoId+'-edit-fecha');
+    var newPpu  = editPpu ? editPpu.value.trim().toUpperCase() : '';
+    var newFec  = editFec ? editFec.value.trim() : '';
+    if (!newPpu && !newFec) {
+        _capFlash('⚠ Ingrese al menos PPU o Fecha');
+        return;
+    }
+    /* Guardar custom en localStorage */
+    _capAldiaGrabarCustom(movil, yr, newPpu, newFec);
+    /* Actualizar spans visibles en el DOM sin re-renderizar toda la tabla */
+    var spanPpu   = document.getElementById(infoId+'-ppu');
+    var spanFecha = document.getElementById(infoId+'-fecha');
+    if (spanPpu  && newPpu)  spanPpu.textContent  = 'PPU: '+newPpu;
+    if (spanFecha && newFec) spanFecha.textContent = 'Fecha: '+newFec;
+    /* Log del cambio */
+    var op = sessionStorage.getItem('elite_operador') || 'OPERADOR';
+    _capLogEntry(movil, op, 'Edición badge al-día Año '+yr+' → PPU:'+newPpu+' Fecha:'+newFec);
+    /* Ocultar la mini ventana */
+    window._capAldiaOcultarEdit(infoId);
+    _capFlash('✅ Badge actualizado — PPU: '+newPpu+' · '+newFec);
+};
+
+window._capAldiaOcultarEdit = function(infoId) {
+    var editDiv = document.getElementById(infoId+'-edit');
+    if (editDiv) editDiv.style.display = 'none';
+};
+
+/* Persistencia de custom PPU/fecha por móvil+año */
+function _capAldiaKeyCustom(movil, yr) { return 'cap_aldia_'+(movil||'todos')+'_'+yr; }
+function _capAldiaLoadCustom(movil, yr) {
+    try { var s=localStorage.getItem(_capAldiaKeyCustom(movil,yr)); return s?JSON.parse(s):{}; }
+    catch(e){ return {}; }
+}
+function _capAldiaGrabarCustom(movil, yr, ppu, fecha) {
+    var obj = _capAldiaLoadCustom(movil, yr);
+    if (ppu)   obj.ppu   = ppu;
+    if (fecha) obj.fecha = fecha;
+    try { localStorage.setItem(_capAldiaKeyCustom(movil,yr), JSON.stringify(obj)); } catch(e){}
+}
+
+/* ── Botón +/- en celda ──────────────────────────────────────── */
+window._capPM = function(btn, delta) {
+    var wrap=btn.closest('.cap-mes-wrap'), inp=wrap?wrap.querySelector('.cap-cell-input'):null;
+    if (!inp) return;
+    var raw=(inp.value||'').replace(/[\$\.]/g,'').trim();
+    var v=parseFloat(raw)||0, esp=parseFloat(inp.dataset.esp)||0;
+    v=Math.max(0,v+delta);
+    inp.value=v>0?_fmtPeso(v):'';
+    inp.classList.remove('vacio','parcial');
+    if      (v===0)  inp.classList.add('vacio');
+    else if (v<esp)  inp.classList.add('parcial');
+    _capActualizarTotalesFila(inp);
+};
+
+/* ── Blur: normalizar valor ──────────────────────────────────── */
+window._capCellBlur = function(inp) {
+    var raw=(inp.value||'').replace(/[\$\. ]/g,'').replace(',','.').trim();
+    var v=parseFloat(raw)||0, esp=parseFloat(inp.dataset.esp)||0;
+    inp.classList.remove('vacio','parcial');
+    if      (v===0)  { inp.classList.add('vacio'); inp.value=''; }
+    else if (v<esp)  { inp.classList.add('parcial'); inp.value=_fmtPeso(v); }
+    else             { inp.value=_fmtPeso(v); }
+    _capActualizarTotalesFila(inp);
+};
+
+/* ── Recalcular totales fila ─────────────────────────────────── */
+window._capActualizarTotalesFila = function(inp) {
+    var row=inp.closest('tr'); if(!row) return;
+    var totalPag=0,totalEsp=0;
+    row.querySelectorAll('.cap-cell-input').forEach(function(i){
+        var raw=(i.value||'').replace(/[\$\.]/g,'').trim();
+        totalPag+=parseFloat(raw)||0;
+        totalEsp+=parseFloat(i.dataset.esp)||0;
+    });
+    var deuda=Math.max(0,totalEsp-totalPag);
+    var cells=row.querySelectorAll('.cap-cell-total');
+    if(cells[0]){ cells[0].textContent=_fmtPeso(totalPag); cells[0].style.color='#4ade80'; }
+    if(cells[1]){ cells[1].textContent=_fmtPeso(deuda); cells[1].style.color=deuda>0?'#f97316':'#4ade80'; }
+};
+
+/* ── Agregar año ─────────────────────────────────────────────── */
+window._capAgregarAnio = function(movil, tblId, ppu) {
+    var years=_capLoadYears(movil);
+    var maxYr=years.length>0?Math.max.apply(null,years):new Date().getFullYear();
+    var newYr=maxYr+1;
+    years.push(newYr); _capSaveYears(movil,years);
+    var data=_capLoad(movil), AFIN=new Date().getFullYear();
+    var rowData=_capFilaData(newYr,movil,data,AFIN);
+    var tbody=document.getElementById(tblId+'-tbody'); if(!tbody) return;
+    tbody.insertAdjacentHTML('beforeend',_capFilaHTML(newYr,movil,ppu||'—',data,tblId,rowData.deudaAnio,AFIN,rowData));
+    _capFlash('＋ Año '+newYr+' agregado');
+};
+
+/* ── Eliminar fila de año ────────────────────────────────────── */
+window._capEliminarAnio = function(movil, tblId, yr) {
+    if(!confirm('¿Eliminar fila del año '+yr+'?')) return;
+    var years=_capLoadYears(movil).filter(function(y){return y!==yr;});
+    _capSaveYears(movil,years);
+    var row=document.getElementById('caprow-'+tblId+'-'+yr);
+    var rowAldia=document.getElementById('caprow-aldia-'+tblId+'-'+yr);
+    if(row) row.remove(); if(rowAldia) rowAldia.remove();
+    _capFlash('× Año '+yr+' eliminado');
+};
+
+/* ══════════════════════════════════════════════════════════════
+   GUARDAR CON AUTORIZACIÓN
+══════════════════════════════════════════════════════════════ */
+function _capRealizarGuardado(movil, tblId, tab) {
+    var data=_capLoad(movil);
+    var tbl=document.getElementById(tblId);
+    if (!tbl) { _capFlash('⚠ Tabla no encontrada'); return; }
+    tbl.querySelectorAll('input.cap-cell-input[data-key]').forEach(function(inp){
+        var raw=(inp.value||'').replace(/[\$\.]/g,'').trim();
+        var v=parseFloat(raw)||0;
+        if(v>0) data.pagos[inp.dataset.key]=v; else delete data.pagos[inp.dataset.key];
+    });
+    _capSave(movil,data);
+    /* Log */
+    var op=sessionStorage.getItem('elite_operador')||'OPERADOR';
+    var detalle=movil?('Móvil N°'+movil):'Todos los móviles';
+    var entry=_capLogEntry(movil,op,detalle);
+    _capFlash('💾 Guardado — '+entry.fecha+' '+entry.hora+' | Op: '+op);
+    /* Refrescar planilla para mostrar log actualizado */
+    setTimeout(function(){
+        var px='ic-capitalizacion-'+tab;
+        var mv=window['_sel_'+px]||null;
+        var res=document.getElementById(px+'-resultado');
+        if(res) res.innerHTML=(tab==='todos')?_capTodos():_capPlanilla('movil',mv);
+    },600);
+}
+
+window._icCapGuardar = function(tab) {
+    var px='ic-capitalizacion-'+tab;
+    var mv=window['_sel_'+px]||null;
+    var movil=mv?(mv.movil||mv.numero):null;
+    var tblId='cap-tbl-'+(movil||'solo');
+    window._capSolicitarAuth(function(){ _capRealizarGuardado(movil, tblId, tab); });
+};
+
+window._capGuardarExp = function(movil) {
+    var tblId='cap-tbl-'+(movil||'solo');
+    window._capSolicitarAuth(function(){
+        var data=_capLoad(movil);
+        var tbl=document.getElementById(tblId);
+        if(tbl){ tbl.querySelectorAll('input.cap-cell-input[data-key]').forEach(function(inp){ var raw=(inp.value||'').replace(/[\$\.]/g,'').trim();var v=parseFloat(raw)||0;if(v>0)data.pagos[inp.dataset.key]=v;else delete data.pagos[inp.dataset.key];}); _capSave(movil,data); }
+        var op=sessionStorage.getItem('elite_operador')||'OPERADOR';
+        var entry=_capLogEntry(movil,op,'Móvil N°'+movil+' (expansión tabla)');
+        _capFlash('💾 Móvil N°'+movil+' — '+entry.fecha+' '+entry.hora);
+        /* Refrescar fila expandida */
+        setTimeout(function(){
+            var inner=document.getElementById('cap-exp-inner-'+movil);
+            if(inner){
+                var m=null;
+                if(window._crsCondutoresData) m=window._crsCondutoresData.find(function(x){return x.movil==movil;});
+                if(!m&&window._ppMoviles) m=window._ppMoviles.find(function(x){return(x.movil||x.numero)==movil;});
+                if(!m) m={movil:movil,ppu:'—',conductores:'—'};
+                inner.innerHTML=_capPlanilla('movil',m)
+                    +'<div style="display:flex;gap:8px;margin-top:12px;">'
+                    +'<button onclick="window._capGuardarExp('+movil+')" style="background:linear-gradient(135deg,#06b6d4,#0284c7);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer;">💾 GUARDAR</button>'
+                    +'<button onclick="window._capExpandirMovil('+movil+')" style="background:rgba(30,41,59,0.8);color:#94a3b8;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer;">✕ CERRAR</button>'
+                    +'</div>';
+            }
+        },700);
+    });
+};
+
+/* Reset */
+window._icCapReset = function(tab) {
+    var px='ic-capitalizacion-'+tab, mv=window['_sel_'+px]||null, movil=mv?(mv.movil||mv.numero):null;
+    if(!confirm('¿Resetear todos los pagos al valor por defecto?')) return;
+    _capSave(movil,{pagos:{}}); _capSaveYears(movil,null);
+    try{localStorage.removeItem(_capKeyLog(movil));}catch(e){}
+    var res=document.getElementById(px+'-resultado');
+    if(res) res.innerHTML=(tab==='todos')?_capTodos():_capPlanilla('movil',mv);
+    _capFlash('↺ Reset aplicado');
+};
+
+/* Flash */
+function _capFlash(msg) {
+    var el=document.createElement('div');
+    el.style.cssText='position:fixed;bottom:30px;right:30px;background:#06b6d4;color:#000;font-weight:700;padding:12px 22px;border-radius:10px;z-index:9999999;font-size:14px;box-shadow:0 4px 16px rgba(0,0,0,0.5);font-family:Calibri,Arial,sans-serif;';
+    el.textContent=msg; document.body.appendChild(el);
+    setTimeout(function(){el.remove();},2600);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TODOS LOS MÓVILES — cálculo con años reales de cada móvil
+══════════════════════════════════════════════════════════════ */
+function _capTodos() {
+    var src=window._crsCondutoresData||window._ppMoviles||[];
+    var extras=[];
+    for(var k in localStorage){
+        if(k.startsWith('cap_movil_extra_')){
+            try{extras.push(JSON.parse(localStorage.getItem(k)));}catch(e){}
+        }
+    }
+    var all=src.concat(extras.filter(function(e){
+        return !src.find(function(s){return String(s.movil||s.numero||0)===String(e.movil||0);});
+    }));
+
+    if(!all.length)
+        return '<div style="padding:18px;font-size:14px;color:#64748b;">No hay datos de móviles disponibles todavía.</div>';
+
+    var AFIN=new Date().getFullYear();
+
+    var html='<div style="font-size:13px;color:#94a3b8;margin-bottom:12px;">'
+        +'Haga clic en una fila para expandir y editar. Los totales reflejan los años activos de cada móvil.</div>';
+
+    html+='<div style="overflow-x:auto;">'
+        +'<table style="width:100%;border-collapse:collapse;font-size:14px;">'
+        +'<thead><tr style="background:rgba(6,182,212,0.1);">'
+        +'<th style="padding:10px 12px;text-align:left;color:#06b6d4;font-weight:700;">MÓVIL</th>'
+        +'<th style="padding:10px 12px;text-align:left;color:#06b6d4;font-weight:700;">CONDUCTOR / PPU</th>';
+
+    /* Columnas de año — unión de todos los años existentes */
+    var allYears=[];
+    all.slice(0,200).forEach(function(m){
+        var movil=m.movil||m.numero||0;
+        _capLoadYears(movil).forEach(function(y){ if(allYears.indexOf(y)<0) allYears.push(y); });
+    });
+    allYears.sort(); if(!allYears.length){ for(var y=2020;y<=AFIN;y++) allYears.push(y); }
+
+    allYears.forEach(function(yr){
+        html+='<th style="padding:10px 8px;text-align:center;color:#818cf8;font-weight:700;white-space:nowrap;">'+yr+'</th>';
+    });
+    html+='<th style="padding:10px 12px;text-align:right;color:#4ade80;font-weight:700;white-space:nowrap;">PAGADO</th>'
+         +'<th style="padding:10px 12px;text-align:right;color:#f97316;font-weight:700;white-space:nowrap;">DEUDA</th>'
+         +'<th style="padding:10px 12px;text-align:center;color:#4ade80;font-weight:700;min-width:90px;">ESTADO</th>'
+         +'</tr></thead>'
+         +'<tbody id="cap-todos-tbody">';
+
+    all.slice(0,200).forEach(function(m){
+        var movil  = m.movil||m.numero||0;
+        var ppu    = m.ppu||'—';
+        var cond   = m.conductores||m.conductor||'—';
+        var data   = _capLoad(movil);
+        var years  = _capLoadYears(movil);  /* años REALES de este móvil */
+        var tots   = _capCalcularTotales(movil);
+
+        html+='<tr class="cap-movil-fila" onclick="window._capExpandirMovil('+movil+')" style="border-bottom:1px solid rgba(255,255,255,0.04);">'
+             +'<td style="padding:9px 12px;font-weight:700;color:#fdba74;">N°'+movil+'</td>'
+             +'<td style="padding:9px 12px;color:#e2e8f0;">'+(cond)+'<div style="font-size:12px;color:#64748b;">'+ppu+'</div></td>';
+
+        allYears.forEach(function(yr){
+            /* Si este móvil NO tiene este año, mostrar "—" */
+            if(years.indexOf(yr)<0){
+                html+='<td style="padding:7px 6px;text-align:center;color:#334155;font-size:12px;">—</td>';
+                return;
+            }
+            var pagA=0,espA=0;
+            for(var mi=0;mi<12;mi++){
+                espA+=_capCuotaBase(yr,mi);
+                var futuro=(yr===AFIN&&mi>MES_HOY);
+                if(!futuro){
+                    var st=data.pagos[yr+'-'+mi]!==undefined?data.pagos[yr+'-'+mi]:_capCuotaBase(yr,mi);
+                    pagA+=st;
+                }
+            }
+            var pct=espA>0?Math.round(pagA/espA*100):100;
+            var col=pct>=100?'#4ade80':pct>50?'#fbbf24':'#f97316';
+            html+='<td style="padding:7px 6px;text-align:center;min-width:64px;">'
+                 +'<div style="font-size:13px;font-weight:700;color:'+col+';">'+pct+'%</div>'
+                 +'<div style="height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:3px;">'
+                 +'<div style="width:'+Math.min(pct,100)+'%;height:100%;background:'+col+';border-radius:2px;"></div></div>'
+                 +'<div style="font-size:10px;color:#64748b;margin-top:2px;">'+_fmtPeso(pagA)+'</div>'
+                 +'</td>';
+        });
+
+        var aldiaTotal=(tots.totalEsp>0 && tots.totalDeuda===0);
+        var fechaCap=aldiaTotal?(_capUltimaFechaCap(movil)||_hoy()):null;
+
+        html+='<td style="padding:9px 12px;text-align:right;font-weight:700;color:#4ade80;white-space:nowrap;">'+_fmtPeso(tots.totalPag)+'</td>'
+             +'<td style="padding:9px 12px;text-align:right;font-weight:700;color:'+(tots.totalDeuda>0?'#f97316':'#4ade80')+';white-space:nowrap;">'+_fmtPeso(tots.totalDeuda)+'</td>'
+             +'<td style="padding:7px 10px;text-align:center;">';
+
+        if(aldiaTotal && tots.totalPag>0){
+            html+='<span class="cap-aldia-badge" title="✅ Cuota Cap. al día · PPU: '+ppu+' · Fecha: '+fechaCap+'">✅ Al día<br><span style="font-size:10px;color:#94a3b8;font-weight:400;">'+fechaCap+'</span></span>';
+        } else {
+            html+='<span style="font-size:12px;color:#f97316;font-weight:700;">⏳ '+_fmtPeso(tots.totalDeuda)+'</span>';
+        }
+        html+='</td></tr>'
+             +'<tr id="cap-exp-'+movil+'" style="display:none;">'
+             +'<td colspan="'+(3+allYears.length+2)+'" style="padding:0;">'
+             +'<div id="cap-exp-inner-'+movil+'" style="padding:16px 20px;background:rgba(6,182,212,0.03);border-top:1px solid rgba(6,182,212,0.15);"></div>'
+             +'</td></tr>';
+    });
+
+    html+='</tbody></table></div>';
+
+    /* Agregar móvil manual */
+    html+='<div style="margin-top:18px;padding:16px;background:rgba(15,23,42,0.7);border:1px dashed rgba(6,182,212,0.3);border-radius:10px;">'
+         +'<div style="font-size:14px;color:#06b6d4;font-weight:700;margin-bottom:10px;">➕ AGREGAR MÓVIL MANUAL</div>'
+         +'<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">'
+         +'<input id="cap-nuevo-movil" type="text" placeholder="N° Móvil" style="width:110px;background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.35);border-radius:6px;padding:9px 12px;color:#f1f5f9;font-size:14px;outline:none;">'
+         +'<input id="cap-nuevo-nombre" type="text" placeholder="Nombre Conductor (opcional)" style="flex:1;min-width:200px;background:rgba(15,23,42,0.8);border:1px solid rgba(6,182,212,0.35);border-radius:6px;padding:9px 12px;color:#f1f5f9;font-size:14px;outline:none;">'
+         +'<button onclick="window._capAgregarMovil()" style="background:rgba(6,182,212,0.15);color:#06b6d4;border:1px solid rgba(6,182,212,0.4);border-radius:7px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer;">+ AGREGAR</button>'
+         +'</div>'
+         +'<div id="cap-nuevo-msg" style="display:none;margin-top:8px;font-size:13px;color:#4ade80;"></div>'
+         +'</div>';
+    return html;
+}
+
+/* Expandir fila en tabla todos */
+window._capExpandirMovil = function(movil) {
+    var fila=document.getElementById('cap-exp-'+movil);
+    var inner=document.getElementById('cap-exp-inner-'+movil);
+    if(!fila||!inner) return;
+    var abierto=fila.style.display!=='none';
+    fila.style.display=abierto?'none':'table-row';
+    if(!abierto){
+        var m=null;
+        if(window._crsCondutoresData) m=window._crsCondutoresData.find(function(x){return x.movil==movil;});
+        if(!m&&window._ppMoviles) m=window._ppMoviles.find(function(x){return(x.movil||x.numero)==movil;});
+        if(!m) m={movil:movil,ppu:'—',conductores:'—'};
+        inner.innerHTML=_capPlanilla('movil',m)
+            +'<div style="display:flex;gap:8px;margin-top:12px;">'
+            +'<button onclick="window._capGuardarExp('+movil+')" style="background:linear-gradient(135deg,#06b6d4,#0284c7);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer;">💾 GUARDAR</button>'
+            +'<button onclick="window._capExpandirMovil('+movil+')" style="background:rgba(30,41,59,0.8);color:#94a3b8;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer;">✕ CERRAR</button>'
+            +'</div>';
+    }
+};
+
+/* Agregar móvil extra */
+window._capAgregarMovil = function() {
+    var numEl=document.getElementById('cap-nuevo-movil'),nomEl=document.getElementById('cap-nuevo-nombre'),msgEl=document.getElementById('cap-nuevo-msg');
+    var num=(numEl?numEl.value.trim():'');
+    if(!num){if(msgEl){msgEl.style.display='block';msgEl.style.color='#f87171';msgEl.textContent='⚠ Ingrese un N° de móvil.';}return;}
+    try{localStorage.setItem('cap_movil_extra_'+num,JSON.stringify({movil:num,conductores:nomEl?nomEl.value.trim():'',ppu:'—',extra:true}));}catch(e){}
+    if(msgEl){msgEl.style.display='block';msgEl.style.color='#4ade80';msgEl.textContent='✅ Móvil N°'+num+' agregado.';}
+    if(numEl)numEl.value='';if(nomEl)nomEl.value='';
+    setTimeout(function(){var res=document.getElementById('ic-capitalizacion-todos-resultado');if(res)res.innerHTML=_capTodos();},1000);
+};
+
+/* ══════════════════════════════════════════════════════════════
+   GENERAR INFORME
+══════════════════════════════════════════════════════════════ */
+window._icGenCat = async function(catId, modo) {
+    var px      = 'ic-'+catId+'-'+modo;
+    var resCont = document.getElementById(px+'-resultado');
+    if (!resCont) return;
+    var cat = CATS.find(function(c){return c.id===catId;});
+
+    if (catId==='capitalizacion') {
+        var mv = window['_sel_'+px]||null;
+        resCont.innerHTML = (modo==='todos'?_capTodos():_capPlanilla('movil',mv)) + _sello();
+        return;
+    }
+
+    var mv = window['_sel_'+px]||null;
+    if (modo==='movil' && !mv) {
+        resCont.innerHTML='<div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:12px;font-size:12px;color:#fca5a5;font-family:'+CAL+';">⚠ Seleccione primero un móvil.</div>';
+        return;
+    }
+    var desde=(document.getElementById(px+'-desde')||{}).value||'';
+    var hasta=(document.getElementById(px+'-hasta')||{}).value||'';
+    var tsD=desde?new Date(desde).getTime():0, tsH=hasta?new Date(hasta+'T23:59:59').getTime():Date.now();
+    resCont.innerHTML='<div style="text-align:center;padding:20px;font-size:12px;color:#38bdf8;font-family:'+CAL+';">⏳ Consultando...</div>';
+    try {
+        var svc  = window.crsDB?await window.crsDB.getAll('historico_servicios'):[];
+        var aud  = window.crsDB?await window.crsDB.getAll('audit_trail'):[];
+        var liq  = window.crsDB?await window.crsDB.getAll('liquidaciones'):[];
+        var docs = window.crsDB?await window.crsDB.getAll('docs_conductores'):[];
+        var _enR=function(ts){return ts>=tsD&&ts<=tsH;};
+        var _esM=modo==='movil'?(function(num){return function(r){return String(r.movil||r.movil_id||r.movil_numero||'')===String(num);};})(mv.movil):function(){return true;};
+        var d={cat:cat,svc:svc.filter(function(r){return _esM(r)&&_enR(r.timestamp_fin||r.timestamp||r.timestampCreacion||0);}),audit:aud.filter(function(r){return _enR(r.timestamp||0)&&_esM(r);}),liq:liq.filter(function(r){return _esM(r)&&_enR(r.timestamp||new Date(r.fecha||0).getTime()||0);}),docs:docs.filter(function(r){return _esM(r);}),desde:desde,hasta:hasta,operador:_op,modo:modo,movil:mv};
+        resCont.innerHTML=_renderData(d)+_sello();
+        if(window.crsDB)window.crsDB.audit('INFORME_CONDUCTOR','CONSULTA_CAT',_op,null,{categoria:catId,modo:modo},'OK');
+    } catch(e) { resCont.innerHTML='<div style="color:#ef4444;font-size:12px;padding:8px;font-family:'+CAL+';">Error: '+(e.message||e)+'</div>'; }
+};
+
+window._icGenCatPDF   = function(c,m){ window._icGenCat(c,m).then(function(){setTimeout(function(){window.print();},500);}); };
+window._icGenCatExcel = function(c,m){
+    var px='ic-'+c+'-'+m, rc=document.getElementById(px+'-resultado');
+    var txt=rc?(rc.innerText||rc.textContent||'Sin datos'):'Sin datos';
+    var blob=new Blob([txt],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url; a.download='Informe_'+c+'_'+m+'_'+new Date().toISOString().slice(0,10)+'.csv';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+};
+
+/* ══════════════════════════════════════════════════════════════
+   SELLO
+══════════════════════════════════════════════════════════════ */
+function _sello() {
+    var op=_op||'OPERADOR',now=new Date(),p=function(n){return String(n).padStart(2,'0');};
+    var hora=p(now.getHours())+':'+p(now.getMinutes())+':'+p(now.getSeconds())+' '+(now.getHours()<12?'a. m.':'p. m.');
+    var fecha=p(now.getDate())+'-'+p(now.getMonth()+1)+'-'+now.getFullYear();
+    return '<div style="margin-top:14px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">'
+        +'<span style="font-size:16px;">✅</span>'
+        +'<div style="font-size:10px;color:#4ade80;font-weight:700;letter-spacing:1px;line-height:1.7;font-family:'+CAL+';">'
+        +'DOCUMENTO AUDITADO — CENTRAL CRS<br>'
+        +'<span style="color:#94a3b8;font-weight:400;">Operador: <strong style="color:#38bdf8;">'+op+'</strong> | '+fecha+', '+hora+'</span></div></div>';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RENDER DE DATOS
+══════════════════════════════════════════════════════════════ */
+function _renderData(d) {
+    var cat=d.cat, html='';
+    var _fmt=function(ts){return ts?new Date(ts).toLocaleString('es-CL'):'—';};
+    var _fmtD=function(ts){return ts?new Date(ts).toLocaleDateString('es-CL'):'—';};
+    var _0=function(msg){return '<div style="font-size:12px;color:#475569;padding:12px;text-align:center;border:1px dashed rgba(255,255,255,0.07);border-radius:8px;font-family:'+CAL+';">'+msg+'</div>';};
+    var _row=function(r,color){
+        return '<div style="border:1px solid rgba(255,255,255,0.06);border-left:3px solid '+color+';border-radius:7px;padding:9px 12px;margin-bottom:5px;">'
+            +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px;flex-wrap:wrap;">'
+            +'<div><span style="font-size:11px;color:'+color+';font-weight:700;font-family:'+CAL+';">'+(r.accion||r.modulo||'—')+'</span>'
+            +(r.motivo?'<div style="font-size:10px;color:#e2e8f0;margin-top:2px;font-family:'+CAL+';">'+r.motivo+'</div>':'')
+            +'<div style="font-size:10px;color:#38bdf8;margin-top:2px;font-family:'+CAL+';">Op: '+(r.operador||'—')+'</div></div>'
+            +'<div style="text-align:right;flex-shrink:0;"><div style="font-size:10px;color:#64748b;white-space:nowrap;font-family:'+CAL+';">'+_fmt(r.timestamp||0)+'</div>'
+            +(r.movil||r.movil_id?'<div style="font-size:9px;color:#475569;margin-top:2px;font-family:'+CAL+';">Móvil '+(r.movil||r.movil_id||'')+'</div>':'')
+            +'</div></div></div>';
+    };
+    switch(cat.id){
+        case 'servicios':
+            if(!d.svc.length){html=_0('Sin servicios en el período');break;}
+            html+='<div style="font-size:11px;color:#94a3b8;margin-bottom:8px;font-family:'+CAL+';">Total: <strong style="color:#38bdf8;">'+d.svc.length+'</strong></div>';
+            html+='<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:11px;font-family:'+CAL+';">';
+            html+='<thead><tr style="background:rgba(56,189,248,0.08);">';
+            ['TKT','FECHA','PASAJERO','DESTINO','PRECIO','PAGO','CONDUCTOR'].forEach(function(h2){html+='<th style="padding:7px 8px;text-align:left;color:#38bdf8;font-size:10px;font-weight:700;font-family:'+CAL+';">'+h2+'</th>';});
+            html+='</tr></thead><tbody>';
+            d.svc.slice(0,50).forEach(function(r,i){
+                html+='<tr style="border-bottom:1px solid rgba(255,255,255,0.03);background:'+(i%2?'rgba(255,255,255,0.015)':'transparent')+'">'
+                    +'<td style="padding:5px 8px;color:#94a3b8;font-family:'+CAL+';">'+(r.tkt||'—')+'</td>'
+                    +'<td style="padding:5px 8px;white-space:nowrap;font-family:'+CAL+';">'+_fmtD(r.timestamp_fin||r.timestamp||0)+'</td>'
+                    +'<td style="padding:5px 8px;font-family:'+CAL+';">'+(r.pasajero||'—')+'</td>'
+                    +'<td style="padding:5px 8px;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'+CAL+';">'+(r.destino||r.des||'—')+'</td>'
+                    +'<td style="padding:5px 8px;color:#4ade80;font-weight:700;font-family:'+CAL+';">$'+Number(r.precio_numerico||r.precio||0).toLocaleString('es-CL')+'</td>'
+                    +'<td style="padding:5px 8px;font-family:'+CAL+';">'+(r.pago||'—')+'</td>'
+                    +'<td style="padding:5px 8px;font-family:'+CAL+';">'+(r.conductor||r.chofer||'—')+'</td></tr>';
+            });
+            if(d.svc.length>50)html+='<tr><td colspan="7" style="padding:8px;text-align:center;color:#475569;font-size:10px;font-family:'+CAL+';">…y '+(d.svc.length-50)+' más</td></tr>';
+            html+='</tbody></table></div>'; break;
+        case 'deudas':
+            var lqD=d.liq.filter(function(r){return(r.saldo||r.deuda||0)>0||r.tipo==='MENSUALIDAD'||r.tipo==='DEUDA';});
+            if(!lqD.length){html=_0('Sin deudas en el período');break;}
+            lqD.forEach(function(r){html+='<div style="border:1px solid rgba(249,115,22,0.25);border-radius:7px;padding:10px 14px;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;color:#f1f5f9;font-weight:600;font-family:'+CAL+';">'+(r.descripcion||r.tipo||'Deuda')+'</div><div style="font-size:10px;color:#64748b;font-family:'+CAL+';">'+_fmt(r.timestamp||0)+'</div></div><div style="font-size:13px;color:#f97316;font-weight:900;font-family:'+CAL+';">$'+Number(r.saldo||r.deuda||r.monto||0).toLocaleString('es-CL')+'</div></div>';});
+            break;
+        case 'castigos_pago':{var a=d.audit.filter(function(r){return r.accion==='MOVIL_CASTIGADO_LIQUIDACION';});html=a.length?a.map(function(r){return _row(r,'#ef4444');}).join(''):_0('Sin castigos');break;}
+        case 'suspensiones': {var a=d.audit.filter(function(r){return r.accion==='MOVIL_CASTIGADO_LIQUIDACION'||r.accion==='MOVIL_REACTIVADO_LIQUIDACION'||r.accion==='SUSPENSION'||(r.datos_nuevos&&r.datos_nuevos.includes('nodisponible'));});html=a.length?a.map(function(r){return _row(r,'#dc2626');}).join(''):_0('Sin suspensiones');break;}
+        case 'faltas_reglam':{var a=d.audit.filter(function(r){return r.accion==='FALTA_REGLAMENTO'||r.modulo==='REGLAMENTO'||(r.motivo&&r.motivo.toLowerCase().includes('reglamento'));});html=a.length?a.map(function(r){return _row(r,'#a855f7');}).join(''):_0('Sin faltas');break;}
+        case 'quejas':       {var a=d.audit.filter(function(r){return r.accion==='QUEJA_CLIENTE'||r.modulo==='QUEJAS'||(r.motivo&&r.motivo.toLowerCase().includes('queja'));});html=a.length?a.map(function(r){return _row(r,'#f59e0b');}).join(''):_0('Sin quejas');break;}
+        case 'negativos_fifo':{var a=d.audit.filter(function(r){return r.accion==='NEGATIVO_FIFO'||r.accion==='MOVIL_NEGATIVO'||r.accion==='NO_RESPONDE_CENTRAL'||r.accion==='APAGA_UBICACION'||r.accion==='DORMIDO_NO_CONTESTA'||(r.motivo&&r.motivo.toLowerCase().includes('negativo'));});html=a.length?a.map(function(r){return _row(r,'#ef4444');}).join(''):_0('Sin negativos');break;}
+        case 'adjudicaciones':{var a=d.audit.filter(function(r){return r.accion==='ADJUDICACION'||r.accion==='SERVICIO_ADJUDICADO'||r.modulo==='ADJUDICACION';});html=a.length?a.slice(0,20).map(function(r){return _row(r,'#fbbf24');}).join(''):_0('Sin adjudicaciones');break;}
+        case 'siniestros':   {var a=d.audit.filter(function(r){return r.modulo==='SINIESTRO'||(r.datos_nuevos&&(typeof r.datos_nuevos==='string'?r.datos_nuevos:JSON.stringify(r.datos_nuevos)).includes('SINIESTRO'));});html=a.length?a.map(function(r){return _row(r,'#fca5a5');}).join(''):_0('Sin siniestros');break;}
+        case 'log_accesos':  {var a=d.audit.filter(function(r){return r.modulo==='LOGIN'||r.accion==='LOGIN'||r.accion==='LOGOUT'||r.accion==='ACCESO_MODULO'||r.accion==='ACCESO_FALLIDO';});html=a.length?a.map(function(r){return _row(r,'#6366f1');}).join(''):_0('Sin registros de acceso');break;}
+        case 'documentos':   if(!d.docs.length){html=_0('Sin documentos adjuntos');}else{d.docs.forEach(function(r){html+='<div style="border:1px solid rgba(148,163,184,0.15);border-radius:7px;padding:9px 12px;margin-bottom:5px;display:flex;gap:10px;align-items:center;"><span style="font-size:18px;">📄</span><div><div style="font-size:12px;color:#e2e8f0;font-weight:600;font-family:'+CAL+';">'+(r.nombre||r.tipo||'Documento')+'</div><div style="font-size:10px;color:#64748b;font-family:'+CAL+';">'+_fmt(r.timestamp||0)+'</div></div></div>';});} break;
+        case 'pago_sindicato':{var pS=d.audit.filter(function(r){return r.accion==='PAGO_SINDICATO';}),lS=d.liq.filter(function(r){return r.tipo==='SINDICATO'||(r.descripcion&&r.descripcion.toLowerCase().includes('sindicato'));});if(!pS.length&&!lS.length){html=_0('Sin pagos al sindicato');break;}var totS=0;pS.forEach(function(r){var dn=r.datos_nuevos?(typeof r.datos_nuevos==='string'?JSON.parse(r.datos_nuevos||'{}'):r.datos_nuevos):{};totS+=dn.monto||0;html+=_row(r,'#10b981');});lS.forEach(function(r){totS+=r.monto||0;html+=_row(r,'#10b981');});if(totS)html+='<div style="text-align:right;font-size:12px;color:#4ade80;margin-top:6px;font-weight:700;font-family:'+CAL+';">TOTAL: $'+totS.toLocaleString('es-CL')+'</div>';break;}
+        case 'otros':{var excl=['LOGIN','LOGOUT','ADJUDICACION','SERVICIO_ADJUDICADO','PAGO_SINDICATO','CUOTA_CAPITALIZACION','FALTA_REGLAMENTO','QUEJA_CLIENTE','MOVIL_CASTIGADO_LIQUIDACION','MOVIL_REACTIVADO_LIQUIDACION','SUSPENSION','NEGATIVO_FIFO','MOVIL_NEGATIVO'];var ao=d.audit.filter(function(r){return!excl.includes(r.accion||'');});html=ao.length?ao.slice(0,20).map(function(r){return _row(r,'#64748b');}).join(''):_0('Sin otros registros');break;}
+        case 'capitalizacion': html=_capPlanilla(d.modo,d.movil); break;
+        case 'resumen':{var stats=[{l:'Servicios',v:d.svc.length,c:'#38bdf8'},{l:'Negativos',v:d.audit.filter(function(r){return r.accion==='NEGATIVO_FIFO'||r.accion==='MOVIL_NEGATIVO';}).length,c:'#ef4444'},{l:'Adjudicaciones',v:d.audit.filter(function(r){return r.accion==='ADJUDICACION'||r.accion==='SERVICIO_ADJUDICADO';}).length,c:'#fbbf24'},{l:'Pagos Sindicato',v:d.audit.filter(function(r){return r.accion==='PAGO_SINDICATO';}).length,c:'#10b981'},{l:'Suspensiones',v:d.audit.filter(function(r){return r.accion==='MOVIL_CASTIGADO_LIQUIDACION'||r.accion==='SUSPENSION';}).length,c:'#dc2626'},{l:'Quejas',v:d.audit.filter(function(r){return r.accion==='QUEJA_CLIENTE';}).length,c:'#f59e0b'}];html='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;">';stats.forEach(function(x){html+='<div style="background:rgba(15,23,42,0.8);border:1px solid rgba(255,255,255,0.07);border-radius:9px;padding:14px;text-align:center;"><div style="font-size:22px;font-weight:900;color:'+x.c+';font-family:'+CAL+';">'+x.v+'</div><div style="font-size:10px;color:#64748b;margin-top:4px;font-family:'+CAL+';">'+x.l+'</div></div>';});html+='</div>';break;}
+        default: html=_0('Módulo en desarrollo');
+    }
+    return '<div style="background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px;">'+html+'</div>';
+}
+
+/* ── Helpers ── */
+function _show(id){var e=document.getElementById(id);if(e)e.style.display='block';}
+function _hide(id){var e=document.getElementById(id);if(e)e.style.display='none';}
+window.crsModuloInformeConductor={abrirInformeConductor:window.abrirInformeConductor};
+})();
+</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #radar-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999; background: #020617; flex-direction: column;
+    }
+    #radar-header {
+      height: 60px; background: #0a1b31; border-bottom: 1px solid #38bdf8; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+    }
+    #radar-title { color: #00f3ff; font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 2px;}
+    #radar-close { background: #b91c1c; color: white; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-family: 'Orbitron', sans-serif; font-weight: bold; font-size: 14px; text-transform: uppercase;}
+    #radar-map { flex: 1; width: 100%; background: #000; }
+    
+    /* Diseño del ícono del vehículo en el mapa */
+    .movil-marker { 
+      background: #22c55e; border: 2px solid #020617; color: #020617; font-weight: 900; 
+      border-radius: 50%; text-align: center; line-height: 28px; font-size: 12px; 
+      font-family: 'Orbitron', sans-serif; box-shadow: 0 0 14px #22c55e;
+    }
+  </style>
+
+  <div id="radar-modal">
+    <div id="radar-header">
+      <div id="radar-title">🛰️ RADAR SATELITAL GLOBAL CRS</div>
+      <button id="radar-close" onclick="cerrarRadarCentral()">Cerrar Radar</button>
+    </div>
+    <div id="radar-map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  // 🛰️ BALIZAS DE CONTROL DE MEMORIA GLOBAL BLINDADA
+  window.mapaRadar = null;
+  window.marcadoresFlota = window.marcadoresFlota || {};
+  window.radarEncendido = false;
+
+  function abrirRadarCentral() {
+    document.getElementById('radar-modal').style.display = 'flex';
+    
+    // 🔓 ENCENDER RADAR: Permite que los autos se muestren en pantalla
+    window.radarEncendido = true;
+    
+    if (!window.mapaRadar) {
+      // Inicializar mapa centrado en Santiago de Chile
+      window.mapaRadar = L.map('radar-map').setView([-33.4489, -70.6693], 12);
+      
+      // Cargar mapa Oficial de Google Maps (Calles claras y detalladas)
+      L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        attribution: '&copy; Google Maps'
+      }).addTo(window.mapaRadar);
+    }
+    
+    // Desplegar de inmediato en el mapa los móviles que ya estén transmitiendo
+    for (let id in window.marcadoresFlota) {
+      window.marcadoresFlota[id].addTo(window.mapaRadar);
+    }
+    
+    // Forzar recálculo visual para evitar bloqueos grises en la pantalla
+    setTimeout(() => window.mapaRadar.invalidateSize(), 300);
+  }
+
+  function cerrarRadarCentral() {
+    document.getElementById('radar-modal').style.display = 'none';
+    
+    // 🔒 APAGAR RADAR: Mantiene las transmisiones vivas en segundo plano pero invisibles
+    window.radarEncendido = false;
+
+    // Retirar marcadores de la pantalla visual sin borrar los datos de memoria
+    for (let id in window.marcadoresFlota) {
+      window.marcadoresFlota[id].remove();
+    }
+  }
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+  // Conexión dedicada para evitar choques con su base de datos principal
+  const firebaseConfigRadar = {
+    apiKey: "AIzaSyC7Ge2Y15Fa4UZ7BU2nzjQU1bGybQV39R0",
+    authDomain: "central-crs-2026.firebaseapp.com",
+    projectId: "central-crs-2026",
+    storageBucket: "central-crs-2026.firebasestorage.app",
+    messagingSenderId: "284744389167",
+    appId: "1:284744389167:web:b41c54683ed4e7a1456cda",
+    measurementId: "G-YWXR7KRSM1"
+  };
+
+  const appRadar = initializeApp(firebaseConfigRadar, "RadarIntegrado");
+  const dbRadar = getFirestore(appRadar);
+
+  // Antena Firebase: Recepción continua 24/7 procesada en el idioma de Leaflet
+  onSnapshot(collection(dbRadar, "tracking"), (snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      const idMovil = change.doc.id;
+      const datos = change.doc.data();
+
+      if (change.type === "added" || change.type === "modified") {
+        const lat = datos.lat;
+        const lng = datos.lng;
+        const velocidadKmh = Math.round((datos.velocidad || 0) * 3.6);
+        const infoVentana = `Móvil ${idMovil} - Vel: ${velocidadKmh} km/h`;
+
+        if (window.marcadoresFlota[idMovil]) {
+          // El móvil ya existe en el mapa: actualización de coordenadas y velocímetro
+          window.marcadoresFlota[idMovil].setLatLng([lat, lng]);
+          window.marcadoresFlota[idMovil].setTooltipContent(infoVentana);
+        } else {
+          // Construcción del autito azul vista superior (Estilo Uber/DiDi)
+          const iconoPersonalizado = L.divIcon({
+            className: `marcador-radar-${idMovil}`,
+            html: `<div style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: 50px;
+              height: 70px;
+            ">
+              <svg width="28" height="48" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.6));">
+                <rect x="15" y="30" width="15" height="30" rx="4" fill="#0f172a"/>
+                <rect x="70" y="30" width="15" height="30" rx="4" fill="#0f172a"/>
+                <rect x="15" y="140" width="15" height="30" rx="4" fill="#0f172a"/>
+                <rect x="70" y="140" width="15" height="30" rx="4" fill="#0f172a"/>
+                <rect x="20" y="15" width="60" height="170" rx="20" fill="#2563eb" stroke="#1e3a8a" stroke-width="4"/>
+                <path d="M 28 65 Q 50 50 72 65 L 75 85 L 25 85 Z" fill="#0f172a"/>
+                <path d="M 28 145 Q 50 160 72 145 L 75 130 L 25 130 Z" fill="#0f172a"/>
+                <rect x="28" y="85" width="44" height="45" rx="8" fill="#3b82f6"/>
+              </svg>
+              <div style="
+                background: #020617;
+                color: #ffffff;
+                padding: 3px 8px;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 11px;
+                font-family: sans-serif;
+                border: 1px solid #3b82f6;
+                white-space: nowrap;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+                margin-top: 2px;
+              ">
+                ${idMovil}
+              </div>
+            </div>`,
+            iconSize: [50, 70], // Espacio suficiente para el auto y la placa
+            iconAnchor: [25, 35] // Anclado exactamente en el centro de las coordenadas
+          });
+
+          // Instanciar el marcador en Leaflet con elevación máxima
+          const nuevoMarcador = L.marker([lat, lng], { 
+            icon: iconoPersonalizado,
+            zIndexOffset: 99999 
+          }).bindTooltip(infoVentana, { permanent: false, direction: 'top' });
+
+          // Registrar en la memoria del sistema
+          window.marcadoresFlota[idMovil] = nuevoMarcador;
+
+          // Si el panel del radar está desplegado en pantalla, renderizar de inmediato
+          if (window.radarEncendido && window.mapaRadar) {
+            nuevoMarcador.addTo(window.mapaRadar);
+          }
+        }
+      }
+
+      if (change.type === "removed") {
+        // Desconexión del conductor: remoción física del mapa y purga de memoria
+        if (window.marcadoresFlota[idMovil]) {
+          window.marcadoresFlota[idMovil].remove();
+          delete window.marcadoresFlota[idMovil];
+        }
+      }
+    });
+  });
+</script>
+    
+   
+
+    
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     MÓDULO REGISTRO RÁPIDO — Acceso desde Triple-Clic Fichero
+     Categorías: Faltas al Reglamento · No responde · Apaga ubicación · Dormido
+     Firma automática del operador de turno
+════════════════════════════════════════════════════════════════════ -->
+<div id="modal-registro-rapido" style="display:none;position:fixed;inset:0;z-index:999995;background:rgba(0,0,0,0.88);backdrop-filter:blur(5px);align-items:center;justify-content:center;">
+  <div style="background:linear-gradient(145deg,#0f172a,#0c1a2e);border:1px solid rgba(167,139,250,0.4);border-radius:16px;width:100%;max-width:520px;margin:16px;box-shadow:0 24px 60px rgba(0,0,0,0.8),0 0 30px rgba(167,139,250,0.15);display:flex;flex-direction:column;max-height:92vh;overflow:hidden;">
+
+    <!-- ── ZONA 1: CABECERA FIJA ── -->
+    <div style="background:rgba(167,139,250,0.12);border-bottom:1px solid rgba(167,139,250,0.25);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+      <div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:12px;font-weight:900;color:#a78bfa;letter-spacing:2px;">📝 REGISTRO RÁPIDO</div>
+        <div id="rr-subtitulo" style="font-family:'Inter',sans-serif;font-size:10px;color:#64748b;margin-top:1px;">Fichero — Panel CRS</div>
+      </div>
+      <button onclick="window._icCerrarRegistroRapido()" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.35);border-radius:7px;padding:5px 13px;font-weight:900;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;">✕</button>
+    </div>
+
+    <!-- Info del móvil (fija debajo de cabecera) -->
+    <div id="rr-info-movil" style="background:rgba(56,189,248,0.07);border-bottom:1px solid rgba(56,189,248,0.15);padding:10px 18px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;flex-wrap:wrap;gap:6px;">
+      <div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;color:#38bdf8;" id="rr-movil-label">🚌 MÓVIL —</div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;color:#94a3b8;margin-top:1px;" id="rr-movil-detalle">—</div>
+      </div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;color:#38bdf8;text-align:right;">Operador<br><strong id="rr-operador-label" style="font-size:11px;">—</strong></div>
+    </div>
+
+    <!-- ── ZONA 2: CUERPO SCROLLEABLE ── -->
+    <div style="overflow-y:auto;flex:1;padding:14px 18px;scrollbar-width:thin;scrollbar-color:rgba(167,139,250,0.3) transparent;">
+
+      <!-- Selector de categoría -->
+      <div style="margin-bottom:12px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#64748b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;">TIPO DE REGISTRO</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;" id="rr-categorias">
+          <button class="rr-cat-btn" data-cat="FALTA_REGLAMENTO" data-label="📜 Falta al Reglamento"
+            style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);color:#c084fc;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            📜<br>Falta<br>Reglamento
+          </button>
+          <button class="rr-cat-btn" data-cat="NO_RESPONDE_CENTRAL" data-label="📵 No responde a Central"
+            style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            📵<br>No responde<br>Central
+          </button>
+          <button class="rr-cat-btn" data-cat="APAGA_UBICACION" data-label="📍 Apaga ubicación"
+            style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:#fb923c;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            📍<br>Apaga<br>Ubicación
+          </button>
+          <button class="rr-cat-btn" data-cat="DORMIDO_NO_CONTESTA" data-label="😴 Dormido / No contesta"
+            style="background:rgba(234,179,8,0.12);border:1px solid rgba(234,179,8,0.3);color:#fbbf24;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            😴<br>Dormido /<br>No contesta
+          </button>
+          <button class="rr-cat-btn" data-cat="QUEJA_CLIENTE" data-label="😤 Queja de Cliente"
+            style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            😤<br>Queja de<br>Cliente
+          </button>
+          <button class="rr-cat-btn" data-cat="SINIESTRO" data-label="🚨 Siniestro" data-tiene-sub="1"
+            style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#fca5a5;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            🚨<br>Siniestro<br>▸
+          </button>
+          <button class="rr-cat-btn" data-cat="PAGO_SINDICATO" data-label="🏦 Pago Sindicato"
+            style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#4ade80;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            🏦<br>Pago<br>Sindicato
+          </button>
+          <button class="rr-cat-btn" data-cat="CUOTA_CAPITALIZACION" data-label="💵 Cuota Capitalización"
+            style="background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:#22d3ee;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            💵<br>Cuota<br>Capital.
+          </button>
+          <button class="rr-cat-btn" data-cat="OTROS" data-label="📌 Otros"
+            style="background:rgba(100,116,139,0.12);border:1px solid rgba(100,116,139,0.35);color:#94a3b8;border-radius:7px;padding:8px 5px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-align:center;line-height:1.3;">
+            📌<br>Otros<br>&nbsp;
+          </button>
+        </div>
+      </div>
+
+      <!-- Categoría seleccionada -->
+      <div id="rr-cat-seleccionada" style="display:none;margin-bottom:10px;padding:7px 12px;border-radius:7px;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.3);font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#c4b5fd;"></div>
+
+      <!-- Sub-categorías Siniestro -->
+      <div id="rr-bloque-siniestro" style="display:none;margin-bottom:12px;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.2);border-radius:10px;padding:10px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#fca5a5;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">🚨 CLASIFICAR SINIESTRO</div>
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#f87171;margin-bottom:4px;">⚠️ A — DELITOS</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px;">
+          <button class="rr-sub-btn" data-sub="ENCERRONA_PORTONAZO" data-sublabel="Encerrona o portonazo" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">a. Encerrona / portonazo</button>
+          <button class="rr-sub-btn" data-sub="ASALTO_ROBO" data-sublabel="Asalto / Robo al conductor" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">b. Asalto / Robo</button>
+          <button class="rr-sub-btn" data-sub="VANDALISMO" data-sublabel="Vandalismo" style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#fca5a5;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">c. Vandalismo</button>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#fb923c;margin-bottom:4px;">🚗 B — ACCIDENTES DE TRÁNSITO</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px;">
+          <button class="rr-sub-btn" data-sub="COLISION_ALCANCE_LATERAL" data-sublabel="Colisión por alcance / Lateral" style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#fb923c;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">a. Alcance / Lateral</button>
+          <button class="rr-sub-btn" data-sub="ATROPELLO" data-sublabel="Atropello" style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#fb923c;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">b. Atropello</button>
+          <button class="rr-sub-btn" data-sub="CHOQUE_OBJETO_FIJO" data-sublabel="Choque contra objeto fijo" style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#fb923c;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">c. Objeto fijo</button>
+          <button class="rr-sub-btn" data-sub="VOLCAMIENTO" data-sublabel="Volcamiento" style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#fb923c;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">d. Volcamiento</button>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#fbbf24;margin-bottom:4px;">🔧 C — EMERGENCIAS MECÁNICAS</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+          <button class="rr-sub-btn" data-sub="INCENDIO" data-sublabel="Incendio" style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.25);color:#fbbf24;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">a. Incendio</button>
+          <button class="rr-sub-btn" data-sub="DANIO_VIA_VEHICULO" data-sublabel="Daños vía / Vehículo" style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.25);color:#fbbf24;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">b. Daños vía / Vehículo</button>
+          <button class="rr-sub-btn" data-sub="EMERGENCIA_OTROS" data-sublabel="Emergencia mecánica — Otros" style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.25);color:#fbbf24;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;">c. Otros</button>
+        </div>
+      </div>
+
+      <!-- Monto (Sindicato / Capitalización) -->
+      <div id="rr-bloque-monto" style="display:none;margin-bottom:12px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#64748b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">MONTO <span style="color:#ef4444;">*</span></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'Orbitron',sans-serif;font-size:14px;color:#94a3b8;">$</span>
+          <input type="number" id="rr-monto" min="0" placeholder="0" style="flex:1;background:rgba(15,23,42,0.8);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:8px 12px;color:#f1f5f9;font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;outline:none;">
+        </div>
+      </div>
+
+      <!-- Gravedad -->
+      <div id="rr-bloque-gravedad" style="display:none;margin-bottom:12px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#64748b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">GRAVEDAD</div>
+        <div style="display:flex;gap:6px;">
+          <button class="rr-grav-btn" data-g="LEVE" style="flex:1;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:#4ade80;border-radius:6px;padding:7px 4px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">🟢 LEVE</button>
+          <button class="rr-grav-btn" data-g="GRAVE" style="flex:1;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:#fb923c;border-radius:6px;padding:7px 4px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">🟠 GRAVE</button>
+          <button class="rr-grav-btn" data-g="MUY_GRAVE" style="flex:1;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#f87171;border-radius:6px;padding:7px 4px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">🔴 MUY GRAVE</button>
+        </div>
+      </div>
+
+      <!-- Descripción -->
+      <div style="margin-bottom:12px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#64748b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">DESCRIPCIÓN / DETALLE <span style="color:#ef4444;">*</span></div>
+        <textarea id="rr-descripcion" rows="2" placeholder="Describa el incidente con detalle..."
+          style="width:100%;box-sizing:border-box;background:rgba(15,23,42,0.8);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:8px 12px;color:#f1f5f9;font-family:'Inter',sans-serif;font-size:12px;resize:none;outline:none;line-height:1.5;"></textarea>
+      </div>
+
+      <!-- Fecha y Hora -->
+      <div style="margin-bottom:4px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;font-weight:700;color:#64748b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">FECHA Y HORA DEL INCIDENTE</div>
+        <div id="rr-datetime-display" style="background:rgba(15,23,42,0.6);border:1px solid rgba(167,139,250,0.2);border-radius:7px;padding:7px 12px;color:#c4b5fd;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;margin-bottom:6px;"></div>
+        <div style="display:flex;gap:8px;">
+          <input type="date" id="rr-fecha" style="flex:1;background:rgba(15,23,42,0.8);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:7px 10px;color:#f1f5f9;font-family:'Inter',sans-serif;font-size:11px;outline:none;" oninput="window._rrActualizarDatetime()">
+          <input type="time" id="rr-hora" style="width:110px;background:rgba(15,23,42,0.8);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:7px 10px;color:#f1f5f9;font-family:'Inter',sans-serif;font-size:11px;outline:none;" oninput="window._rrActualizarDatetime()">
+        </div>
+      </div>
+
+    </div><!-- /scroll -->
+
+    <!-- ── ZONA 3: PIE FIJO (firma + guardar) ── -->
+    <div style="border-top:1px solid rgba(167,139,250,0.2);padding:12px 18px;background:rgba(15,23,42,0.95);flex-shrink:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <div style="font-family:'Inter',sans-serif;font-size:9px;color:#475569;">✅ Firma automática</div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:#4ade80;font-weight:700;" id="rr-firma-preview">—</div>
+      </div>
+      <button onclick="window._icGuardarRegistroRapido()" style="width:100%;background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;border:none;border-radius:9px;padding:12px;font-weight:900;font-size:13px;cursor:pointer;font-family:'Orbitron',sans-serif;letter-spacing:1px;">
+        💾 GUARDAR Y AUDITAR
+      </button>
+      <div id="rr-resultado" style="display:none;margin-top:8px;padding:8px 12px;border-radius:7px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;text-align:center;"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   LÓGICA REGISTRO RÁPIDO — Módulo fichero → audit_trail → 4.3
+════════════════════════════════════════════════════════════════════ */
+(function() {
+
+    var _rrMovilActual  = null;
+    var _rrCatActual    = null;
+    var _rrGravActual   = null;
+    var _rrSubActual    = null;
+
+    // ── Actualizar display de fecha completa ─────────────────────
+    window._rrActualizarDatetime = function() {
+        var fechaVal = document.getElementById('rr-fecha').value;
+        var horaVal  = document.getElementById('rr-hora').value;
+        var el       = document.getElementById('rr-datetime-display');
+        if (!el) return;
+        if (!fechaVal) { el.textContent = '—'; return; }
+        var dias   = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+        var meses  = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        var d      = new Date(fechaVal + 'T12:00:00'); // noon evita desfase timezone
+        var diaN   = dias[d.getDay()];
+        var diaNum = d.getDate();
+        var mes    = meses[d.getMonth()];
+        var anio   = d.getFullYear();
+        var hora   = horaVal ? (' — Hora ' + horaVal + ' hrs.') : '';
+        el.textContent = diaN + ' ' + diaNum + ' de ' + mes + ' ' + anio + hora;
+    };
+
+    // ── Abrir desde triple-clic ──────────────────────────────────
+    window._icAbrirRegistroRapido = function(numMovil) {
+        _rrMovilActual = numMovil;
+        _rrCatActual   = null;
+        _rrGravActual  = null;
+        _rrSubActual   = null;
+
+        var operador = sessionStorage.getItem('elite_operador') || 'OPERADOR';
+
+        // Buscar datos del móvil
+        var datosMovil = null;
+        if (window._crsCondutoresData) {
+            datosMovil = window._crsCondutoresData.find(function(m){ return m.movil == numMovil; });
+        }
+        if (!datosMovil && window._ppMoviles) {
+            var pp = window._ppMoviles.find(function(m){ return (m.movil||m.id||m.numero) == numMovil; });
+            if (pp) datosMovil = { movil: numMovil, ppu: pp.ppu||'—', conductores: pp.conductores||pp.conductor||'—' };
+        }
+
+        var ppu        = datosMovil ? (datosMovil.ppu || '—') : '—';
+        var conductor  = datosMovil ? (datosMovil.conductores || datosMovil.conductor || '—') : '—';
+
+        // Llenar UI
+        document.getElementById('rr-movil-label').textContent   = '🚌 MÓVIL ' + String(numMovil).padStart(3,'0');
+        document.getElementById('rr-movil-detalle').textContent = 'PPU: ' + ppu + ' | Conductor: ' + conductor;
+        document.getElementById('rr-operador-label').textContent = operador;
+        document.getElementById('rr-firma-preview').textContent  = operador + ' — ' + new Date().toLocaleTimeString('es-CL');
+        document.getElementById('rr-subtitulo').textContent = 'Móvil ' + String(numMovil).padStart(3,'0') + ' — Fichero Panel CRS';
+
+        // Reset form
+        document.getElementById('rr-descripcion').value = '';
+        document.getElementById('rr-resultado').style.display = 'none';
+        document.getElementById('rr-cat-seleccionada').style.display = 'none';
+        document.getElementById('rr-bloque-gravedad').style.display = 'none';
+        document.getElementById('rr-bloque-siniestro').style.display = 'none';
+        document.getElementById('rr-bloque-monto').style.display = 'none';
+        document.getElementById('rr-monto').value = '';
+
+        // Precargar fecha y hora actuales
+        var ahora = new Date();
+        document.getElementById('rr-fecha').value = ahora.toISOString().split('T')[0];
+        document.getElementById('rr-hora').value  = ahora.toTimeString().slice(0,5);
+        window._rrActualizarDatetime();
+
+        // Reset botones
+        document.querySelectorAll('.rr-cat-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+        document.querySelectorAll('.rr-grav-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+        document.querySelectorAll('.rr-sub-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+
+        // Mostrar modal
+        var modal = document.getElementById('modal-registro-rapido');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+
+        // Listeners categorías
+        document.querySelectorAll('.rr-cat-btn').forEach(function(btn) {
+            btn.onclick = function() {
+                _rrCatActual  = btn.dataset.cat;
+                _rrSubActual  = null;
+                document.querySelectorAll('.rr-cat-btn').forEach(function(b){ b.style.boxShadow='none'; b.style.outline='none'; });
+                document.querySelectorAll('.rr-sub-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+                btn.style.outline = '2px solid #a78bfa';
+                btn.style.boxShadow = '0 0 10px rgba(167,139,250,0.4)';
+
+                var lbl = document.getElementById('rr-cat-seleccionada');
+                // Si es siniestro, no mostrar label hasta elegir sub
+                if (_rrCatActual === 'SINIESTRO') {
+                    lbl.style.display = 'none';
+                    document.getElementById('rr-bloque-siniestro').style.display = 'block';
+                } else {
+                    lbl.textContent = '✔ ' + btn.dataset.label;
+                    lbl.style.display = 'block';
+                    document.getElementById('rr-bloque-siniestro').style.display = 'none';
+                }
+                // Gravedad: Falta al Reglamento y Siniestro
+                var mostrarGrav = (_rrCatActual === 'FALTA_REGLAMENTO' || _rrCatActual === 'SINIESTRO');
+                document.getElementById('rr-bloque-gravedad').style.display = mostrarGrav ? 'block' : 'none';
+                if (!mostrarGrav) _rrGravActual = null;
+                // Monto: Sindicato y Capitalización
+                var mostrarMonto = (_rrCatActual === 'PAGO_SINDICATO' || _rrCatActual === 'CUOTA_CAPITALIZACION');
+                document.getElementById('rr-bloque-monto').style.display = mostrarMonto ? 'block' : 'none';
+                if (!mostrarMonto) document.getElementById('rr-monto').value = '';
+            };
+        });
+
+        // Listeners sub-categorías siniestro
+        document.querySelectorAll('.rr-sub-btn').forEach(function(btn) {
+            btn.onclick = function() {
+                _rrSubActual = btn.dataset.sub;
+                document.querySelectorAll('.rr-sub-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+                btn.style.outline = '2px solid #fca5a5';
+                btn.style.boxShadow = '0 0 8px rgba(220,38,38,0.4)';
+                var lbl = document.getElementById('rr-cat-seleccionada');
+                lbl.textContent = '✔ 🚨 Siniestro — ' + btn.dataset.sublabel;
+                lbl.style.display = 'block';
+            };
+        });
+
+        // Listeners gravedad
+        document.querySelectorAll('.rr-grav-btn').forEach(function(btn) {
+            btn.onclick = function() {
+                _rrGravActual = btn.dataset.g;
+                document.querySelectorAll('.rr-grav-btn').forEach(function(b){ b.style.outline='none'; b.style.boxShadow='none'; });
+                btn.style.outline = '2px solid #a78bfa';
+                btn.style.boxShadow = '0 0 8px rgba(167,139,250,0.4)';
+            };
+        });
+    };
+
+    // ── Cerrar modal ─────────────────────────────────────────────
+    window._icCerrarRegistroRapido = function() {
+        document.getElementById('modal-registro-rapido').style.display = 'none';
+        document.body.style.overflow = '';
+        _rrMovilActual = null;
+        _rrCatActual   = null;
+        _rrGravActual  = null;
+    };
+
+    // ── Guardar registro ─────────────────────────────────────────
+    window._icGuardarRegistroRapido = function() {
+        if (!_rrMovilActual) return;
+        if (!_rrCatActual) {
+            _rrMostrarResultado('⚠️ Seleccione un tipo de registro.', 'err'); return;
+        }
+        if (_rrCatActual === 'SINIESTRO' && !_rrSubActual) {
+            _rrMostrarResultado('⚠️ Seleccione el tipo de siniestro.', 'err'); return;
+        }
+        if ((_rrCatActual === 'FALTA_REGLAMENTO' || _rrCatActual === 'SINIESTRO') && !_rrGravActual) {
+            _rrMostrarResultado('⚠️ Seleccione la gravedad.', 'err'); return;
+        }
+        var montoVal = 0;
+        if (_rrCatActual === 'PAGO_SINDICATO' || _rrCatActual === 'CUOTA_CAPITALIZACION') {
+            montoVal = parseInt(document.getElementById('rr-monto').value) || 0;
+            if (montoVal <= 0) { _rrMostrarResultado('⚠️ Ingrese el monto.', 'err'); return; }
+        }
+        var desc = document.getElementById('rr-descripcion').value.trim();
+        if (!desc) {
+            _rrMostrarResultado('⚠️ La descripción es obligatoria.', 'err'); return;
+        }
+
+        var operador  = sessionStorage.getItem('elite_operador') || 'OPERADOR';
+        var fechaVal  = document.getElementById('rr-fecha').value;
+        var horaVal   = document.getElementById('rr-hora').value || new Date().toTimeString().slice(0,5);
+        var timestamp = Date.now();
+
+        // Construir fecha legible completa
+        var dias  = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+        var meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        var dObj  = fechaVal ? new Date(fechaVal + 'T12:00:00') : new Date();
+        var fechaLegible = dias[dObj.getDay()] + ' ' + dObj.getDate() + ' de ' + meses[dObj.getMonth()] + ' ' + dObj.getFullYear() + ' — ' + horaVal + ' hrs.';
+
+        // Mapa categoría → módulo
+        var moduloMap = {
+            'FALTA_REGLAMENTO':    'FALTA_REGLAMENTO',
+            'NO_RESPONDE_CENTRAL': 'CONDUCTA_OPERACIONAL',
+            'APAGA_UBICACION':     'CONDUCTA_OPERACIONAL',
+            'DORMIDO_NO_CONTESTA': 'CONDUCTA_OPERACIONAL',
+            'QUEJA_CLIENTE':       'QUEJAS',
+            'SINIESTRO':           'SINIESTRO',
+            'PAGO_SINDICATO':      'LIQUIDACION',
+            'CUOTA_CAPITALIZACION':'LIQUIDACION',
+            'OTROS':               'OTROS'
+        };
+        var labelMap = {
+            'FALTA_REGLAMENTO':    '📜 Falta al Reglamento',
+            'NO_RESPONDE_CENTRAL': '📵 No responde a Central',
+            'APAGA_UBICACION':     '📍 Apaga ubicación y no realiza servicio',
+            'DORMIDO_NO_CONTESTA': '😴 Se queda dormido y no contesta',
+            'QUEJA_CLIENTE':       '😤 Queja de Cliente',
+            'SINIESTRO':           '🚨 Siniestro',
+            'PAGO_SINDICATO':      '🏦 Pago al Sindicato',
+            'CUOTA_CAPITALIZACION':'💵 Cuota de Capitalización',
+            'OTROS':               '📌 Otros'
+        };
+        var subLabelMap = {
+            'ENCERRONA_PORTONAZO':    'Encerrona o portonazo',
+            'ASALTO_ROBO':            'Asalto / Robo al conductor',
+            'VANDALISMO':             'Vandalismo',
+            'COLISION_ALCANCE_LATERAL':'Colisión por alcance / Lateral',
+            'ATROPELLO':              'Atropello',
+            'CHOQUE_OBJETO_FIJO':     'Choque contra objeto fijo',
+            'VOLCAMIENTO':            'Volcamiento',
+            'INCENDIO':               'Incendio',
+            'DANIO_VIA_VEHICULO':     'Daños por mal estado de la vía / Vehículo',
+            'EMERGENCIA_OTROS':       'Emergencia mecánica — Otros'
+        };
+
+        var datos = {
+            movil:           _rrMovilActual,
+            categoria:       _rrCatActual,
+            label:           labelMap[_rrCatActual] || _rrCatActual,
+            sub_categoria:   _rrSubActual || null,
+            sub_label:       _rrSubActual ? (subLabelMap[_rrSubActual] || _rrSubActual) : null,
+            descripcion:     desc,
+            hora_incidente:  horaVal,
+            fecha_incidente: fechaVal,
+            fecha_legible:   fechaLegible,
+            timestamp:       timestamp,
+            operador:        operador,
+            firma:           operador + ' — ' + fechaLegible,
+            origen:          'REGISTRO_RAPIDO_FICHERO'
+        };
+        if (_rrGravActual) datos.gravedad = _rrGravActual;
+        if (montoVal > 0) { datos.monto = montoVal; datos.tipo = _rrCatActual; }
+
+        var motivoTexto = labelMap[_rrCatActual] + (_rrSubActual ? ' — ' + (subLabelMap[_rrSubActual]||_rrSubActual) : '') + ' — registrado desde fichero';
+
+        if (window.crsDB) {
+            window.crsDB.audit(
+                moduloMap[_rrCatActual] || 'OTROS',
+                _rrSubActual || _rrCatActual,
+                operador,
+                null,
+                datos,
+                motivoTexto
+            ).then(function() {
+                _rrMostrarResultado('✅ Registro guardado y auditado correctamente.', 'ok');
+                setTimeout(function() { window._icCerrarRegistroRapido(); }, 2500);
+            }).catch(function(e) {
+                _rrMostrarResultado('❌ Error al guardar: ' + (e.message||e), 'err');
+            });
+        } else {
+            _rrMostrarResultado('⚠️ Base de datos no disponible. Intente nuevamente.', 'err');
+        }
+    };
+
+    function _rrMostrarResultado(msg, tipo) {
+        var el = document.getElementById('rr-resultado');
+        el.textContent = msg;
+        el.style.display = 'block';
+        el.style.background = tipo === 'ok' ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)';
+        el.style.border     = tipo === 'ok' ? '1px solid rgba(34,197,94,0.4)' : '1px solid rgba(239,68,68,0.4)';
+        el.style.color      = tipo === 'ok' ? '#4ade80' : '#f87171';
+    }
+
+    // Cerrar al hacer clic fuera del panel
+    document.getElementById('modal-registro-rapido').addEventListener('click', function(e) {
+        if (e.target === this) window._icCerrarRegistroRapido();
+    });
+
+})();
+</script>
